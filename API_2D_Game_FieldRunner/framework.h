@@ -9,7 +9,37 @@
 // Windows 헤더 파일
 #include <windows.h>
 // C 런타임 헤더 파일입니다.
-#include <stdlib.h>
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <vector>
+#include <list>
+#include <queue>
+#include <map>
+#include <string>
+#include <iostream>
+#include <chrono>
+#include <algorithm>
+
+using namespace std;
+/*누수 체크 헤더*/
+// ===============================
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+// ===============================
+
+#include "External.h"
+#include "Define.h"
+#include "Const.h"
+#include "Template.h"
+
+// Manager
+#include "BmpManager.h"
+
+// 콘솔창 띄우기
+#ifdef _DEBUG
+#pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console") 
+#else
+
+#endif

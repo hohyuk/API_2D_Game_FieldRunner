@@ -1,49 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="00.MainGame">
+      <UniqueIdentifier>{1e21c614-2250-4cc1-8cde-f750223340ef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="99.FrameWorkHeader">
+      <UniqueIdentifier>{7f12d1eb-a59f-452e-a783-e123d9c7e7c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="98.Default">
+      <UniqueIdentifier>{ff32ddda-e236-4c68-bdeb-062420b455c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Headers">
+      <UniqueIdentifier>{bed968ff-0bfb-4020-bb4a-86423e7808da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scene">
+      <UniqueIdentifier>{c88b8008-edeb-4740-b37a-ccfafd89b682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject">
+      <UniqueIdentifier>{4fd03198-27e1-4e7e-9e86-43627483442c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Manager">
+      <UniqueIdentifier>{ff7f4ec5-9570-4339-863a-63d0a7d2a840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Manager\01.BitMap">
+      <UniqueIdentifier>{aca696f1-264b-47af-be31-7d810c45bd78}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>99.FrameWorkHeader</Filter>
     </ClInclude>
     <ClInclude Include="API_2D_Game_FieldRunner.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>98.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>98.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>98.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>00.MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>01.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>02.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Const.h">
+      <Filter>97.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertBitMap.h">
+      <Filter>97.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="BitMap.h">
+      <Filter>96.Manager\01.BitMap</Filter>
+    </ClInclude>
+    <ClInclude Include="External.h">
+      <Filter>97.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>97.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Template.h">
+      <Filter>97.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="BmpManager.h">
+      <Filter>96.Manager\01.BitMap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="API_2D_Game_FieldRunner.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+    <Image Include="API_2D_Game_FieldRunner.ico">
+      <Filter>98.Default</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>98.Default</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="API_2D_Game_FieldRunner.rc">
-      <Filter>리소스 파일</Filter>
+      <Filter>98.Default</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="API_2D_Game_FieldRunner.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
+    <ClCompile Include="API_2D_Game_FieldRunner.cpp">
+      <Filter>98.Default</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>00.MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>01.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>02.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BitMap.cpp">
+      <Filter>96.Manager\01.BitMap</Filter>
+    </ClCompile>
+    <ClCompile Include="BmpManager.cpp">
+      <Filter>96.Manager\01.BitMap</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
