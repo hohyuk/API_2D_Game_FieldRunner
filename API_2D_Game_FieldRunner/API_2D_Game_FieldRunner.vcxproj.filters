@@ -22,8 +22,23 @@
     <Filter Include="96.Manager">
       <UniqueIdentifier>{ff7f4ec5-9570-4339-863a-63d0a7d2a840}</UniqueIdentifier>
     </Filter>
-    <Filter Include="96.Manager\01.BitMap">
+    <Filter Include="01.Scene\01.Logo">
+      <UniqueIdentifier>{c48bb8b5-3632-4432-b881-c6acf44835b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Manager\01.BitMapMgr">
       <UniqueIdentifier>{aca696f1-264b-47af-be31-7d810c45bd78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Manager\02.SceneMgr">
+      <UniqueIdentifier>{66e5d8de-f1fc-44bf-943d-906bad526338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="95.AbstractFactory">
+      <UniqueIdentifier>{8e377597-86d3-4af5-a36c-d73cff422bf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Manager\03.GameObjectMgr">
+      <UniqueIdentifier>{a3c1f090-e80e-46fd-ba86-df85a315b200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Manager\04.KeyMouseMgr">
+      <UniqueIdentifier>{731c5ddb-59f6-42ee-ae9b-3d49c0e914d7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,7 +70,7 @@
       <Filter>97.Headers</Filter>
     </ClInclude>
     <ClInclude Include="BitMap.h">
-      <Filter>96.Manager\01.BitMap</Filter>
+      <Filter>96.Manager\01.BitMapMgr</Filter>
     </ClInclude>
     <ClInclude Include="External.h">
       <Filter>97.Headers</Filter>
@@ -67,7 +82,25 @@
       <Filter>97.Headers</Filter>
     </ClInclude>
     <ClInclude Include="BmpManager.h">
-      <Filter>96.Manager\01.BitMap</Filter>
+      <Filter>96.Manager\01.BitMapMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="LogoScene.h">
+      <Filter>01.Scene\01.Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>97.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>96.Manager\02.SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactory.h">
+      <Filter>95.AbstractFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>96.Manager\03.GameObjectMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMouseManager.h">
+      <Filter>96.Manager\04.KeyMouseMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -97,10 +130,22 @@
       <Filter>02.GameObject</Filter>
     </ClCompile>
     <ClCompile Include="BitMap.cpp">
-      <Filter>96.Manager\01.BitMap</Filter>
+      <Filter>96.Manager\01.BitMapMgr</Filter>
     </ClCompile>
     <ClCompile Include="BmpManager.cpp">
-      <Filter>96.Manager\01.BitMap</Filter>
+      <Filter>96.Manager\01.BitMapMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="LogoScene.cpp">
+      <Filter>01.Scene\01.Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>96.Manager\02.SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>96.Manager\03.GameObjectMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMouseManager.cpp">
+      <Filter>96.Manager\04.KeyMouseMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

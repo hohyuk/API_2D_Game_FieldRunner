@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "MainGame.h"
 
+#include "SceneManager.h"
 #include "InsertBitMap.h"
 
 
@@ -8,14 +9,18 @@ void MainGame::Ready()
 {
 	m_hDC = GetDC(g_hWND);
 	Insert_BitMap();		// BitMap 리소스를 불러서 Map에 먼저 저장한다.
+
+	SCENE_MGR->Change_Scene(SceneManager::LOGO);
 }
 
 void MainGame::Update()
 {
+	SCENE_MGR->Update();
 }
 
 void MainGame::LateUpdate()
 {
+	SCENE_MGR->LateUpdate();
 }
 
 void MainGame::Render()
@@ -28,7 +33,7 @@ void MainGame::Render()
 	//if (KEY_MGR->Key_DOWN('D'))
 	//	USER_MGR->Set_DebugRenderBox();
 
-	//SCENE_MGR->Render(hBackDC);
+	SCENE_MGR->Render(hBackDC);
 	//TIME_MGR->Measure_FPS();
 	//KEY_MGR->Render(hBackDC);
 	/////////////////////////////////////////
@@ -39,6 +44,7 @@ void MainGame::Release()
 {
 	ReleaseDC(g_hWND, m_hDC);
 	BmpManager::Destroy_Instance();
+	SceneManager::Destroy_Instance();
 }
 
 MainGame::MainGame()

@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="API_2D_Game_FieldRunner.h" />
     <ClInclude Include="BitMap.h" />
     <ClInclude Include="BmpManager.h" />
@@ -160,9 +161,14 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="InsertBitMap.h" />
+    <ClInclude Include="KeyMouseManager.h" />
+    <ClInclude Include="LogoScene.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Template.h" />
   </ItemGroup>
@@ -171,8 +177,12 @@
     <ClCompile Include="BitMap.cpp" />
     <ClCompile Include="BmpManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="KeyMouseManager.cpp" />
+    <ClCompile Include="LogoScene.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="API_2D_Game_FieldRunner.rc" />

@@ -33,6 +33,7 @@ using namespace std;
 #include "Define.h"
 #include "Const.h"
 #include "Template.h"
+#include "Struct.h"
 
 // Manager
 #include "BmpManager.h"
