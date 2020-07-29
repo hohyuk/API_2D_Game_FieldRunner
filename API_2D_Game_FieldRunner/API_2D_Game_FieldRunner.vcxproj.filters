@@ -40,6 +40,9 @@
     <Filter Include="96.Manager\04.KeyMouseMgr">
       <UniqueIdentifier>{731c5ddb-59f6-42ee-ae9b-3d49c0e914d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="96.Manager\05.TimeMgr">
+      <UniqueIdentifier>{1d314867-c167-403c-8457-4ef8c02fe2cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -102,6 +105,12 @@
     <ClInclude Include="KeyMouseManager.h">
       <Filter>96.Manager\04.KeyMouseMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>97.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>96.Manager\05.TimeMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -146,6 +155,9 @@
     </ClCompile>
     <ClCompile Include="KeyMouseManager.cpp">
       <Filter>96.Manager\04.KeyMouseMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>96.Manager\05.TimeMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

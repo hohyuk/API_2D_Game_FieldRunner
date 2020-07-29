@@ -159,6 +159,7 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="External.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Function.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="InsertBitMap.h" />
     <ClInclude Include="KeyMouseManager.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Template.h" />
+    <ClInclude Include="TimeManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_2D_Game_FieldRunner.cpp" />
@@ -183,6 +185,7 @@
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="API_2D_Game_FieldRunner.rc" />

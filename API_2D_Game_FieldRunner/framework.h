@@ -34,9 +34,12 @@ using namespace std;
 #include "Const.h"
 #include "Template.h"
 #include "Struct.h"
+#include "Function.h"
 
 // Manager
+#include "TimeManager.h"
 #include "BmpManager.h"
+#include "KeyMouseManager.h"
 
 // 콘솔창 띄우기
 #ifdef _DEBUG

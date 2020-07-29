@@ -10,11 +10,13 @@ void MainGame::Ready()
 	m_hDC = GetDC(g_hWND);
 	Insert_BitMap();		// BitMap 리소스를 불러서 Map에 먼저 저장한다.
 
+	KEY_MGR->Ready();
 	SCENE_MGR->Change_Scene(SceneManager::LOGO);
 }
 
 void MainGame::Update()
 {
+	KEY_MGR->Update();
 	SCENE_MGR->Update();
 }
 
@@ -25,6 +27,8 @@ void MainGame::LateUpdate()
 
 void MainGame::Render()
 {
+	TIME_MGR->Set_SecTimeLoop();
+
 	/* 더블버퍼링하기 위해 BackBuffer에다가 먼저 그린다.*/
 	HDC hBackDC = BMP_MGR->Find_Image(TEXT("BackBuffer"));	//BackBuffer에다가 그린 후 m_hDC에 최종으로 보냄
 	///////////////////////////////////////////
@@ -35,16 +39,20 @@ void MainGame::Render()
 
 	SCENE_MGR->Render(hBackDC);
 	//TIME_MGR->Measure_FPS();
-	//KEY_MGR->Render(hBackDC);
+	KEY_MGR->Render(hBackDC);
 	/////////////////////////////////////////
 	BitBlt(m_hDC, 0, 0, WINCX, WINCY, hBackDC, 0, 0, SRCCOPY);
+
+	TIME_MGR->Measure_FPS();
 }
 
 void MainGame::Release()
 {
 	ReleaseDC(g_hWND, m_hDC);
+	TimeManager::Destroy_Instance();
 	BmpManager::Destroy_Instance();
 	SceneManager::Destroy_Instance();
+	KeyMouseManager::Destroy_Instance();
 }
 
 MainGame::MainGame()
