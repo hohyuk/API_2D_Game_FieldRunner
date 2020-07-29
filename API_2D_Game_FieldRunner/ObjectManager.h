@@ -19,6 +19,10 @@ public:
 	}
 
 public:
+	void Add_Object(GameObject*& pObj, OBJECT::ID eID);
+	void Delete_Object(OBJECT::ID eID);
+
+public:
 	void Update();
 	void LateUpdate();
 	void Render(const HDC& hDC);
@@ -29,5 +33,8 @@ private:
 	~ObjectManager();
 private:
 	static ObjectManager* m_pInstance;
+
+private:
+	list<GameObject*> m_listObject[OBJECT::END_ID];
 };
 

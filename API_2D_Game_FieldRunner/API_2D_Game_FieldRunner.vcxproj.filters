@@ -43,6 +43,15 @@
     <Filter Include="96.Manager\05.TimeMgr">
       <UniqueIdentifier>{1d314867-c167-403c-8457-4ef8c02fe2cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\01.Actor">
+      <UniqueIdentifier>{bc9e8d4b-e5f1-4686-ba13-2434a526a91e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\02.UI">
+      <UniqueIdentifier>{da94f0a8-2d5b-468a-8316-3576b2d6ad69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\02.UI\01.LogoUI">
+      <UniqueIdentifier>{c438e725-7c2f-4d58-bbbc-955ab79ed937}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -111,6 +120,18 @@
     <ClInclude Include="TimeManager.h">
       <Filter>96.Manager\05.TimeMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>97.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>02.GameObject\01.Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonUI.h">
+      <Filter>02.GameObject\02.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="LogoUI.h">
+      <Filter>02.GameObject\02.UI\01.LogoUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -158,6 +179,15 @@
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>96.Manager\05.TimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>02.GameObject\01.Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonUI.cpp">
+      <Filter>02.GameObject\02.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LogoUI.cpp">
+      <Filter>02.GameObject\02.UI\01.LogoUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

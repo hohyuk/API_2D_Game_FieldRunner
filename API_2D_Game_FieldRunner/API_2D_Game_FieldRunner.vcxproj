@@ -152,11 +152,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
+    <ClInclude Include="Actor.h" />
     <ClInclude Include="API_2D_Game_FieldRunner.h" />
     <ClInclude Include="BitMap.h" />
     <ClInclude Include="BmpManager.h" />
+    <ClInclude Include="ButtonUI.h" />
     <ClInclude Include="Const.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Enum.h" />
     <ClInclude Include="External.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Function.h" />
@@ -164,6 +167,7 @@
     <ClInclude Include="InsertBitMap.h" />
     <ClInclude Include="KeyMouseManager.h" />
     <ClInclude Include="LogoScene.h" />
+    <ClInclude Include="LogoUI.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Resource.h" />
@@ -175,12 +179,15 @@
     <ClInclude Include="TimeManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="API_2D_Game_FieldRunner.cpp" />
     <ClCompile Include="BitMap.cpp" />
     <ClCompile Include="BmpManager.cpp" />
+    <ClCompile Include="ButtonUI.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="KeyMouseManager.cpp" />
     <ClCompile Include="LogoScene.cpp" />
+    <ClCompile Include="LogoUI.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Scene.cpp" />

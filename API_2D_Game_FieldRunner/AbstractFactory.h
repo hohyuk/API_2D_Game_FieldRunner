@@ -21,4 +21,12 @@ public:
 		pObj->Ready();
 		return pObj;
 	}
+	static GameObject* Create(const TCHAR* _pKey, INFO& _info)
+	{
+		GameObject* pObj = new T;
+		pObj->Set_FrameKey(_pKey);
+		pObj->Set_Info(_info);
+		pObj->Ready();
+		return pObj;
+	}
 };

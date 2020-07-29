@@ -35,6 +35,8 @@ using namespace std;
 #include "Template.h"
 #include "Struct.h"
 #include "Function.h"
+#include "Enum.h"
+#include "AbstractFactory.h"
 
 // Manager
 #include "TimeManager.h"
