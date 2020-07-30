@@ -36,5 +36,6 @@ private:
 
 private:
 	list<GameObject*> m_listObject[OBJECT::END_ID];
+	list<GameObject*> m_listRenderSort[OBJECT::END_RENDER];
 };
 

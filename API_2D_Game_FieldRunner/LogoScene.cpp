@@ -4,7 +4,8 @@
 void LogoScene::Ready()
 {
 	m_szBGKey = TEXT("LogoTitle");
-	Create_UI(TEXT("Play_Button"), INFO(300, 300, 128, 64), UI_TYPE::ID::LOGO_UI, UI_TYPE::BUTTON::PLAY_BTN);
+	Create_UI(TEXT("Play_Button"), INFO(166, 860, 128 * 3, 64 * 3 + 30, 128, 64),
+		UI_TYPE::ID::LOGO_UI, UI_TYPE::BUTTON::PLAY_BTN);
 }
 
 void LogoScene::Update()
@@ -21,16 +22,12 @@ void LogoScene::Render(const HDC & hDC)
 {
 	Scene::Render_BackGround(hDC);
 
-	RECT rc;
-	MakeRect(rc, INFO(50, 790, 128, 64));
-	HDC hMemDC = BMP_MGR->Find_Image(TEXT("Play_Button"));
-	GdiTransparentBlt(hDC, rc.left, rc.top,
-		128*3 - 20, 64*3 + 26, hMemDC, 0, 0,
-		128, 64, PINK_COLOR);
+	OBJ_MGR->Render(hDC);
 }
 
 void LogoScene::Release()
 {
+	OBJ_MGR->Delete_Object(OBJECT::UI);
 }
 
 LogoScene::LogoScene()

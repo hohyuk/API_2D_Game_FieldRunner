@@ -26,6 +26,14 @@ void ObjectManager::LateUpdate()
 
 void ObjectManager::Render(const HDC & hDC)
 {
+	// Test
+	for (int i = 0; i < OBJECT::END_ID; ++i)
+	{
+		for (auto& pObj : m_listObject[i])
+		{
+			pObj->Render(hDC);
+		}
+	}
 }
 
 void ObjectManager::Release()

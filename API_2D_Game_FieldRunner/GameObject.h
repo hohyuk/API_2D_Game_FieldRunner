@@ -18,10 +18,14 @@ public:
 	virtual ~GameObject();
 
 protected:
+	virtual void Render_Debug(const HDC & hDC, const RECT & rc, BOOL(__stdcall *_ShapeFun)(HDC hDC, int left, int top, int right, int bottom) = Rectangle, DWORD _color = RGB(255, 255, 255));
+
+protected:
 	const TCHAR* m_pFrameKey{ nullptr };
 
 	INFO m_tInfo;
 	FRAME m_tFrame;
 	RECT m_tRect;
+	RECT m_tColliderRC;
 };
 

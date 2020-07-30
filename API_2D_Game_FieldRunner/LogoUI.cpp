@@ -7,6 +7,7 @@ void LogoUI::LateUpdate()
 
 void LogoUI::Render(const HDC & hDC)
 {
+	ButtonUI::Render(hDC);
 }
 
 LogoUI::LogoUI()
