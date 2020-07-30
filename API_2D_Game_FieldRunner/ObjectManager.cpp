@@ -22,6 +22,13 @@ void ObjectManager::Update()
 
 void ObjectManager::LateUpdate()
 {
+	for (int i = 0; i < OBJECT::END_ID; ++i)
+	{
+		for (auto& pObj : m_listObject[i])
+		{
+			pObj->LateUpdate();
+		}
+	}
 }
 
 void ObjectManager::Render(const HDC & hDC)

@@ -22,7 +22,7 @@ protected:
 
 protected:
 	const TCHAR* m_pFrameKey{ nullptr };
-
+	bool isClick{ false };
 	INFO m_tInfo;
 	FRAME m_tFrame;
 	RECT m_tRect;
