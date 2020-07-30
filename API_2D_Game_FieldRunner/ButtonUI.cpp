@@ -18,7 +18,7 @@ void ButtonUI::Render(const HDC & hDC)
 {
 	MakeRect(m_tRect, m_tInfo);
 
-	Render_Debug(hDC, m_tRect, Rectangle);
+	//Render_Debug(hDC, m_tRect, Rectangle);
 
 	HDC hMemDC = BMP_MGR->Find_Image(m_pFrameKey);
 	GdiTransparentBlt(hDC, m_tRect.left, m_tRect.top,
