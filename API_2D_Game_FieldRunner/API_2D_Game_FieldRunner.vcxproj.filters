@@ -52,6 +52,15 @@
     <Filter Include="02.GameObject\02.UI\01.LogoUI">
       <UniqueIdentifier>{c438e725-7c2f-4d58-bbbc-955ab79ed937}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Scene\02Help">
+      <UniqueIdentifier>{6f917969-f9bb-4ecf-b29a-15f5628897af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\01.Tower">
+      <UniqueIdentifier>{7ff3fdd7-c4ca-4a5f-a424-35189b4f0962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\02.Enemy">
+      <UniqueIdentifier>{1d236008-c812-455f-b452-8ad089a785b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -132,6 +141,15 @@
     <ClInclude Include="LogoUI.h">
       <Filter>02.GameObject\02.UI\01.LogoUI</Filter>
     </ClInclude>
+    <ClInclude Include="Tower.h">
+      <Filter>02.GameObject\01.Actor\01.Tower</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScene.h">
+      <Filter>01.Scene\02Help</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>02.GameObject\01.Actor\02.Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -188,6 +206,15 @@
     </ClCompile>
     <ClCompile Include="LogoUI.cpp">
       <Filter>02.GameObject\02.UI\01.LogoUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Tower.cpp">
+      <Filter>02.GameObject\01.Actor\01.Tower</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScene.cpp">
+      <Filter>01.Scene\02Help</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>02.GameObject\01.Actor\02.Enemy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
