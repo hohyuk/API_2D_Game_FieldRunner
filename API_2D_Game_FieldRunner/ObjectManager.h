@@ -2,6 +2,8 @@
 class ObjectManager final
 {
 public:
+	void ChangeScene() { isSceneChange = true; }
+public:
 	static ObjectManager* Get_Instance()
 	{
 		if (nullptr == m_pInstance)
@@ -33,6 +35,9 @@ private:
 	~ObjectManager();
 private:
 	static ObjectManager* m_pInstance;
+
+private:
+	bool isSceneChange{ false };
 
 private:
 	list<GameObject*> m_listObject[OBJECT::END_ID];

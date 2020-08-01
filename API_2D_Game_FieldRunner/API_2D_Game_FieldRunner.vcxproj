@@ -23,7 +23,7 @@
     <ProjectGuid>{7B2B6752-7F47-45D9-B69C-34B1E9F61684}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>API2DGameFieldRunner</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

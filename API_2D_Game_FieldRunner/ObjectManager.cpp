@@ -27,6 +27,12 @@ void ObjectManager::LateUpdate()
 		for (auto& pObj : m_listObject[i])
 		{
 			pObj->LateUpdate();
+
+			if (isSceneChange)
+			{
+				isSceneChange = false;
+				break;
+			}
 		}
 	}
 }

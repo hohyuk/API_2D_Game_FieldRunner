@@ -11,7 +11,8 @@ void MainGame::Ready()
 	Insert_BitMap();		// BitMap 리소스를 불러서 Map에 먼저 저장한다.
 
 	KEY_MGR->Ready();
-	SCENE_MGR->Change_Scene(SceneManager::LOGO);
+	//SCENE_MGR->Change_Scene(SceneManager::LOGO);
+	SCENE_MGR->Change_Scene(SceneManager::HELP);
 }
 
 void MainGame::Update()

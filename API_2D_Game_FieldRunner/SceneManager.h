@@ -22,7 +22,6 @@ public:
 	enum ID { LOGO, SELECT, STAGE_1, STAGE_2, STAGE_3, HELP, SCORE, EDIT, NO_CHANGE };
 public:
 	void Change_Scene(ID eSceneID);
-	void Change_Scene(ID eSceneID, bool nextScene);
 	void Update();
 	void LateUpdate();
 	void Render(const HDC& hDC);

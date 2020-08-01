@@ -2,7 +2,7 @@
 #include "SceneManager.h"
 
 #include "LogoScene.h"
-
+#include "HelpScene.h"
 SceneManager* SceneManager::m_pInstance{ nullptr };
 
 void SceneManager::Change_Scene(ID eSceneID)
@@ -17,6 +17,9 @@ void SceneManager::Change_Scene(ID eSceneID)
 		{
 		case SceneManager::LOGO:
 			m_pScene = new LogoScene;
+			break;
+		case SceneManager::HELP:
+			m_pScene = new HelpScene;
 			break;
 	/*	case SceneManager::HELP:
 			m_pScene = new HelpScene;
@@ -43,16 +46,12 @@ void SceneManager::Change_Scene(ID eSceneID)
 			break;
 		}
 
-		//OBJ_MGR->Set_SceneChange();
+		OBJ_MGR->ChangeScene();
 		m_pScene->Ready();
 		m_eCurrentScene = m_eNextScene;
 		m_bFadeVal = 255;
 		isFadeIn_Activation = false;
 	}
-}
-
-void SceneManager::Change_Scene(ID eSceneID, bool nextScene)
-{
 }
 
 void SceneManager::Update()
