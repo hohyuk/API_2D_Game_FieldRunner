@@ -23,11 +23,10 @@ void LogoUI::LateUpdate()
 			switch (m_tBtn)
 			{
 			case UI_TYPE::PLAY_BTN:
+				SCENE_MGR->Change_Scene(SceneManager::SELECT);
 				break;
 			case UI_TYPE::HELP_BTN:
 				SCENE_MGR->Change_Scene(SceneManager::HELP);
-				break;
-			case UI_TYPE::EXIT_BTN:
 				break;
 			case UI_TYPE::SCORE_BTN:
 				break;

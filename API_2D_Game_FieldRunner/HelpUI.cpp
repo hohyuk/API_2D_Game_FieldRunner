@@ -34,8 +34,10 @@ void HelpUI::Render(const HDC & hDC)
 
 HelpUI::HelpUI()
 {
+	cout << "HelpUI Create()" << endl;
 }
 
 HelpUI::~HelpUI()
 {
+	cout << "HelpUI Release()" << endl;
 }

@@ -9,19 +9,19 @@ void LogoScene::Ready()
 	int iCY = iSrcY * 3;
 
 	Create_UI(TEXT("Play_Button"), INFO(166, 860, iCX, iCY + 30, iSrcX, iSrcY),
-		UI_TYPE::ID::LOGO_UI, UI_TYPE::BUTTON::PLAY_BTN);
+		UI_TYPE::CLASS_ID::LOGO_UI, UI_TYPE::BUTTON::PLAY_BTN);
 
 	Create_UI(TEXT("Resume_Button"), INFO(440, 860, iCX + 20, iCY + 25, iSrcX, iSrcY),
-		UI_TYPE::ID::LOGO_UI, UI_TYPE::BUTTON::END_BTN);
+		UI_TYPE::CLASS_ID::LOGO_UI, UI_TYPE::BUTTON::END_BTN);
 
 	Create_UI(TEXT("Help_Button"), INFO(740, 865, iCX - 15, iCY + 20, iSrcX, iSrcY),
-		UI_TYPE::ID::LOGO_UI, UI_TYPE::BUTTON::HELP_BTN);
+		UI_TYPE::CLASS_ID::LOGO_UI, UI_TYPE::BUTTON::HELP_BTN);
 
 	Create_UI(TEXT("Scores_Button"), INFO(1010, 865, iCX + 10, iCY + 25, iSrcX, iSrcY),
-		UI_TYPE::ID::LOGO_UI, UI_TYPE::BUTTON::SCORE_BTN);
+		UI_TYPE::CLASS_ID::LOGO_UI, UI_TYPE::BUTTON::SCORE_BTN);
 
 	Create_UI(TEXT("More_Button"), INFO(1290, 860, iCX, iCY + 25, iSrcX, iSrcY),
-		UI_TYPE::ID::LOGO_UI, UI_TYPE::BUTTON::EDIT_BTN);
+		UI_TYPE::CLASS_ID::LOGO_UI, UI_TYPE::BUTTON::EDIT_BTN);
 }
 
 void LogoScene::Update()

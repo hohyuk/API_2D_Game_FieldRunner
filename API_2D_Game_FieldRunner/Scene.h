@@ -17,7 +17,7 @@ public:
 
 protected:
 	// Create
-	virtual void Create_UI(const TCHAR* _key, INFO _info, UI_TYPE::ID eID, UI_TYPE::BUTTON eBtn);
+	virtual void Create_UI(const TCHAR* _key, INFO _info, UI_TYPE::CLASS_ID eID, UI_TYPE::BUTTON eBtn = UI_TYPE::BUTTON::END_BTN);
 	// Render
 	virtual void Render_BackGround(const HDC& hDC, int x = 0, int y = 0, int cx = WINCX, int cy = WINCY);
 protected:

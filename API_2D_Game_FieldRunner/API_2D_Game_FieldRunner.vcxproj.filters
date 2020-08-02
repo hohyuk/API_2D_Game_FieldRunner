@@ -67,6 +67,9 @@
     <Filter Include="02.GameObject\02.UI\03.ExitUI">
       <UniqueIdentifier>{df143a32-3377-4431-a5a1-32cd114767f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Scene\03.Select">
+      <UniqueIdentifier>{5052a1a1-5ba8-4766-ad4a-1fe9689e56d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -162,6 +165,9 @@
     <ClInclude Include="ExitUI.h">
       <Filter>02.GameObject\02.UI\03.ExitUI</Filter>
     </ClInclude>
+    <ClInclude Include="SelectScene.h">
+      <Filter>01.Scene\03.Select</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -233,6 +239,9 @@
     </ClCompile>
     <ClCompile Include="ExitUI.cpp">
       <Filter>02.GameObject\02.UI\03.ExitUI</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectScene.cpp">
+      <Filter>01.Scene\03.Select</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
