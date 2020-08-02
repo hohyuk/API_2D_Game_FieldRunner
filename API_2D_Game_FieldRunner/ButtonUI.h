@@ -19,6 +19,7 @@ public:
 	virtual ~ButtonUI();
 
 protected:
+	bool isShowUI{ false };
 	UI_TYPE::BUTTON m_tBtn;					// 버튼 종류
 };
 

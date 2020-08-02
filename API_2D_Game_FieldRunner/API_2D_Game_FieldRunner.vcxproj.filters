@@ -61,6 +61,12 @@
     <Filter Include="02.GameObject\01.Actor\02.Enemy">
       <UniqueIdentifier>{1d236008-c812-455f-b452-8ad089a785b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\02.UI\02.HelpUI">
+      <UniqueIdentifier>{61d2b2ae-a50f-48af-9e3d-7baa9894ffc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\02.UI\03.ExitUI">
+      <UniqueIdentifier>{df143a32-3377-4431-a5a1-32cd114767f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -150,6 +156,12 @@
     <ClInclude Include="Enemy.h">
       <Filter>02.GameObject\01.Actor\02.Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="HelpUI.h">
+      <Filter>02.GameObject\02.UI\02.HelpUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitUI.h">
+      <Filter>02.GameObject\02.UI\03.ExitUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -215,6 +227,12 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>02.GameObject\01.Actor\02.Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpUI.cpp">
+      <Filter>02.GameObject\02.UI\02.HelpUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitUI.cpp">
+      <Filter>02.GameObject\02.UI\03.ExitUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

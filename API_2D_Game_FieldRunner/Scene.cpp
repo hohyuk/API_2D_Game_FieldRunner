@@ -3,6 +3,7 @@
 
 #include "ButtonUI.h"
 #include "LogoUI.h"
+#include "HelpUI.h"
 Scene::Scene()
 {
 }
@@ -18,6 +19,9 @@ void Scene::Create_UI(const TCHAR * _key, INFO _info, UI_TYPE::ID eID, UI_TYPE::
 	{
 	case UI_TYPE::LOGO_UI:
 		pTempObj = AbstractFactory<LogoUI>::Create(_key,_info);
+		break;
+	case UI_TYPE::HELP_UI:
+		pTempObj = AbstractFactory<HelpUI>::Create(_key, _info);
 		break;
 	/*case UI_TYPE::GAME_UI:
 		pTempObj = AbstractFactory<GameBtnUI>::Create(_key);

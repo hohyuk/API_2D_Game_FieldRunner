@@ -6,11 +6,13 @@ void HelpScene::Ready()
 {
 	m_szBGKey = TEXT("Help1");
 	int iSrcX = 88, iSrcY = 242;
-	int iCX = iSrcX * 2;
-	int iCY = iSrcY * 2;
-	Create_UI(TEXT("Next"), INFO(200, 460, iCX, iCY + 30, iSrcX, iSrcY),
-		UI_TYPE::ID::LOGO_UI, UI_TYPE::BUTTON::PLAY_BTN);
-	//Create_UI(TEXT("Back"), BUTTON_INFO{ 60,245,100,200,88,242,RECT{ 75,258,150,430 } });
+	int iCX = iSrcX + 40;
+	int iCY = iSrcY + 30;
+	Create_UI(TEXT("Next"), INFO(170, 520, iCX, iCY, iSrcX, iSrcY),
+		UI_TYPE::ID::HELP_UI, UI_TYPE::BUTTON::PLAY_BTN);
+
+	Create_UI(TEXT("Back"), INFO(1290, 515, iCX, iCY, iSrcX, iSrcY),
+		UI_TYPE::ID::HELP_UI, UI_TYPE::BUTTON::PLAY_BTN);
 }
 
 void HelpScene::Update()
