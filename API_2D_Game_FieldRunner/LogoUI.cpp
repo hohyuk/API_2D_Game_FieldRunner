@@ -18,6 +18,8 @@ void LogoUI::LateUpdate()
 	if (IsPointInRect(pt, m_tColliderRC))
 	{
 		isShowUI = true;
+		if (KEY_MGR->Key_DOWN(VK_LBUTTON))
+			isClick = true;
 		if (KEY_MGR->Key_UP(VK_LBUTTON))
 		{
 			switch (m_tBtn)
@@ -42,6 +44,7 @@ void LogoUI::LateUpdate()
 	else
 	{
 		isShowUI = false;
+		isClick = false;
 	}
 }
 

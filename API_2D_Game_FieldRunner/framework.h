@@ -29,6 +29,13 @@ using namespace std;
 #include <crtdbg.h>
 // ===============================
 
+// =============SOUND====================
+#include <io.h>
+#include "fmod.h"
+#pragma comment(lib, "fmodex_vc.lib")
+#include "SoundManager.h"
+// ======================================
+
 #include "External.h"
 #include "Define.h"
 #include "Const.h"

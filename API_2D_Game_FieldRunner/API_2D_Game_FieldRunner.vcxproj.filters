@@ -70,6 +70,9 @@
     <Filter Include="01.Scene\03.Select">
       <UniqueIdentifier>{5052a1a1-5ba8-4766-ad4a-1fe9689e56d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="96.Manager\06.SoundMgr">
+      <UniqueIdentifier>{50f3e2dc-7cb0-40b0-a03b-723b671f32d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -168,6 +171,9 @@
     <ClInclude Include="SelectScene.h">
       <Filter>01.Scene\03.Select</Filter>
     </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>96.Manager\06.SoundMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -242,6 +248,9 @@
     </ClCompile>
     <ClCompile Include="SelectScene.cpp">
       <Filter>01.Scene\03.Select</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>96.Manager\06.SoundMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

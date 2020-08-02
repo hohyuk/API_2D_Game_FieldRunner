@@ -4,7 +4,6 @@
 #include "SceneManager.h"
 #include "InsertBitMap.h"
 
-
 void MainGame::Ready()
 {
 	m_hDC = GetDC(g_hWND);
