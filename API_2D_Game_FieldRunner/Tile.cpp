@@ -39,10 +39,24 @@ Tile::~Tile()
 
 void Tile::SelectColor()
 {
-	if (isStartPoint)
+	switch (m_TileType)
+	{
+	case OBJECT::START_POINT:
 		m_dwColor = RGB(0, 255, 0);
-	else if (isEndPoint)
+		break;
+	case OBJECT::ARRIVAL_POINT:
 		m_dwColor = RGB(0, 0, 255);
-	else
+		break;
+	case OBJECT::TOWER_INSTALL:
+		m_dwColor = RGB(255, 0, 255);
+		break;
+	case OBJECT::NOT_TOWER_INSTALL:
+		m_dwColor = RGB(255, 0, 0);
+		break;
+	case OBJECT::NONE:
 		m_dwColor = RGB(255, 255, 255);
+		break;
+	default:
+		break;
+	}
 }

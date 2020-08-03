@@ -5,30 +5,12 @@
 
 TileManager* TileManager::m_pInstance{ nullptr };
 
-void TileManager::Change_TileState(const POINT & pt)
-{
-	int index = -1;
-	if (!IsIndexState(pt, index)) return;
-	
-	dynamic_cast<Tile*>(m_vecTile[index])->IsNotTowerInstall();
-	cout << "Index : " << index << endl;
-}
-
-void TileManager::StartPointTile(const POINT & pt)
-{
-	int index = -1;
-	if (!IsIndexState(pt, index)) return;
-	
-	dynamic_cast<Tile*>(m_vecTile[index])->IsStartPoint();
-	cout << "Index : " << index << endl;
-}
-
-void TileManager::EndPointTile(const POINT & pt)
+void TileManager::Change_TileType(const POINT & pt, OBJECT::TILE_TYPE _eID)
 {
 	int index = -1;
 	if (!IsIndexState(pt, index)) return;
 
-	dynamic_cast<Tile*>(m_vecTile[index])->IsEndPoint();
+	dynamic_cast<Tile*>(m_vecTile[index])->IsTileType(_eID);
 	cout << "Index : " << index << endl;
 }
 

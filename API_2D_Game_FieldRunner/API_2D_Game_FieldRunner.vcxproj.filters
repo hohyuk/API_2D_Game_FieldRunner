@@ -94,6 +94,12 @@
     <Filter Include="02.GameObject\02.UI\05.OptionUI">
       <UniqueIdentifier>{cc8cc07b-3c55-4faf-926b-8fae8bcce48e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="96.Manager\09.UserMgr">
+      <UniqueIdentifier>{fa5066c8-3610-405d-b370-a06afa61f46e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Manager\10.FileMgr">
+      <UniqueIdentifier>{a0beb844-92d1-4f6c-9531-56cdb9750ea5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -213,6 +219,12 @@
     <ClInclude Include="OptionUI.h">
       <Filter>02.GameObject\02.UI\05.OptionUI</Filter>
     </ClInclude>
+    <ClInclude Include="UserManager.h">
+      <Filter>96.Manager\09.UserMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>96.Manager\10.FileMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -308,6 +320,12 @@
     </ClCompile>
     <ClCompile Include="OptionUI.cpp">
       <Filter>02.GameObject\02.UI\05.OptionUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UserManager.cpp">
+      <Filter>96.Manager\09.UserMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>96.Manager\10.FileMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -164,6 +164,7 @@
     <ClInclude Include="Enum.h" />
     <ClInclude Include="ExitUI.h" />
     <ClInclude Include="External.h" />
+    <ClInclude Include="FileManager.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Function.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="TileManager.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Tower.h" />
+    <ClInclude Include="UserManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
@@ -200,6 +202,7 @@
     <ClCompile Include="EditScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExitUI.cpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="HelpScene.cpp" />
@@ -219,6 +222,7 @@
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Tower.cpp" />
+    <ClCompile Include="UserManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="API_2D_Game_FieldRunner.rc" />

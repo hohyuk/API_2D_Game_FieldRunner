@@ -3,9 +3,7 @@
 class TileManager final
 {
 public:
-	void Change_TileState(const POINT& pt);
-	void StartPointTile(const POINT& pt);
-	void EndPointTile(const POINT& pt);
+	void Change_TileType(const POINT& pt, OBJECT::TILE_TYPE _eID);
 
 public:
 	static TileManager*  Get_Instance()
