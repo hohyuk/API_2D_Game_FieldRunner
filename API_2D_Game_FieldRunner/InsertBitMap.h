@@ -10,8 +10,11 @@ inline void Insert_BitMap()
 {
 	BMP_MGR->Insert_Texture(TEXT("BackBuffer"), TEXT("../Resources/Image/Stage/BackBuffer.bmp"));
 	BMP_MGR->Insert_Texture(TEXT("Mouse"), TEXT("../Resources/Image/UI/Mouse.bmp"));
+	BMP_MGR->Insert_Texture(TEXT("Option"), TEXT("../Resources/Image/UI/Option.bmp"));
+
 
 	BMP_MGR->Insert_Texture(TEXT("GrasslandsStage"), TEXT("../Resources/Image/Stage/grasslands.bmp"));
+
 	Logo_BitMap();
 	Help_BitMap();
 	Select_BitMap();

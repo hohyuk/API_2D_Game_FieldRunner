@@ -13,6 +13,14 @@ public:
 		return pObj;
 	}
 
+	static GameObject* Create(float fX, float fY)
+	{
+		GameObject* pObj = new T;
+		pObj->Set_Pos(fX, fY);
+		pObj->Ready();
+		return pObj;
+	}
+
 	static GameObject* Create(const TCHAR* _pKey, float fX = 0, float fY = 0)
 	{
 		GameObject* pObj = new T;

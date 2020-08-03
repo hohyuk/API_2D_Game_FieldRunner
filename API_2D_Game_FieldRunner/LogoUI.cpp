@@ -33,6 +33,7 @@ void LogoUI::LateUpdate()
 			case UI_TYPE::SCORE_BTN:
 				break;
 			case UI_TYPE::EDIT_BTN:
+				SCENE_MGR->Change_Scene(SceneManager::EDIT);
 				break;
 			case UI_TYPE::END_BTN:
 				break;
@@ -50,8 +51,8 @@ void LogoUI::LateUpdate()
 
 void LogoUI::Render(const HDC & hDC)
 {
-	ButtonUI::Render_Debug(hDC, m_tRect, Rectangle);
-	ButtonUI::Render_Debug(hDC, m_tColliderRC, Rectangle, RGB(255, 0, 0));
+	GameObject::Render_Debug(hDC, m_tRect, Rectangle);
+	GameObject::Render_Debug(hDC, m_tColliderRC, Rectangle, RGB(255, 0, 0));
 
 	if (!isShowUI) return;
 	ButtonUI::Render(hDC);

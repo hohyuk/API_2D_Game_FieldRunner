@@ -159,6 +159,7 @@
     <ClInclude Include="ButtonUI.h" />
     <ClInclude Include="Const.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="EditScene.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="ExitUI.h" />
@@ -175,6 +176,7 @@
     <ClInclude Include="LogoUI.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="OptionUI.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
@@ -184,6 +186,8 @@
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Template.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileManager.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Tower.h" />
   </ItemGroup>
@@ -193,6 +197,7 @@
     <ClCompile Include="BitMap.cpp" />
     <ClCompile Include="BmpManager.cpp" />
     <ClCompile Include="ButtonUI.cpp" />
+    <ClCompile Include="EditScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExitUI.cpp" />
     <ClCompile Include="FontManager.cpp" />
@@ -204,11 +209,14 @@
     <ClCompile Include="LogoUI.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="OptionUI.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="SelectUI.cpp" />
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Tower.cpp" />
   </ItemGroup>

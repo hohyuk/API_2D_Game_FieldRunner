@@ -4,6 +4,7 @@
 #include "LogoScene.h"
 #include "HelpScene.h"
 #include "SelectScene.h"
+#include "EditScene.h"
 
 SceneManager* SceneManager::m_pInstance{ nullptr };
 
@@ -26,6 +27,9 @@ void SceneManager::Change_Scene(ID eSceneID)
 		case SceneManager::SELECT:
 			m_pScene = new SelectScene;
 			break;
+		case SceneManager::EDIT:
+			m_pScene = new EditScene;
+			break;
 	/*	case SceneManager::HELP:
 			m_pScene = new HelpScene;
 			break;
@@ -43,9 +47,6 @@ void SceneManager::Change_Scene(ID eSceneID)
 			break;
 		case SceneManager::SCORE:
 			m_pScene = new ScoreScene;
-			break;
-		case SceneManager::EDIT:
-			m_pScene = new EditScene;
 			break;*/
 		default:
 			break;

@@ -1,6 +1,6 @@
 #pragma once
 #include "ButtonUI.h"
-class SelectUI final :
+class OptionUI final :
 	public ButtonUI
 {
 public:
@@ -9,7 +9,7 @@ public:
 	virtual void Render(const HDC & hDC) override;
 
 public:
-	explicit SelectUI();
-	virtual ~SelectUI();
+	explicit OptionUI();
+	virtual ~OptionUI();
 };
 

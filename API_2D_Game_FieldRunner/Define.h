@@ -15,3 +15,9 @@
 #define OBJ_MGR		ObjectManager::Get_Instance()
 
 #define KEY_MGR		KeyMouseManager::Get_Instance()
+
+#define TILE_MGR	TileManager::Get_Instance()
+
+#define FONT_MGR	FontManager::Get_Instance()
+
+#define SOUND_MGR	SoundManager::Get_Instance()
