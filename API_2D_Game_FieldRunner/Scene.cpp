@@ -5,6 +5,7 @@
 #include "LogoUI.h"
 #include "HelpUI.h"
 #include "ExitUI.h"
+#include "SelectUI.h"
 Scene::Scene()
 {
 }
@@ -26,6 +27,9 @@ void Scene::Create_UI(const TCHAR * _key, INFO _info, UI_TYPE::CLASS_ID eID, UI_
 		break;
 	case UI_TYPE::EXIT_UI:
 		pTempObj = AbstractFactory<ExitUI>::Create(_key, _info);
+		break;
+	case UI_TYPE::SELECT_UI:
+		pTempObj = AbstractFactory<SelectUI>::Create(_key, _info);
 		break;
 	default:
 		break;

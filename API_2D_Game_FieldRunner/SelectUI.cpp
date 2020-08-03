@@ -1,9 +1,9 @@
 #include "framework.h"
-#include "ExitUI.h"
+#include "SelectUI.h"
 
 #include "SceneManager.h"
 
-void ExitUI::Ready()
+void SelectUI::Ready()
 {
 	MakeRect(m_tRect, m_tInfo);
 	MakeRect(m_tColliderRC, m_tInfo);
@@ -11,7 +11,7 @@ void ExitUI::Ready()
 	isShowUI = false;
 }
 
-void ExitUI::LateUpdate()
+void SelectUI::LateUpdate()
 {
 	POINT pt = KEY_MGR->Mouse_Point();
 
@@ -29,7 +29,7 @@ void ExitUI::LateUpdate()
 	}
 }
 
-void ExitUI::Render(const HDC & hDC)
+void SelectUI::Render(const HDC & hDC)
 {
 	ButtonUI::Render_Debug(hDC, m_tRect, Rectangle);
 	ButtonUI::Render_Debug(hDC, m_tColliderRC, Rectangle, RGB(255, 0, 0));
@@ -38,12 +38,10 @@ void ExitUI::Render(const HDC & hDC)
 	ButtonUI::Render(hDC);
 }
 
-ExitUI::ExitUI()
+SelectUI::SelectUI()
 {
-	cout << "ExitUI Create()" << endl;
 }
 
-ExitUI::~ExitUI()
+SelectUI::~SelectUI()
 {
-	cout << "ExitUI Release()" << endl;
 }

@@ -11,7 +11,9 @@ void MainGame::Ready()
 
 	KEY_MGR->Ready();
 	//SCENE_MGR->Change_Scene(SceneManager::LOGO);
-	SCENE_MGR->Change_Scene(SceneManager::HELP);
+	//SCENE_MGR->Change_Scene(SceneManager::HELP);
+	SCENE_MGR->Change_Scene(SceneManager::SELECT);
+
 }
 
 void MainGame::Update()

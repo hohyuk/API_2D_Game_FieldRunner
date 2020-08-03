@@ -73,6 +73,12 @@
     <Filter Include="96.Manager\06.SoundMgr">
       <UniqueIdentifier>{50f3e2dc-7cb0-40b0-a03b-723b671f32d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="96.Manager\07.FontMgr">
+      <UniqueIdentifier>{360ddbb1-2f25-4b27-8777-fab1a4b929ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\02.UI\04.SelectUI">
+      <UniqueIdentifier>{dbdcc3a0-8383-47fa-b658-ab6bb5144020}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -174,6 +180,12 @@
     <ClInclude Include="SoundManager.h">
       <Filter>96.Manager\06.SoundMgr</Filter>
     </ClInclude>
+    <ClInclude Include="FontManager.h">
+      <Filter>96.Manager\07.FontMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectUI.h">
+      <Filter>02.GameObject\02.UI\04.SelectUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -251,6 +263,12 @@
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>96.Manager\06.SoundMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.cpp">
+      <Filter>96.Manager\07.FontMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectUI.cpp">
+      <Filter>02.GameObject\02.UI\04.SelectUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

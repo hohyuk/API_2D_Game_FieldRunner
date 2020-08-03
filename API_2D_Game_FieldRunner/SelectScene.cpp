@@ -5,8 +5,17 @@ void SelectScene::Ready()
 {
 	m_szBGKey = TEXT("SelectTitle");
 
-	Create_UI(TEXT("Exit"), INFO(1350, 70, 88 * 2, 84 * 2 - 20, 88, 84),
+	Create_UI(TEXT("Exit"), INFO(1300, 110, 88 * 2 - 30, 84 * 2 - 40, 88, 84),
 		UI_TYPE::CLASS_ID::EXIT_UI);
+
+	Create_UI(TEXT("Grasslands_icon"), INFO(500, 350, 400, 300, 400, 300),
+		UI_TYPE::CLASS_ID::SELECT_UI);
+
+	Create_UI(TEXT("lavaflow_icon"), INFO(1000, 350, 400, 300, 400, 300),
+		UI_TYPE::CLASS_ID::SELECT_UI);
+
+	Create_UI(TEXT("Cave_icon"), INFO(750, 650, 400, 300, 400, 300),
+		UI_TYPE::CLASS_ID::SELECT_UI);
 }
 
 void SelectScene::Update()
@@ -37,4 +46,5 @@ SelectScene::SelectScene()
 
 SelectScene::~SelectScene()
 {
+	Release();
 }
