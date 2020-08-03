@@ -6,8 +6,8 @@ void EditScene::Ready()
 	m_szBGKey = TEXT("GrasslandsStage");
 	TILE_MGR->Ready();
 
-	Create_UI(TEXT("Option"), INFO(1000, 110, 128, 128, 128, 128),
-		UI_TYPE::CLASS_ID::EXIT_UI);
+	Create_UI(TEXT("Option"), INFO(450, 900, 128, 128, 128, 128),
+		UI_TYPE::CLASS_ID::OPTION_UI);
 }
 
 void EditScene::Update()
@@ -18,6 +18,15 @@ void EditScene::Update()
 void EditScene::LateUpdate()
 {
 	OBJ_MGR->LateUpdate();
+
+	if (KEY_MGR->Key_DOWN(VK_LBUTTON))
+	{
+		TILE_MGR->StartPointTile(KEY_MGR->Mouse_Point());
+	}
+	if (KEY_MGR->Key_DOWN(VK_RBUTTON))
+	{
+		TILE_MGR->EndPointTile(KEY_MGR->Mouse_Point());
+	}
 }
 
 void EditScene::Render(const HDC & hDC)

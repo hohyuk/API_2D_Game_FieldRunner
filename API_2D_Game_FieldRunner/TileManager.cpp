@@ -5,6 +5,33 @@
 
 TileManager* TileManager::m_pInstance{ nullptr };
 
+void TileManager::Change_TileState(const POINT & pt)
+{
+	int index = -1;
+	if (!IsIndexState(pt, index)) return;
+	
+	dynamic_cast<Tile*>(m_vecTile[index])->IsNotTowerInstall();
+	cout << "Index : " << index << endl;
+}
+
+void TileManager::StartPointTile(const POINT & pt)
+{
+	int index = -1;
+	if (!IsIndexState(pt, index)) return;
+	
+	dynamic_cast<Tile*>(m_vecTile[index])->IsStartPoint();
+	cout << "Index : " << index << endl;
+}
+
+void TileManager::EndPointTile(const POINT & pt)
+{
+	int index = -1;
+	if (!IsIndexState(pt, index)) return;
+
+	dynamic_cast<Tile*>(m_vecTile[index])->IsEndPoint();
+	cout << "Index : " << index << endl;
+}
+
 void TileManager::Ready()
 {
 	float fX = 0.f, fY = 0.f;
@@ -35,6 +62,22 @@ void TileManager::Release()
 
 	m_vecTile.clear();
 	m_vecTile.shrink_to_fit();
+}
+
+bool TileManager::IsIndexState(const POINT & pt, int & index)
+{
+	// 전체 Rect를 벗어나면 리턴
+	if (TILE_START_PX > pt.x || TILE_START_PY > pt.y || TILE_START_PX + (TILEX* TILECX) < pt.x)
+		return false;
+	int x = (pt.x - TILE_START_PX) / TILECX;
+	int y = (pt.y - TILE_START_PY) / TILECY;
+
+	index = (y * TILEX) + x;
+
+	// 현재 인덱스보다 넘어가버리면 리턴
+	if (0 > index || static_cast<int>(m_vecTile.size()) <= index)	return false;
+
+	return true;
 }
 
 TileManager::TileManager()
