@@ -39,6 +39,7 @@ void Scene::Create_UI(const TCHAR * _key, INFO _info, UI_TYPE::CLASS_ID eID, UI_
 		break;
 	case UI_TYPE::TOWER_UI:
 		pTempObj = AbstractFactory<TowerUI>::Create(_key, _info);
+		dynamic_cast<TowerUI*>(pTempObj)->Set_TowerKey(eBtn);
 		break;
 	default:
 		break;

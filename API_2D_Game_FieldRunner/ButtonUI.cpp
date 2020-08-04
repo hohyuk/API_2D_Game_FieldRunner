@@ -102,6 +102,15 @@ void ButtonUI::Click_Button()
 	case UI_TYPE::GATLING_BTN:
 		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
 		break;
+	case UI_TYPE::GOO_BTN:
+		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
+		break;
+	case UI_TYPE::FLAME_BTN:
+		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
+		break;
+	case UI_TYPE::MORTAR_BTN:
+		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
+		break;
 	default:
 		break;
 	}
