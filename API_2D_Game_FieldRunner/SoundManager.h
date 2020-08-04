@@ -2,7 +2,7 @@
 class SoundManager final
 {
 public:
-	enum CHANNELID { BGM, PLAYER, ENEMY, EFFECT, UI, MAXCHANNEL };
+	enum CHANNELID { LOGO_BGM, BGM, PLAYER, ENEMY, EFFECT, UI, MAXCHANNEL };
 public:
 	static SoundManager* Get_Instance()
 	{
@@ -24,16 +24,13 @@ public:
 	void Release();
 public:
 	void PlaySound(const TCHAR* pSoundKey, CHANNELID eID);
-	void PlaySound(const TCHAR* pSoundKey, CHANNELID eID, bool overlap);
-	void PlayBGM(const TCHAR* pSoundKey);
+	void PlayBGM(const CHANNELID& eID);
 	void StopSound(CHANNELID eID);
 	void StopAll();
 
-	// LogoBGM
-	void Start_LogoBGM();
-	void Stop_LogoBGM();
 private:
 	void LoadSoundFile();
+	const TCHAR* SearchSoundKey(const CHANNELID& eID);
 private:
 	explicit SoundManager();
 	~SoundManager();

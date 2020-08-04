@@ -10,6 +10,8 @@ void MainGame::Ready()
 {
 	m_hDC = GetDC(g_hWND);
 	Insert_BitMap();		// BitMap 리소스를 불러서 Map에 먼저 저장한다.
+	// Sound
+	SOUND_MGR->Initialize();		// 사운드 초기화를 먼저해줘야한다.
 
 	KEY_MGR->Ready();
 	//SCENE_MGR->Change_Scene(SceneManager::LOGO);

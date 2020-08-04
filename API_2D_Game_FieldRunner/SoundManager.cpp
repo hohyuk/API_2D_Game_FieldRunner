@@ -28,32 +28,85 @@ void SoundManager::PlaySound(const TCHAR * pSoundKey, CHANNELID eID)
 {
 }
 
-void SoundManager::PlaySound(const TCHAR * pSoundKey, CHANNELID eID, bool overlap)
+void SoundManager::PlayBGM(const CHANNELID& eID)
 {
-}
+	const TCHAR * pSoundKey = SearchSoundKey(eID);
 
-void SoundManager::PlayBGM(const TCHAR * pSoundKey)
-{
+	map<TCHAR*, FMOD_SOUND*>::iterator iter;
+
+	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)
+		{
+			return !lstrcmp(pSoundKey, iter.first);
+		});
+
+	if (iter == m_mapSound.end())
+		return;
+
+	FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
+	FMOD_Channel_SetMode(m_pChannelArr[eID], FMOD_LOOP_NORMAL);
+	FMOD_Channel_SetVolume(m_pChannelArr[eID], 0.8f);
+	FMOD_System_Update(m_pSystem);
 }
 
 void SoundManager::StopSound(CHANNELID eID)
 {
+	FMOD_Channel_Stop(m_pChannelArr[eID]);
 }
 
 void SoundManager::StopAll()
 {
-}
-
-void SoundManager::Start_LogoBGM()
-{
-}
-
-void SoundManager::Stop_LogoBGM()
-{
+	for (int i = 0; i < MAXCHANNEL; ++i)
+		FMOD_Channel_Stop(m_pChannelArr[i]);
 }
 
 void SoundManager::LoadSoundFile()
 {
+	_finddata_t fd;
+
+	long handle = _findfirst("../Resources/Sound/*.*", &fd);
+
+	if (handle == 0)
+		return;
+
+	int iResult = 0;
+
+	char szCurPath[128] = "../Resources/Sound/";
+	char szFullPath[128] = "";
+
+	while (iResult != -1)
+	{
+		strcpy_s(szFullPath, szCurPath);
+		strcat_s(szFullPath, fd.name);
+		FMOD_SOUND* pSound = nullptr;
+
+		FMOD_RESULT eRes = FMOD_System_CreateSound(m_pSystem, szFullPath, FMOD_HARDWARE, 0, &pSound);
+
+		if (eRes == FMOD_OK)
+		{
+			int iLength = strlen(fd.name) + 1;
+
+			TCHAR* pSoundKey = new TCHAR[iLength];
+			ZeroMemory(pSoundKey, sizeof(TCHAR) * iLength);
+			MultiByteToWideChar(CP_ACP, 0, fd.name, iLength, pSoundKey, iLength);
+
+			m_mapSound.emplace(pSoundKey, pSound);
+		}
+		iResult = _findnext(handle, &fd);
+	}
+	FMOD_System_Update(m_pSystem);
+	_findclose(handle);
+}
+
+const TCHAR * SoundManager::SearchSoundKey(const CHANNELID & eID)
+{
+	switch (eID)
+	{
+	case CHANNELID::LOGO_BGM:
+		return TEXT("LogoBgm.mp3");
+	default:
+		return nullptr;
+	}
+	return nullptr;
 }
 
 SoundManager::SoundManager()
