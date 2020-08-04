@@ -24,6 +24,13 @@ static void MakeRect(RECT& rc, const INFO& info, float _fCX, float _fCY)
 	rc.bottom = LONG(info.fY + _fCY);
 }
 
+inline bool Compare_Key(const TCHAR* _FramKey, const TCHAR* _CmpKey)
+{
+	if (!_tcscmp(_FramKey, _CmpKey))
+		return true;
+	return false;
+}
+
 inline bool IsPointInRect(const POINT& p, const RECT& rc)
 {
 	if (rc.left <= p.x && rc.right >= p.x && rc.top <= p.y && rc.bottom >= p.y)

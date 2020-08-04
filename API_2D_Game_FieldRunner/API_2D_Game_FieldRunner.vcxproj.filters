@@ -225,6 +225,9 @@
     <ClInclude Include="FileManager.h">
       <Filter>96.Manager\10.FileMgr</Filter>
     </ClInclude>
+    <ClInclude Include="StageScene.h">
+      <Filter>01.Scene\05.Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -326,6 +329,9 @@
     </ClCompile>
     <ClCompile Include="FileManager.cpp">
       <Filter>96.Manager\10.FileMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="StageScene.cpp">
+      <Filter>01.Scene\05.Stage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -4,7 +4,8 @@ class Tile final :
 	public GameObject
 {
 public:
-	void IsTileType(OBJECT::TILE_TYPE _eID) { m_TileType = _eID; }
+	void Set_TileType(OBJECT::TILE_TYPE _eID) { m_TileType = _eID; }
+	OBJECT::TILE_TYPE Get_TileType()const { return m_TileType; }
 public:
 	// GameObject을(를) 통해 상속됨
 	virtual void Ready() override;

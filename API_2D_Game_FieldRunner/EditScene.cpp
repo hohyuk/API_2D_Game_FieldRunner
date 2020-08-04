@@ -34,12 +34,12 @@ void EditScene::LateUpdate()
 
 	if (KEY_MGR->Key_DOWN('S'))
 	{
-		/*if (m_eEditState == ID::GRASSLANDS_EDIT)
-			FileSystem::Get_Instance()->Save_Data(FileSystem::TILE_STAGE1);
-		if (m_eEditState == ID::VOLCANO_EDIT)
-			FileSystem::Get_Instance()->Save_Data(FileSystem::TILE_STAGE2);
-		if (m_eEditState == ID::CAVE_EDIT)
-			FileSystem::Get_Instance()->Save_Data(FileSystem::TILE_STAGE3);*/
+		if (Compare_Key(m_szBGKey, TEXT("GrasslandsStage")))
+			FILE_MGR->SaveData(FileManager::TILE_STAGE1);
+		if (Compare_Key(m_szBGKey, TEXT("VolcanoStage")))
+			FILE_MGR->SaveData(FileManager::TILE_STAGE2);
+		if (Compare_Key(m_szBGKey, TEXT("CaveStage")))
+			FILE_MGR->SaveData(FileManager::TILE_STAGE3);
 	}
 
 	if (KEY_MGR->Key_DOWN(VK_LBUTTON))

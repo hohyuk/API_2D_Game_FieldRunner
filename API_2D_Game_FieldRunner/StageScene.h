@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-class EditScene :
+class StageScene :
 	public Scene
 {
 public:
@@ -12,7 +12,7 @@ public:
 	virtual void Release() override;
 
 public:
-	explicit EditScene();
-	virtual~EditScene();
+	explicit StageScene();
+	virtual~StageScene();
 };
 

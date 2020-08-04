@@ -10,7 +10,7 @@ void TileManager::Change_TileType(const POINT & pt, OBJECT::TILE_TYPE _eID)
 	int index = -1;
 	if (!IsIndexState(pt, index)) return;
 
-	dynamic_cast<Tile*>(m_vecTile[index])->IsTileType(_eID);
+	dynamic_cast<Tile*>(m_vecTile[index])->Set_TileType(_eID);
 	cout << "Index : " << index << endl;
 }
 

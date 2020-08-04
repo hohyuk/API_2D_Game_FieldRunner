@@ -5,6 +5,7 @@ void LogoScene::Ready()
 {
 	m_szBGKey = TEXT("LogoTitle");
 	// Sound
+	SOUND_MGR->StopAll();
 	SOUND_MGR->PlayBGM(SoundManager::CHANNELID::LOGO_BGM);
 
 	int iSrcX = 128, iSrcY = 64;

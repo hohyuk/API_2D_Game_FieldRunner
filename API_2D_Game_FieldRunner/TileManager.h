@@ -3,6 +3,7 @@
 class TileManager final
 {
 public:
+	vector<GameObject*> Get_Tile() { return m_vecTile; }			// 인덱스값을 편하게 쓰기위함
 	void Change_TileType(const POINT& pt, OBJECT::TILE_TYPE _eID);
 
 public:

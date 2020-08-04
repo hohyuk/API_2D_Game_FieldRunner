@@ -22,5 +22,7 @@
 
 #define SOUND_MGR	SoundManager::Get_Instance()
 
+#define FILE_MGR	FileManager::Get_Instance()
+
 #define USER_MGR	UserManager::Get_Instance()
 #define USER_ID		UserManager::ID
