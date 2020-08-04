@@ -17,8 +17,8 @@ void MainGame::Ready()
 	//SCENE_MGR->Change_Scene(SceneManager::LOGO);
 	//SCENE_MGR->Change_Scene(SceneManager::HELP);
 	//SCENE_MGR->Change_Scene(SceneManager::SELECT);
-	SCENE_MGR->Change_Scene(SceneManager::EDIT);
-
+	//SCENE_MGR->Change_Scene(SceneManager::EDIT);
+	SCENE_MGR->Change_Scene(SceneManager::STAGE_1);
 }
 
 void MainGame::Update()

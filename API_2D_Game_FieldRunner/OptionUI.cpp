@@ -15,7 +15,6 @@ void OptionUI::LateUpdate()
 
 	if (IsPointInRect(pt, m_tColliderRC))
 	{
-		//isShowUI = true;
 		if (KEY_MGR->Key_UP(VK_LBUTTON))
 		{
 			SCENE_MGR->Change_Scene(SceneManager::LOGO);
