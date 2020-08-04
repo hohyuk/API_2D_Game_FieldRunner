@@ -1,15 +1,14 @@
 #include "framework.h"
-#include "OptionUI.h"
-#include "SceneManager.h"
-void OptionUI::Ready()
+#include "TowerUI.h"
+
+void TowerUI::Ready()
 {
 	MakeRect(m_tRect, m_tInfo);
 	MakeRect(m_tColliderRC, m_tInfo);
 	m_tFrame.iEnd = 2;
-	isShowUI = false;
 }
 
-void OptionUI::LateUpdate()
+void TowerUI::LateUpdate()
 {
 	POINT pt = KEY_MGR->Mouse_Point();
 
@@ -32,7 +31,7 @@ void OptionUI::LateUpdate()
 	}
 }
 
-void OptionUI::Render(const HDC & hDC)
+void TowerUI::Render(const HDC & hDC)
 {
 	ButtonUI::Render_Debug(hDC, m_tRect, Rectangle);
 	ButtonUI::Render_Debug(hDC, m_tColliderRC, Ellipse, RGB(255, 0, 0));
@@ -40,10 +39,10 @@ void OptionUI::Render(const HDC & hDC)
 	ButtonUI::Render(hDC);
 }
 
-OptionUI::OptionUI()
+TowerUI::TowerUI()
 {
 }
 
-OptionUI::~OptionUI()
+TowerUI::~TowerUI()
 {
 }

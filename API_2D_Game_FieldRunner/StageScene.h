@@ -14,5 +14,9 @@ public:
 public:
 	explicit StageScene();
 	virtual~StageScene();
+
+protected:
+	void Fixed_UI(const HDC & hDC, const TCHAR * _pKey, int x, int y, int cx, int cy);
+	void Fixed_UI(const HDC& hDC, const TCHAR * _pKey, int x, int y, int cx, int cy, int wSrc, int hSrc);
 };
 

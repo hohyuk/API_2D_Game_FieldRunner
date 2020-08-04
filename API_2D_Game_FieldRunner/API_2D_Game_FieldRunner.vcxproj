@@ -194,6 +194,7 @@
     <ClInclude Include="TileManager.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Tower.h" />
+    <ClInclude Include="TowerUI.h" />
     <ClInclude Include="UserManager.h" />
     <ClInclude Include="VolcanoScene.h" />
   </ItemGroup>
@@ -229,6 +230,7 @@
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Tower.cpp" />
+    <ClCompile Include="TowerUI.cpp" />
     <ClCompile Include="UserManager.cpp" />
     <ClCompile Include="VolcanoScene.cpp" />
   </ItemGroup>

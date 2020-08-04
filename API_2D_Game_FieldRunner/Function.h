@@ -37,3 +37,22 @@ inline bool IsPointInRect(const POINT& p, const RECT& rc)
 		return true;
 	return false;
 }
+
+inline float Distance(const int& _px, const int& _py, const int& _distx, const int& _disty)
+{
+	float w = static_cast<float>(_distx - _px);
+	float h = static_cast<float>(_disty - _py);
+	return sqrtf((w*w) + (h*h));
+}
+
+inline bool IsPointInCircle(const POINT& p, const RECT& _rect)
+{
+	int centerX = (_rect.right - _rect.left) >> 1;
+	int centerY = (_rect.bottom - _rect.top) >> 1;
+	int posX = _rect.right - centerX;
+	int posY = _rect.bottom - centerY;
+
+	if (Distance(p.x, p.y, posX, posY) <= static_cast<float>(centerX))
+		return true;
+	return false;
+}

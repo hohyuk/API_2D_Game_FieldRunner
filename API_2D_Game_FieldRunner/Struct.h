@@ -31,4 +31,5 @@ typedef struct tag_Frame
 	int iSceneFrame;		// 현재 보여지는 프레임 (Y축 기준)
 	float fFrameSpeed;		// 프레임 속도
 	float fFixTime;			// 프레임 넘기는 속도
+	tag_Frame() : iStart{ 0 }, iEnd{ 0 }, iSceneFrame{ 0 }, fFrameSpeed{ 0.f }, fFixTime{ 0.f }{}
 }FRAME;

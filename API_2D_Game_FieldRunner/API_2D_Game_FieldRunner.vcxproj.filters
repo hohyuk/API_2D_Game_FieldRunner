@@ -109,6 +109,9 @@
     <Filter Include="01.Scene\05.Stage\Stage3">
       <UniqueIdentifier>{d64808d6-d6d8-4c0f-9df7-ccd5db275ca9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\02.UI\06.TowerUI">
+      <UniqueIdentifier>{59f273d0-7b8d-4f76-a7fa-5e0706886c27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -246,6 +249,9 @@
     <ClInclude Include="CaveScene.h">
       <Filter>01.Scene\05.Stage\Stage3</Filter>
     </ClInclude>
+    <ClInclude Include="TowerUI.h">
+      <Filter>02.GameObject\02.UI\06.TowerUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -359,6 +365,9 @@
     </ClCompile>
     <ClCompile Include="CaveScene.cpp">
       <Filter>01.Scene\05.Stage\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerUI.cpp">
+      <Filter>02.GameObject\02.UI\06.TowerUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

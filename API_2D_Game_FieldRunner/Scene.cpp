@@ -7,6 +7,8 @@
 #include "ExitUI.h"
 #include "SelectUI.h"
 #include "OptionUI.h"
+#include "TowerUI.h"
+
 Scene::Scene()
 {
 }
@@ -34,6 +36,9 @@ void Scene::Create_UI(const TCHAR * _key, INFO _info, UI_TYPE::CLASS_ID eID, UI_
 		break;
 	case UI_TYPE::OPTION_UI:
 		pTempObj = AbstractFactory<OptionUI>::Create(_key, _info);
+		break;
+	case UI_TYPE::TOWER_UI:
+		pTempObj = AbstractFactory<TowerUI>::Create(_key, _info);
 		break;
 	default:
 		break;

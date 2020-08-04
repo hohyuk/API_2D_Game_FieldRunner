@@ -12,16 +12,11 @@ void GrasslandsScene::Update()
 	OBJ_MGR->Update();
 }
 
-void GrasslandsScene::Render(const HDC & hDC)
-{
-	Scene::Render_BackGround(hDC);
-	OBJ_MGR->Render(hDC);
-}
-
 GrasslandsScene::GrasslandsScene()
 {
 }
 
 GrasslandsScene::~GrasslandsScene()
 {
+	
 }

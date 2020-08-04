@@ -45,7 +45,7 @@ void ButtonUI::Render(const HDC & hDC)
 {
 	HDC hMemDC = BMP_MGR->Find_Image(m_pFrameKey);
 	GdiTransparentBlt(hDC, m_tRect.left, m_tRect.top,
-		m_tInfo.iCX, m_tInfo.iCY, hMemDC, 0, 0,
+		m_tInfo.iCX, m_tInfo.iCY, hMemDC, m_tInfo.iSrcX * m_tFrame.iStart, 0,
 		m_tInfo.iSrcX, m_tInfo.iSrcY, PINK_COLOR);
 }
 
@@ -92,6 +92,15 @@ void ButtonUI::Click_Button()
 		break;
 	case UI_TYPE::BACK_BTN:
 		g_iHelpSceneOrder = Wrap(0, --g_iHelpSceneOrder, 3);
+		break;
+	case UI_TYPE::START_BTN:
+		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
+		break;
+	case UI_TYPE::FAST_BTN:
+		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
+		break;
+	case UI_TYPE::GATLING_BTN:
+		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
 		break;
 	default:
 		break;
