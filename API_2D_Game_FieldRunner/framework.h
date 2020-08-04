@@ -49,6 +49,9 @@ using namespace std;
 #include "TimeManager.h"
 #include "BmpManager.h"
 #include "KeyMouseManager.h"
+#include "FontManager.h"
+#include "FileManager.h"
+#include "UserManager.h"
 
 // 콘솔창 띄우기
 #ifdef _DEBUG

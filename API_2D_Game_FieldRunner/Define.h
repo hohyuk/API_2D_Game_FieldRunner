@@ -21,3 +21,6 @@
 #define FONT_MGR	FontManager::Get_Instance()
 
 #define SOUND_MGR	SoundManager::Get_Instance()
+
+#define USER_MGR	UserManager::Get_Instance()
+#define USER_ID		UserManager::ID

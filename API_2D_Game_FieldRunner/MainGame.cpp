@@ -2,6 +2,8 @@
 #include "MainGame.h"
 
 #include "SceneManager.h"
+#include "TileManager.h"
+#include "ObjectManager.h"
 #include "InsertBitMap.h"
 
 void MainGame::Ready()
@@ -26,6 +28,10 @@ void MainGame::Update()
 void MainGame::LateUpdate()
 {
 	SCENE_MGR->LateUpdate();
+
+	// RenderBox_OnOff
+	if (KEY_MGR->Key_DOWN('D'))
+		USER_MGR->Set_GameState(USER_ID::DBUG_RENDER_BOX);
 }
 
 void MainGame::Render()
@@ -36,12 +42,7 @@ void MainGame::Render()
 	HDC hBackDC = BMP_MGR->Find_Image(TEXT("BackBuffer"));	//BackBuffer에다가 그린 후 m_hDC에 최종으로 보냄
 	///////////////////////////////////////////
 
-	//// RenderBox_OnOff
-	//if (KEY_MGR->Key_DOWN('D'))
-	//	USER_MGR->Set_DebugRenderBox();
-
 	SCENE_MGR->Render(hBackDC);
-	//TIME_MGR->Measure_FPS();
 	KEY_MGR->Render(hBackDC);
 	/////////////////////////////////////////
 	BitBlt(m_hDC, 0, 0, WINCX, WINCY, hBackDC, 0, 0, SRCCOPY);
@@ -56,6 +57,11 @@ void MainGame::Release()
 	BmpManager::Destroy_Instance();
 	SceneManager::Destroy_Instance();
 	KeyMouseManager::Destroy_Instance();
+	TileManager::Destroy_Instance();
+	ObjectManager::Destroy_Instance();
+	SoundManager::Destroy_Instance();
+	FontManager::Destroy_Instance();
+	UserManager::Destroy_Instance();
 }
 
 MainGame::MainGame()
