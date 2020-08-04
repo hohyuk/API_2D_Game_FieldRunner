@@ -19,7 +19,10 @@ public:
 	virtual ~ButtonUI();
 
 protected:
+	void Click_Button();
+protected:
 	bool isShowUI{ false };
+	bool isButtonSound{ false };
 	UI_TYPE::BUTTON m_tBtn;					// 버튼 종류
 };
 

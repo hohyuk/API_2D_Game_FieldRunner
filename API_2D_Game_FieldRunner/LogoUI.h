@@ -5,7 +5,6 @@ class LogoUI :
 {
 public:
 	virtual void Ready() override;
-	virtual void LateUpdate() override;
 	virtual void Render(const HDC & hDC) override;
 
 public:

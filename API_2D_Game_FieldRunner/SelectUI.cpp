@@ -13,34 +13,7 @@ void SelectUI::Ready()
 
 void SelectUI::LateUpdate()
 {
-	POINT pt = KEY_MGR->Mouse_Point();
-
-	if (IsPointInRect(pt, m_tColliderRC))
-	{
-		isShowUI = true;
-		if (KEY_MGR->Key_UP(VK_LBUTTON))
-		{
-			switch (m_tBtn)
-			{
-			case UI_TYPE::STAGE1_BTN:
-				SCENE_MGR->Change_Scene(SceneManager::STAGE_1);
-				return;
-			case UI_TYPE::STAGE2_BTN:
-				SCENE_MGR->Change_Scene(SceneManager::STAGE_2);
-				return;
-			case UI_TYPE::STAGE3_BTN:
-				SCENE_MGR->Change_Scene(SceneManager::STAGE_3);
-				return;
-			default:
-				break;
-			}
-			
-		}
-	}
-	else
-	{
-		isShowUI = false;
-	}
+	ButtonUI::LateUpdate();
 
 	switch (m_tBtn)
 	{
@@ -68,8 +41,11 @@ void SelectUI::Render(const HDC & hDC)
 
 SelectUI::SelectUI()
 {
+	cout << "SelectUI Create()" << endl;
 }
 
 SelectUI::~SelectUI()
 {
+	Release();
+	cout << "SelectUI Release()" << endl;
 }

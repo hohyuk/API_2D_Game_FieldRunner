@@ -17,8 +17,8 @@ void HelpScene::Ready()
 	Create_UI(TEXT("Back"), INFO(1290, 515, iCX, iCY, iSrcX, iSrcY),
 		UI_TYPE::CLASS_ID::HELP_UI, UI_TYPE::BUTTON::BACK_BTN);
 
-	Create_UI(TEXT("Exit"), INFO(1350, 70, 88*2, 84*2-20, 88, 84),
-		UI_TYPE::CLASS_ID::EXIT_UI);
+	Create_UI(TEXT("Exit"), INFO(1350, 70, 88 * 2, 84 * 2 - 20, 88, 84),
+		UI_TYPE::CLASS_ID::EXIT_UI, UI_TYPE::BUTTON::EXIT_BTN);
 }
 
 void HelpScene::Update()

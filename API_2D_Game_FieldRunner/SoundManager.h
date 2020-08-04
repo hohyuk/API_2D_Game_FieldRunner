@@ -2,7 +2,7 @@
 class SoundManager final
 {
 public:
-	enum CHANNELID { LOGO_BGM, BGM, PLAYER, ENEMY, EFFECT, UI, MAXCHANNEL };
+	enum CHANNELID { LOGO_BGM, BGM, BUTTON1, BUTTON2, PLAYER, ENEMY, EFFECT, UI, MAXCHANNEL };
 public:
 	static SoundManager* Get_Instance()
 	{
@@ -23,7 +23,7 @@ public:
 	void Initialize();
 	void Release();
 public:
-	void PlaySound(const TCHAR* pSoundKey, CHANNELID eID);
+	void PlaySound(const CHANNELID& eID);
 	void PlayBGM(const CHANNELID& eID);
 	void StopSound(CHANNELID eID);
 	void StopAll();

@@ -24,8 +24,23 @@ void SoundManager::Release()
 	FMOD_System_Close(m_pSystem);
 }
 
-void SoundManager::PlaySound(const TCHAR * pSoundKey, CHANNELID eID)
+void SoundManager::PlaySound(const CHANNELID & eID)
 {
+	const TCHAR * pSoundKey = SearchSoundKey(eID);
+	map<TCHAR*, FMOD_SOUND*>::iterator iter;
+
+	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)
+		{
+			return !lstrcmp(pSoundKey, iter.first);
+		});
+
+	if (iter == m_mapSound.end())
+		return;
+
+	FMOD_BOOL bPlay = FALSE;
+	
+	FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
+	FMOD_System_Update(m_pSystem);
 }
 
 void SoundManager::PlayBGM(const CHANNELID& eID)
@@ -103,6 +118,10 @@ const TCHAR * SoundManager::SearchSoundKey(const CHANNELID & eID)
 	{
 	case CHANNELID::LOGO_BGM:
 		return TEXT("LogoBgm.mp3");
+	case CHANNELID::BUTTON1:
+		return TEXT("UI_button.wav");
+	case CHANNELID::BUTTON2:
+		return TEXT("UI_button2.wav");
 	default:
 		return nullptr;
 	}

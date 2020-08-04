@@ -5,6 +5,9 @@
 #include "HelpScene.h"
 #include "SelectScene.h"
 #include "EditScene.h"
+#include "GrasslandsScene.h"
+#include "VolcanoScene.h"
+#include "CaveScene.h"
 
 SceneManager* SceneManager::m_pInstance{ nullptr };
 
@@ -30,12 +33,6 @@ void SceneManager::Change_Scene(ID eSceneID)
 		case SceneManager::EDIT:
 			m_pScene = new EditScene;
 			break;
-	/*	case SceneManager::HELP:
-			m_pScene = new HelpScene;
-			break;
-		case SceneManager::SELECT:
-			m_pScene = new SelectScene;
-			break;
 		case SceneManager::STAGE_1:
 			m_pScene = new GrasslandsScene;
 			break;
@@ -45,9 +42,6 @@ void SceneManager::Change_Scene(ID eSceneID)
 		case SceneManager::STAGE_3:
 			m_pScene = new CaveScene;
 			break;
-		case SceneManager::SCORE:
-			m_pScene = new ScoreScene;
-			break;*/
 		default:
 			break;
 		}

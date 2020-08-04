@@ -100,6 +100,15 @@
     <Filter Include="96.Manager\10.FileMgr">
       <UniqueIdentifier>{a0beb844-92d1-4f6c-9531-56cdb9750ea5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Scene\05.Stage\Stage1">
+      <UniqueIdentifier>{1331d847-1c70-479f-9e1d-60673bd144fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scene\05.Stage\Stage2">
+      <UniqueIdentifier>{4270a2bf-3b15-4c45-bc58-3cd2cdcb37fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Scene\05.Stage\Stage3">
+      <UniqueIdentifier>{d64808d6-d6d8-4c0f-9df7-ccd5db275ca9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -228,6 +237,15 @@
     <ClInclude Include="StageScene.h">
       <Filter>01.Scene\05.Stage</Filter>
     </ClInclude>
+    <ClInclude Include="GrasslandsScene.h">
+      <Filter>01.Scene\05.Stage\Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="VolcanoScene.h">
+      <Filter>01.Scene\05.Stage\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="CaveScene.h">
+      <Filter>01.Scene\05.Stage\Stage3</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -332,6 +350,15 @@
     </ClCompile>
     <ClCompile Include="StageScene.cpp">
       <Filter>01.Scene\05.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="GrasslandsScene.cpp">
+      <Filter>01.Scene\05.Stage\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="VolcanoScene.cpp">
+      <Filter>01.Scene\05.Stage\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="CaveScene.cpp">
+      <Filter>01.Scene\05.Stage\Stage3</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

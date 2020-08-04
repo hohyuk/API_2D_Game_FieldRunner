@@ -39,8 +39,7 @@ void Scene::Create_UI(const TCHAR * _key, INFO _info, UI_TYPE::CLASS_ID eID, UI_
 		break;
 	}
 
-	if (UI_TYPE::BUTTON::END_BTN != eBtn)
-		dynamic_cast<ButtonUI*>(pTempObj)->Set_ButtonType(eBtn);
+	dynamic_cast<ButtonUI*>(pTempObj)->Set_ButtonType(eBtn);
 	OBJ_MGR->Add_Object(pTempObj, OBJECT::UI);
 }
 

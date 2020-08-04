@@ -21,6 +21,8 @@
 #define FONT_MGR	FontManager::Get_Instance()
 
 #define SOUND_MGR	SoundManager::Get_Instance()
+#define SOUND_ID	SoundManager::CHANNELID
+
 
 #define FILE_MGR	FileManager::Get_Instance()
 

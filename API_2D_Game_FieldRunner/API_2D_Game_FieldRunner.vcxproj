@@ -157,6 +157,7 @@
     <ClInclude Include="BitMap.h" />
     <ClInclude Include="BmpManager.h" />
     <ClInclude Include="ButtonUI.h" />
+    <ClInclude Include="CaveScene.h" />
     <ClInclude Include="Const.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="EditScene.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GrasslandsScene.h" />
     <ClInclude Include="HelpScene.h" />
     <ClInclude Include="HelpUI.h" />
     <ClInclude Include="InsertBitMap.h" />
@@ -193,6 +195,7 @@
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Tower.h" />
     <ClInclude Include="UserManager.h" />
+    <ClInclude Include="VolcanoScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
@@ -200,12 +203,14 @@
     <ClCompile Include="BitMap.cpp" />
     <ClCompile Include="BmpManager.cpp" />
     <ClCompile Include="ButtonUI.cpp" />
+    <ClCompile Include="CaveScene.cpp" />
     <ClCompile Include="EditScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExitUI.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GrasslandsScene.cpp" />
     <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="HelpUI.cpp" />
     <ClCompile Include="KeyMouseManager.cpp" />
@@ -225,6 +230,7 @@
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Tower.cpp" />
     <ClCompile Include="UserManager.cpp" />
+    <ClCompile Include="VolcanoScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="API_2D_Game_FieldRunner.rc" />
