@@ -10,7 +10,7 @@ typedef struct tag_Node
 class AStar
 {
 public:
-	list<int> Get_BestList() { return m_BestList; }
+	list<int>& Get_BestList() { return m_BestList; }			// 포인터 안쓰고 레퍼런스로 해보기
 public:
 	bool AStarStart(const int& iStartIdx, const int& iGoalIdx);
 

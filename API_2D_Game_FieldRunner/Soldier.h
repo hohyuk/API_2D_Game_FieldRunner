@@ -9,5 +9,8 @@ public:
 public:
 	explicit Soldier();
 	virtual ~Soldier();
+
+protected:
+	virtual void Change_Anim() override;
 };
 

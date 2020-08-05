@@ -17,3 +17,7 @@ HeavySoldier::HeavySoldier()
 HeavySoldier::~HeavySoldier()
 {
 }
+
+void HeavySoldier::Change_Anim()
+{
+}
