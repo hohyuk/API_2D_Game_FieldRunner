@@ -80,7 +80,7 @@ void TowerUI::LateUpdate()
 			}
 			else
 			{
-				//SOUND_MGR->PlaySound(TEXT("invalid.mp3"), SOUND_MGR->UI);
+				SOUND_MGR->PlaySound(SOUND_ID::INVALID);
 			}
 		}
 	}

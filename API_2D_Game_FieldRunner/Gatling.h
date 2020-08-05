@@ -10,5 +10,8 @@ public:
 public:
 	explicit Gatling();
 	virtual ~Gatling();
+
+protected:
+	virtual void UpgradeTower() override;
 };
 

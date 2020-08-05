@@ -14,6 +14,8 @@ void Tower::Ready()
 	MakeRect(m_ClickRangeRect, m_tInfo, 150, 150);
 	MakeRect(m_SellRect, m_tInfo.fX - 100, m_tInfo.fY, 50, 50);
 	MakeRect(m_UpgradeRect, m_tInfo.fX + 100, m_tInfo.fY, 50, 50);
+
+	UpgradeTower();
 }
 
 int Tower::Update()
@@ -22,6 +24,7 @@ int Tower::Update()
 	Click_Tower(pt);
 	UnClick_Tower(pt);
 	
+	Click_Upgrage(pt);
 	if(Click_Sell(pt)) return OBJ_DEAD;
 	return OBJ_NOEVENT;
 }
@@ -34,14 +37,26 @@ void Tower::Render(const HDC & hDC)
 {
 	Actor::Render(hDC);
 	Render_Debug(hDC, m_tRect, Rectangle);
-	Render_Debug(hDC, m_ClickRangeRect, Ellipse, RGB(255, 0, 0));
+	
 	// Click - Sell, Upgrade
 	if (isClick)
 	{
+		Render_Debug(hDC, m_ClickRangeRect, Ellipse, RGB(255, 0, 0));
+
 		Render_Debug(hDC, m_SellRect, Ellipse, RGB(255, 0, 0));
 		Render_TowerUI(hDC, TEXT("Sell"), m_SellRect.left - 5, m_SellRect.top - 5, 133, 117);
+		TCHAR m_Tmp[128];
+
+		_stprintf_s(m_Tmp, 128, TEXT("$ %d"), m_iPriceArr[PRICE::SELL]);
+		FONT_MGR->FontDraw(hDC, m_Tmp, m_SellRect.right - 50, m_SellRect.bottom - 30, BLACK_COLOR, TEXT("°íµñ"), 30, FW_BOLD);
+
+	
+		if (m_Level == MAX_TOWER_LEVEL) return;
 		Render_Debug(hDC, m_UpgradeRect, Ellipse, RGB(255, 0, 0));
-		Render_TowerUI(hDC, TEXT("Upgrade"), m_UpgradeRect.left - 5, m_UpgradeRect.top - 5, 120, 117);
+		Render_TowerUI(hDC, TEXT("Upgrade"), m_UpgradeRect.left - 5, m_UpgradeRect.top - 5, 120, 117, m_UpgradePossibe);
+
+		_stprintf_s(m_Tmp, 128, TEXT("$ %d"), m_iPriceArr[PRICE::UPGRADE]);
+		FONT_MGR->FontDraw(hDC, m_Tmp, m_UpgradeRect.right - 45, m_UpgradeRect.bottom - 30, BLACK_COLOR, TEXT("°íµñ"), 30, FW_BOLD);
 	}
 }
 
@@ -75,6 +90,24 @@ void Tower::UnClick_Tower(const POINT & pt)
 
 void Tower::Click_Upgrage(const POINT & pt)
 {
+	if (m_Level == MAX_TOWER_LEVEL) return;
+
+	if (USER_MGR->Get_Gold() < m_iPriceArr[PRICE::UPGRADE])
+	{
+		m_UpgradePossibe = 0;
+		return;
+	}
+
+	m_UpgradePossibe = 1;
+	if (IsPointInCircle(pt, m_UpgradeRect) && isClick)
+	{
+		if (KEY_MGR->Key_DOWN(VK_LBUTTON))
+		{
+			USER_MGR->Set_Buy(m_iPriceArr[PRICE::UPGRADE]);
+			UpgradeTower();
+			SOUND_MGR->PlaySound(SOUND_ID::UPGRADE);
+		}
+	}
 }
 
 bool Tower::Click_Sell(const POINT & pt)
@@ -85,9 +118,8 @@ bool Tower::Click_Sell(const POINT & pt)
 		{
 			isTowerClick = false;
 			TILE_MGR->Remove_TowerIndex(m_iIndex);
-			/*USER_MGR->Set_Sell(m_iSellPrice);
-			
-			SOUND_MGR->PlaySound(TEXT("tower_sell.mp3"), SOUND_MGR->UI);*/
+			USER_MGR->Set_Sell(m_iPriceArr[PRICE::SELL]);
+			SOUND_MGR->PlaySound(SOUND_ID::SELL);
 			return true;
 		}
 	}

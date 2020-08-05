@@ -126,6 +126,8 @@ const TCHAR * SoundManager::SearchSoundKey(const CHANNELID & eID)
 		return TEXT("invalid.mp3");
 	case CHANNELID::UPGRADE:
 		return TEXT("tower_upgrade.mp3");
+	case CHANNELID::SELL:
+		return TEXT("tower_sell.mp3");
 	default:
 		return nullptr;
 	}

@@ -2,7 +2,7 @@
 class SoundManager final
 {
 public:
-	enum CHANNELID { LOGO_BGM, BGM, BUTTON1, BUTTON2, INVALID, UPGRADE, PLAYER, ENEMY, EFFECT, UI, MAXCHANNEL };
+	enum CHANNELID { LOGO_BGM, BGM, BUTTON1, BUTTON2, INVALID, SELL, UPGRADE, PLAYER, ENEMY, EFFECT, UI, MAXCHANNEL };
 public:
 	static SoundManager* Get_Instance()
 	{

@@ -5,11 +5,13 @@ class Mortar :
 {
 public:
 	virtual void Ready() override;
-	virtual int Update() override;
 	virtual void LateUpdate() override;
 	virtual void Release() override;
 public:
 	explicit Mortar();
 	virtual ~Mortar();
+
+protected:
+	virtual void UpgradeTower() override;
 };
 

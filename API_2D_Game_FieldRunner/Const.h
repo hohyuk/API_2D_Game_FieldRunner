@@ -30,7 +30,8 @@ constexpr int TILEY{ 11 };
 
 // Tower Size
 constexpr int TOWER_SIZE{ 200 };
-
+// Tower Max Level
+constexpr int MAX_TOWER_LEVEL{ 3 };
 // АЁАн
 constexpr int GatlingPrice{ 5 };
 constexpr int FlamePrice{ 10 };

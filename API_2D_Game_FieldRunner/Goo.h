@@ -10,5 +10,8 @@ public:
 public:
 	explicit Goo();
 	virtual ~Goo();
+
+protected:
+	virtual void UpgradeTower() override;
 };
 

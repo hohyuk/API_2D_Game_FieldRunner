@@ -14,7 +14,7 @@ void StageScene::Ready()
 	Create_UI(TEXT("Flame"), INFO(1150, 900, 133, 117), UI_TYPE::CLASS_ID::TOWER_UI, UI_TYPE::BUTTON::FLAME_BTN);
 	Create_UI(TEXT("Mortar"), INFO(1300, 900, 133, 117), UI_TYPE::CLASS_ID::TOWER_UI, UI_TYPE::BUTTON::MORTAR_BTN);
 
-	USER_MGR->ReSet();
+	USER_MGR->ReSet(100);
 	TILE_MGR->Ready();
 }
 

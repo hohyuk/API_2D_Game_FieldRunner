@@ -11,6 +11,9 @@ public:
 	virtual void LateUpdate() override;
 	virtual void Render(const HDC & hDC) override;
 	virtual void Release() override;
+
+protected:
+	virtual void UpgradeTower() = 0;
 protected:
 	void Set_Pivot(float x, float y) { m_tInfo.fX += x, m_tInfo.fY += y; }
 	void Click_Tower(const POINT& pt);
@@ -26,10 +29,19 @@ public:
 	virtual ~Tower();
 
 protected:
+	enum PRICE { CURRENT, SELL, UPGRADE, END };
+protected:
 	static bool isTowerClick;			// 타워들중 하나만 판별하기위해 static사용
 	int m_iIndex;						// 설치된 타워 인덱스 번호(위치)
+	int m_UpgradePossibe;				// 업글
+	int m_Level{};
+	int m_iAttack;
+	int m_LevelMotion{};				// 레벨에 맞는 이미지
+	int m_iAttackRange;
+	int m_iPriceArr[PRICE::END]{};
 	RECT m_SellRect;
 	RECT m_UpgradeRect;
 	RECT m_ClickRangeRect;
+	RECT m_AttackRangeRect;
 };
 

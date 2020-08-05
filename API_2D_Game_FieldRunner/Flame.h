@@ -10,5 +10,8 @@ public:
 public:
 	explicit Flame();
 	virtual ~Flame();
+
+protected:
+	virtual void UpgradeTower() override;
 };
 
