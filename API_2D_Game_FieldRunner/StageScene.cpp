@@ -4,6 +4,7 @@
 #include "TileManager.h"
 void StageScene::Ready()
 {
+	SOUND_MGR->StopAll();
 	Create_UI(TEXT("Start_Stop"), INFO(100, 900, 128, 128), UI_TYPE::CLASS_ID::OPTION_UI, UI_TYPE::BUTTON::START_BTN);
 	Create_UI(TEXT("FastForward"), INFO(275, 900, 128, 128), UI_TYPE::CLASS_ID::OPTION_UI, UI_TYPE::BUTTON::FAST_BTN);
 	Create_UI(TEXT("Option"), INFO(450, 900, 128, 128), UI_TYPE::CLASS_ID::OPTION_UI, UI_TYPE::BUTTON::EXIT_BTN);
@@ -48,7 +49,7 @@ void StageScene::Render(const HDC & hDC)
 
 	
 	rc = RECT{ (WINCX>>1) - 100,0,(WINCX >> 1) + 100,100 };
-	_stprintf_s(m_Tmp, 128, TEXT("SCORE %d"), 100);
+	_stprintf_s(m_Tmp, 128, TEXT("SCORE %d"), USER_MGR->Get_Score());
 	FONT_MGR->FontDraw(hDC, m_Tmp, rc, RGB(240, 110, 1), TEXT("Arial Rounded MT Bold"), 50, FW_MEDIUM);
 }
 
@@ -56,6 +57,11 @@ void StageScene::Release()
 {
 	TileManager::Destroy_Instance();
 	OBJ_MGR->Delete_Object(OBJECT::UI);
+	OBJ_MGR->Delete_Object(OBJECT::ENEMY);
+	OBJ_MGR->Delete_Object(OBJECT::OVERHANG);
+	OBJ_MGR->Delete_Object(OBJECT::PLAYER);
+	OBJ_MGR->Delete_Object(OBJECT::BULLET);
+	SOUND_MGR->StopAll();
 }
 
 StageScene::StageScene()

@@ -12,7 +12,9 @@ public:
 	int Get_Gold()const { return m_iGold; }
 	void Set_Buy(int price) { m_iGold -= price; }
 	void Set_Sell(int price) { m_iGold += price; }
-
+	// ½ºÄÚ¾î
+	void Set_Score(int _score) { m_iScore += _score; }
+	int Get_Score()const { return m_iScore; }
 public:
 	static UserManager*  Get_Instance()
 	{

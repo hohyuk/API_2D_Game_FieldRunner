@@ -124,6 +124,15 @@
     <Filter Include="02.GameObject\01.Actor\01.Tower\04.Mortar">
       <UniqueIdentifier>{0ee7788a-0fa9-4feb-a359-ac9287d52107}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\01.Actor\02.Enemy\01.Soldier">
+      <UniqueIdentifier>{1c8cb036-2a92-47de-a152-dc1d269fdde7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\02.Enemy\02.HeavySoldier">
+      <UniqueIdentifier>{35d7b1e1-5b32-4c13-b6c1-5d811c6cccb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="94.AStar">
+      <UniqueIdentifier>{353adbd8-808e-426d-9b25-193f8805790a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -276,6 +285,15 @@
     <ClInclude Include="Flame.h">
       <Filter>02.GameObject\01.Actor\01.Tower\03.Flame</Filter>
     </ClInclude>
+    <ClInclude Include="Soldier.h">
+      <Filter>02.GameObject\01.Actor\02.Enemy\01.Soldier</Filter>
+    </ClInclude>
+    <ClInclude Include="HeavySoldier.h">
+      <Filter>02.GameObject\01.Actor\02.Enemy\02.HeavySoldier</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>94.AStar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -404,6 +422,15 @@
     </ClCompile>
     <ClCompile Include="Flame.cpp">
       <Filter>02.GameObject\01.Actor\01.Tower\03.Flame</Filter>
+    </ClCompile>
+    <ClCompile Include="Soldier.cpp">
+      <Filter>02.GameObject\01.Actor\02.Enemy\01.Soldier</Filter>
+    </ClCompile>
+    <ClCompile Include="HeavySoldier.cpp">
+      <Filter>02.GameObject\01.Actor\02.Enemy\02.HeavySoldier</Filter>
+    </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>94.AStar</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -154,6 +154,7 @@
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="Actor.h" />
     <ClInclude Include="API_2D_Game_FieldRunner.h" />
+    <ClInclude Include="AStar.h" />
     <ClInclude Include="BitMap.h" />
     <ClInclude Include="BmpManager.h" />
     <ClInclude Include="ButtonUI.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Gatling.h" />
     <ClInclude Include="Goo.h" />
     <ClInclude Include="GrasslandsScene.h" />
+    <ClInclude Include="HeavySoldier.h" />
     <ClInclude Include="HelpScene.h" />
     <ClInclude Include="HelpUI.h" />
     <ClInclude Include="InsertBitMap.h" />
@@ -189,6 +191,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="SelectUI.h" />
+    <ClInclude Include="Soldier.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="Struct.h" />
@@ -205,6 +208,7 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="API_2D_Game_FieldRunner.cpp" />
+    <ClCompile Include="AStar.cpp" />
     <ClCompile Include="BitMap.cpp" />
     <ClCompile Include="BmpManager.cpp" />
     <ClCompile Include="ButtonUI.cpp" />
@@ -219,6 +223,7 @@
     <ClCompile Include="Gatling.cpp" />
     <ClCompile Include="Goo.cpp" />
     <ClCompile Include="GrasslandsScene.cpp" />
+    <ClCompile Include="HeavySoldier.cpp" />
     <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="HelpUI.cpp" />
     <ClCompile Include="KeyMouseManager.cpp" />
@@ -232,6 +237,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="SelectUI.cpp" />
+    <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="Tile.cpp" />

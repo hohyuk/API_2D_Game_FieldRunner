@@ -46,6 +46,13 @@ inline bool IsPointInRect(const POINT& p, const RECT& rc)
 	return false;
 }
 
+inline float Distance(const float& _px, const float& _py, const float& _distx, const float& _disty)
+{
+	float w = _distx - _px;
+	float h = _disty - _py;
+	return sqrtf((w*w) + (h*h));
+}
+
 inline float Distance(const int& _px, const int& _py, const int& _distx, const int& _disty)
 {
 	float w = static_cast<float>(_distx - _px);

@@ -17,10 +17,13 @@ void Gatling::Release()
 
 Gatling::Gatling()
 {
+	cout << "Gatling Create" << endl;
 }
 
 Gatling::~Gatling()
 {
+	Release();
+	cout << "Gatling Release" << endl;
 }
 
 void Gatling::UpgradeTower()
