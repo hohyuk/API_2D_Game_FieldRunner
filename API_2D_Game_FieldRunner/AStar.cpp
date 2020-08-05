@@ -12,7 +12,6 @@ bool AStar::AStarStart(const int & iStartIdx, const int & iGoalIdx)
 	// 타일 정보 가져오기
 	vector<GameObject*> pVecTile = TILE_MGR->Get_Tile();
 
-	// 목표인덱스 DrawID가 1이면 리턴
 	if (dynamic_cast<Tile*>(pVecTile[iGoalIdx])->Get_TileType() != OBJECT::TILE_TYPE::ARRIVAL_POINT)
 		return false;
 
@@ -152,8 +151,12 @@ NODE * AStar::MakeNode(int _index, NODE * pParent)
 
 bool AStar::IsCommon(const int & _index)
 {
+	if (_index == m_iGoalIdx)
+		return true;
+
 	if (dynamic_cast<Tile*>(TILE_MGR->Get_Tile()[_index])->Get_TileType() == OBJECT::TILE_TYPE::NONE && CheckList(_index))
 		return true;
+
 	return false;
 }
 

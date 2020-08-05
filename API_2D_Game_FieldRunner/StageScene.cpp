@@ -2,6 +2,9 @@
 #include "StageScene.h"
 
 #include "TileManager.h"
+#include "Soldier.h"
+#include "HeavySoldier.h"
+
 void StageScene::Ready()
 {
 	SOUND_MGR->StopAll();
@@ -27,6 +30,8 @@ void StageScene::Update()
 void StageScene::LateUpdate()
 {
 	OBJ_MGR->LateUpdate();
+
+	Create_Enemy_KeyDonw();
 }
 
 void StageScene::Render(const HDC & hDC)
@@ -83,4 +88,45 @@ void StageScene::Fixed_UI(const HDC & hDC, const TCHAR * _pKey, int x, int y, in
 {
 	HDC hMemDC = BMP_MGR->Find_Image(_pKey);
 	GdiTransparentBlt(hDC, x, y, cx, cy, hMemDC, 0, 0, wSrc, hSrc, RGB(255, 0, 255));
+}
+
+void StageScene::Create_Enemy(ENEMY_ID _eID)
+{
+	GameObject* pTempObj = nullptr;
+
+	switch (_eID)
+	{
+	case StageScene::SOLDIER:
+		pTempObj = AbstractFactory<Soldier>::Create(TEXT("Soldier"), ENEMY_POSX, ENEMY_POSY);
+		break;
+	case StageScene::HEAVY:
+		pTempObj = AbstractFactory<HeavySoldier>::Create(TEXT("HeavySoldier"), ENEMY_POSX, ENEMY_POSY);
+		break;
+	case StageScene::BIKE:
+		break;
+	case StageScene::ROBOT:
+		break;
+	case StageScene::BLIMP:
+		break;
+	case StageScene::TRAIN:
+		break;
+	case StageScene::END:
+		break;
+	default:
+		break;
+	}
+
+	OBJ_MGR->Add_Object(pTempObj, OBJECT::ENEMY);
+}
+
+void StageScene::Create_Enemy_KeyDonw()
+{
+	if (KEY_MGR->Key_DOWN('1'))
+		Create_Enemy(SOLDIER);
+	if (KEY_MGR->Key_DOWN('2'))
+		Create_Enemy(HEAVY);
+}
+
+void StageScene::Spawn_Enemy()
+{
 }

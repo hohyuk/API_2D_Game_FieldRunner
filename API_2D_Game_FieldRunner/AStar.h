@@ -10,7 +10,7 @@ typedef struct tag_Node
 class AStar
 {
 public:
-	list<int>* Get_BestList() { return &m_BestList; }
+	list<int> Get_BestList() { return m_BestList; }
 public:
 	bool AStarStart(const int& iStartIdx, const int& iGoalIdx);
 

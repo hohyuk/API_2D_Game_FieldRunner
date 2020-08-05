@@ -1,5 +1,10 @@
 #pragma once
 #include "Scene.h"
+
+// Enemy 시작 위치
+const float ENEMY_POSX{ -100.f };
+const float ENEMY_POSY{ 300.f };
+
 class StageScene :
 	public Scene
 {
@@ -16,7 +21,13 @@ public:
 	virtual~StageScene();
 
 protected:
+	enum ENEMY_ID { SOLDIER, HEAVY, BIKE, ROBOT, BLIMP, TRAIN, END };
+protected:
 	void Fixed_UI(const HDC & hDC, const TCHAR * _pKey, int x, int y, int cx, int cy);
 	void Fixed_UI(const HDC& hDC, const TCHAR * _pKey, int x, int y, int cx, int cy, int wSrc, int hSrc);
+
+	void Create_Enemy(ENEMY_ID _eID);
+	void Create_Enemy_KeyDonw();
+	void Spawn_Enemy();
 };
 

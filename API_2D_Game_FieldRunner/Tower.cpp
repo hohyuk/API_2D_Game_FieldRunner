@@ -36,7 +36,6 @@ void Tower::LateUpdate()
 void Tower::Render(const HDC & hDC)
 {
 	Actor::Render(hDC);
-	Render_Debug(hDC, m_tRect, Rectangle);
 	
 	// Click - Sell, Upgrade
 	if (isClick)

@@ -4,6 +4,10 @@
 #include "TileManager.h"
 #include "Tile.h"
 
+// AStar에 필요한 위치
+int g_StartPoint{};
+int g_ArrivalPoint{};
+
 FileManager* FileManager::m_pInstance{ nullptr };
 void FileManager::SaveData(ID eID)
 {
@@ -54,6 +58,12 @@ void FileManager::Load_Data(ID eID)
 			break;
 
 		dynamic_cast<Tile*>(TILE_MGR->Get_Tile()[index])->Set_TileType(type);
+		if (OBJECT::TILE_TYPE::START_POINT == type)
+			g_StartPoint = index;
+		else if (OBJECT::TILE_TYPE::ARRIVAL_POINT == type)
+			g_ArrivalPoint = index;
+
+		cout << index << endl;
 	}
 
 	CloseHandle(hFile);

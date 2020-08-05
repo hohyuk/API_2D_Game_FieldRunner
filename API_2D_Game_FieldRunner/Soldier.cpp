@@ -3,6 +3,7 @@
 
 void Soldier::Ready()
 {
+	Enemy::Ready();
 }
 
 int Soldier::Update()
