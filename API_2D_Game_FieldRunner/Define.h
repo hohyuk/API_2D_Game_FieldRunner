@@ -27,4 +27,5 @@
 #define FILE_MGR	FileManager::Get_Instance()
 
 #define USER_MGR	UserManager::Get_Instance()
+#define USER_GOLD	UserManager::Get_Instance()->Get_Gold()
 #define USER_ID		UserManager::ID

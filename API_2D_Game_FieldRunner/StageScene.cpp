@@ -14,6 +14,7 @@ void StageScene::Ready()
 	Create_UI(TEXT("Flame"), INFO(1150, 900, 133, 117), UI_TYPE::CLASS_ID::TOWER_UI, UI_TYPE::BUTTON::FLAME_BTN);
 	Create_UI(TEXT("Mortar"), INFO(1300, 900, 133, 117), UI_TYPE::CLASS_ID::TOWER_UI, UI_TYPE::BUTTON::MORTAR_BTN);
 
+	USER_MGR->ReSet();
 	TILE_MGR->Ready();
 }
 
@@ -36,6 +37,18 @@ void StageScene::Render(const HDC & hDC)
 	OBJ_MGR->Render(hDC);
 
 	Fixed_UI(hDC, TEXT("Money"), 30, 10, 71, 79);
+
+
+	// Font
+	TCHAR m_Tmp[128];
+	RECT rc = RECT{ 100,0,200,100 };
+	_stprintf_s(m_Tmp, 128, TEXT("%d"), USER_GOLD);
+	FONT_MGR->FontDraw(hDC, m_Tmp, rc, RGB(240, 110, 1), TEXT("Arial Rounded MT Bold"), 70, FW_HEAVY);
+
+	
+	rc = RECT{ (WINCX>>1) - 100,0,(WINCX >> 1) + 100,100 };
+	_stprintf_s(m_Tmp, 128, TEXT("SCORE %d"), 100);
+	FONT_MGR->FontDraw(hDC, m_Tmp, rc, RGB(240, 110, 1), TEXT("Arial Rounded MT Bold"), 50, FW_MEDIUM);
 }
 
 void StageScene::Release()

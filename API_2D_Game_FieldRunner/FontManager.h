@@ -19,7 +19,7 @@ public:
 	}
 
 public:
-	//void FontDraw(const HDC& hDC, const TCHAR* _string, RECT _rc, DWORD _color, LPCWSTR pszFaceName, int _cHeight, int _fontWeight);
+	void FontDraw(const HDC& hDC, const TCHAR* _szOut, RECT _rc, DWORD _color, LPCWSTR pszFaceName, int _cHeight, int _fontWeight);
 private:
 	explicit FontManager();
 	~FontManager();
@@ -28,6 +28,5 @@ private:
 
 private:
 	HFONT m_hFont, m_oldFont;
-	TCHAR m_Tmp[128];
 };
 

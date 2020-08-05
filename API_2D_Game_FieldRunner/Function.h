@@ -24,6 +24,14 @@ static void MakeRect(RECT& rc, const INFO& info, float _fCX, float _fCY)
 	rc.bottom = LONG(info.fY + _fCY);
 }
 
+static void MakeRect(RECT& rc, float _fX, float _fY, float _fCX, float _fCY)
+{
+	rc.left = LONG(_fX - _fCX);
+	rc.top = LONG(_fY - _fCY);
+	rc.right = LONG(_fX + _fCX);
+	rc.bottom = LONG(_fY + _fCY);
+}
+
 inline bool Compare_Key(const TCHAR* _FramKey, const TCHAR* _CmpKey)
 {
 	if (!_tcscmp(_FramKey, _CmpKey))

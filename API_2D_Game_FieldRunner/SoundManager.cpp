@@ -124,6 +124,8 @@ const TCHAR * SoundManager::SearchSoundKey(const CHANNELID & eID)
 		return TEXT("UI_button2.wav");
 	case CHANNELID::INVALID:
 		return TEXT("invalid.mp3");
+	case CHANNELID::UPGRADE:
+		return TEXT("tower_upgrade.mp3");
 	default:
 		return nullptr;
 	}
