@@ -10,6 +10,9 @@ public:
 	RECT Get_Rect()const { return m_tRect; }
 	float Get_PosX()const { return m_tInfo.fX; }
 	float Get_PosY()const { return m_tInfo.fY; }
+
+	OBJECT::RENDER Get_RenderID()const { return m_eRenderID; }
+
 public:
 	virtual void Ready() = 0;
 	virtual int	 Update() = 0;
@@ -31,5 +34,7 @@ protected:
 	FRAME m_tFrame;
 	RECT m_tRect;
 	RECT m_tColliderRC;
+
+	OBJECT::RENDER m_eRenderID;
 };
 

@@ -73,6 +73,7 @@ void Tower::Click_Tower(const POINT & pt)
 	{
 		if (KEY_MGR->Key_DOWN(VK_LBUTTON))
 		{
+			m_eRenderID = OBJECT::RENDER::CLICK_TOWER;
 			isClick = true;
 			isTowerClick = true;
 		}
@@ -83,6 +84,7 @@ void Tower::UnClick_Tower(const POINT & pt)
 {
 	if (!IsPointInCircle(pt, m_ClickRangeRect) && isClick)
 	{
+		m_eRenderID = OBJECT::RENDER::GROUND_OBJECT_RENDER;
 		isClick = false;
 		isTowerClick = false;
 	}
@@ -140,6 +142,7 @@ void Tower::Render_TowerUI(const HDC & hDC, const TCHAR * _pKey, int x, int y, i
 
 Tower::Tower()
 {
+	m_eRenderID = OBJECT::RENDER::GROUND_OBJECT_RENDER;
 }
 
 

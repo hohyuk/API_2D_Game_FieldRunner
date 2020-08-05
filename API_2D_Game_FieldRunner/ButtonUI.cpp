@@ -55,6 +55,7 @@ void ButtonUI::Release()
 
 ButtonUI::ButtonUI()
 {
+	m_eRenderID = OBJECT::RENDER::UI_RENDER;
 }
 
 ButtonUI::~ButtonUI()
