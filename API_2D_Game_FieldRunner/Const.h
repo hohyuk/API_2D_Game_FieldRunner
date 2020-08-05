@@ -6,6 +6,10 @@
 constexpr int WINCX{ 1440 };
 constexpr int WINCY{ 960 };
 
+/*GameObject Update Event*/
+constexpr int OBJ_NOEVENT{ 0 };
+constexpr int OBJ_DEAD{ 1 };
+
 constexpr DWORD PINK_COLOR{ RGB(255,0,255) };
 constexpr DWORD BLACK_COLOR{ RGB(0,0,0) };
 

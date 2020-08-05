@@ -13,6 +13,9 @@ public:
 public:
 	explicit TowerUI();
 	virtual ~TowerUI();
+
+private:
+	bool Buy_Tower();
 private:
 	const TCHAR* m_pTowerKey;
 	INFO m_tTowerInfo;

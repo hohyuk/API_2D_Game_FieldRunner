@@ -8,11 +8,6 @@ void Flame::Ready()
 
 }
 
-int Flame::Update()
-{
-	return 0;
-}
-
 void Flame::LateUpdate()
 {
 }

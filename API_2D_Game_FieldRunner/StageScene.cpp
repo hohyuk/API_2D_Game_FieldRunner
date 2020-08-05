@@ -20,6 +20,7 @@ void StageScene::Ready()
 
 void StageScene::Update()
 {
+	OBJ_MGR->Update();
 }
 
 void StageScene::LateUpdate()

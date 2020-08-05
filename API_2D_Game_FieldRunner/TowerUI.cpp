@@ -43,6 +43,8 @@ void TowerUI::Ready()
 
 void TowerUI::LateUpdate()
 {
+	if (!Buy_Tower()) return;
+
 	POINT pt = KEY_MGR->Mouse_Point();
 
 	if (IsPointInCircle(pt, m_tColliderRC))
@@ -69,15 +71,11 @@ void TowerUI::LateUpdate()
 		{
 			isClick = false;
 			if (m_Color == RGB(255, 0, 0))
-			{
 				SOUND_MGR->PlaySound(SOUND_ID::INVALID);
-				return;
-			}
-
-			// 여기서 플레이어 생성하자, true이면 돈계산하기
-			if (TILE_MGR->Create_Tower(KEY_MGR->Mouse_Point(), m_tBtn, m_pTowerKey))
+			else if (TILE_MGR->Create_Tower(KEY_MGR->Mouse_Point(), m_tBtn, m_pTowerKey))
 			{
-				//USER_MGR->Set_Buy(m_iPrice);
+				// 여기서 플레이어 생성하자, true이면 돈계산하기
+				USER_MGR->Set_Buy(m_iPrice);
 				SOUND_MGR->PlaySound(SOUND_ID::UPGRADE);
 			}
 			else
@@ -92,14 +90,13 @@ void TowerUI::Render(const HDC & hDC)
 {
 	ButtonUI::Render(hDC);
 
-	ButtonUI::Render_Debug(hDC, m_tRect, Rectangle);
-	ButtonUI::Render_Debug(hDC, m_tColliderRC, Ellipse, RGB(255, 0, 0));
+	GameObject::Render_Debug(hDC, m_tRect, Rectangle);
+	GameObject::Render_Debug(hDC, m_tColliderRC, Ellipse, RGB(255, 0, 0));
 
-	// Font
+	// 가격 Font
 	TCHAR m_Tmp[128];
 	_stprintf_s(m_Tmp, 128, TEXT("$ %d"), m_iPrice);
 	FONT_MGR->FontDraw(hDC, m_Tmp, m_tFontRect, BLACK_COLOR, TEXT("고딕"), 30, FW_BOLD);
-
 
 	if (isClick)
 	{
@@ -121,4 +118,16 @@ TowerUI::TowerUI()
 
 TowerUI::~TowerUI()
 {
+}
+
+bool TowerUI::Buy_Tower()
+{
+	if (USER_GOLD >= m_iPrice)
+	{
+		m_tFrame.iStart = 1;
+		return true;
+	}
+	
+	m_tFrame.iStart = 0;
+	return false;
 }

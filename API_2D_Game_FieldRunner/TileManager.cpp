@@ -50,7 +50,8 @@ bool TileManager::Create_Tower(const POINT & pt, UI_TYPE::BUTTON _type, const TC
 		cout << "Create_Tower() Faild" << endl;
 		return false;
 	}
-
+	pTempObj->Set_ColliderRect(m_vecTile[index]->Get_Rect());
+	dynamic_cast<Tower*>(pTempObj)->Set_Index(index);
 	OBJ_MGR->Add_Object(pTempObj, OBJECT::PLAYER);
 
 	system("cls");
@@ -68,6 +69,14 @@ bool TileManager::IsBuild(const POINT & pt)
 	if (OBJECT::TILE_TYPE::NONE == dynamic_cast<Tile*>(m_vecTile[index])->Get_TileType())
 		return true;
 	return false;
+}
+
+void TileManager::Remove_TowerIndex(int _index)
+{
+	if (0 > _index || static_cast<int>(m_vecTile.size()) <= _index)
+		return;
+
+	dynamic_cast<Tile*>(m_vecTile[_index])->Set_TileType(OBJECT::TILE_TYPE::NONE);
 }
 
 void TileManager::Ready()

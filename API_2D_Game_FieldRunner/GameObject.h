@@ -6,6 +6,8 @@ public:
 	void Set_FrameKey(const TCHAR* pFrameKey) { m_pFrameKey = pFrameKey; }
 	void Set_Pos(float fX, float fY) { m_tInfo.fX = fX, m_tInfo.fY = fY; }
 	void Set_Info(INFO& _info) { m_tInfo = _info; }
+	void Set_ColliderRect(const RECT& rc) { m_tColliderRC = rc; }
+	RECT Get_Rect()const { return m_tRect; }
 	float Get_PosX()const { return m_tInfo.fX; }
 	float Get_PosY()const { return m_tInfo.fY; }
 public:

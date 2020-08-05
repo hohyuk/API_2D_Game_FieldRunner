@@ -18,6 +18,20 @@ void ObjectManager::Delete_Object(OBJECT::ID eID)
 
 void ObjectManager::Update()
 {
+	for (int i = 0; i < OBJECT::END_ID; ++i)
+	{
+		for (list<GameObject*>::iterator iter = m_listObject[i].begin(); iter != m_listObject[i].end();)
+		{
+			int iEvent = (*iter)->Update();
+			if (OBJ_DEAD == iEvent)
+			{
+				Safe_Delete(*iter);
+				iter = m_listObject[i].erase(iter);
+			}
+			else
+				++iter;
+		}
+	}
 }
 
 void ObjectManager::LateUpdate()

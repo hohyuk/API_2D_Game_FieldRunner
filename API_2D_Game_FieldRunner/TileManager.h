@@ -7,6 +7,8 @@ public:
 	void Change_TileType(const POINT& pt, OBJECT::TILE_TYPE _eID);
 	bool Create_Tower(const POINT& pt, UI_TYPE::BUTTON _type, const TCHAR* _pKey);
 	bool IsBuild(const POINT& pt);
+	void Remove_TowerIndex(int _index);
+
 public:
 	static TileManager* Get_Instance()
 	{

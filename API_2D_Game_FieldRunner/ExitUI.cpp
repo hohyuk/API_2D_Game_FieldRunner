@@ -13,8 +13,8 @@ void ExitUI::Ready()
 
 void ExitUI::Render(const HDC & hDC)
 {
-	ButtonUI::Render_Debug(hDC, m_tRect, Rectangle);
-	ButtonUI::Render_Debug(hDC, m_tColliderRC, Rectangle, RGB(255, 0, 0));
+	GameObject::Render_Debug(hDC, m_tRect, Rectangle);
+	GameObject::Render_Debug(hDC, m_tColliderRC, Rectangle, RGB(255, 0, 0));
 
 	if (!isShowUI) return;
 	ButtonUI::Render(hDC);

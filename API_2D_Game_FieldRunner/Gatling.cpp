@@ -7,11 +7,6 @@ void Gatling::Ready()
 	Tower::Ready();
 }
 
-int Gatling::Update()
-{
-	return 0;
-}
-
 void Gatling::LateUpdate()
 {
 }

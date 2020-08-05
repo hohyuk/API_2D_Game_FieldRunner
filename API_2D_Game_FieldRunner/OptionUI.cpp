@@ -34,8 +34,8 @@ void OptionUI::LateUpdate()
 
 void OptionUI::Render(const HDC & hDC)
 {
-	ButtonUI::Render_Debug(hDC, m_tRect, Rectangle);
-	ButtonUI::Render_Debug(hDC, m_tColliderRC, Ellipse, RGB(255, 0, 0));
+	GameObject::Render_Debug(hDC, m_tRect, Rectangle);
+	GameObject::Render_Debug(hDC, m_tColliderRC, Ellipse, RGB(255, 0, 0));
 
 	ButtonUI::Render(hDC);
 }

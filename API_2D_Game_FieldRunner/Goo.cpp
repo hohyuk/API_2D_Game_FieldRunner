@@ -8,11 +8,6 @@ void Goo::Ready()
 
 }
 
-int Goo::Update()
-{
-	return 0;
-}
-
 void Goo::LateUpdate()
 {
 }
