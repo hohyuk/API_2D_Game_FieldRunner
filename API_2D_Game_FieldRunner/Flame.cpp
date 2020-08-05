@@ -3,6 +3,9 @@
 
 void Flame::Ready()
 {
+	Tower::Set_Pivot(0.f, -20.f);
+	Tower::Ready();
+
 }
 
 int Flame::Update()

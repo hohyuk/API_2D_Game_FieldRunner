@@ -32,27 +32,28 @@ bool TileManager::Create_Tower(const POINT & pt, UI_TYPE::BUTTON _type, const TC
 
 	// Tower
 	GameObject* pTempObj = nullptr;
-	/*switch (_type)
+	switch (_type)
 	{
-	case OBJECT::GATLING:
+	case UI_TYPE::BUTTON::GATLING_BTN:
 		pTempObj = AbstractFactory<Gatling>::Create(_pKey, m_vecTile[index]->Get_PosX(), m_vecTile[index]->Get_PosY());
 		break;
-	case OBJECT::GOO:
+	case UI_TYPE::BUTTON::GOO_BTN:
 		pTempObj = AbstractFactory<Goo>::Create(_pKey, m_vecTile[index]->Get_PosX(), m_vecTile[index]->Get_PosY());
 		break;
-	case OBJECT::FLAME:
+	case UI_TYPE::BUTTON::FLAME_BTN:
 		pTempObj = AbstractFactory<Flame>::Create(_pKey, m_vecTile[index]->Get_PosX(), m_vecTile[index]->Get_PosY());
 		break;
-	case OBJECT::MORTAR:
+	case UI_TYPE::BUTTON::MORTAR_BTN:
 		pTempObj = AbstractFactory<Mortar>::Create(_pKey, m_vecTile[index]->Get_PosX(), m_vecTile[index]->Get_PosY());
 		break;
-	case OBJECT::END_TOWER:
-		break;
 	default:
-		break;
+		cout << "Create_Tower() Faild" << endl;
+		return false;
 	}
 
-	OBJ_MGR->Add_Object(pTempObj, OBJECT::PLAYER);*/
+	OBJ_MGR->Add_Object(pTempObj, OBJECT::PLAYER);
+
+	system("cls");
 	cout << "Index : " << index << endl;
 	Console_TileState();
 	return true;

@@ -5,22 +5,21 @@
 
 void TowerUI::Set_TowerKey(UI_TYPE::BUTTON _type)
 {
+	m_tTowerInfo.iCX = m_tTowerInfo.iCY = TOWER_SIZE;
 	switch (_type)
 	{
 	case UI_TYPE::BUTTON::GATLING_BTN:
 		m_pTowerKey = TEXT("GatlingTower");
-		m_tTowerInfo.iCX = m_tTowerInfo.iCY = 200;
 		break;
 	case UI_TYPE::BUTTON::GOO_BTN:
 		m_pTowerKey = TEXT("GooTower");
-		m_tTowerInfo.iCX = m_tTowerInfo.iCY = 200;
 		break;
 	case UI_TYPE::BUTTON::FLAME_BTN:
 		m_pTowerKey = TEXT("FlameTower");
-		m_tTowerInfo.iCX = m_tTowerInfo.iCY = 200;
 		break;
 	case UI_TYPE::BUTTON::MORTAR_BTN:
 		m_pTowerKey = TEXT("MortarTower");
+		m_tTowerInfo.iCX = m_tTowerInfo.iCY = 160;
 		break;
 	default:
 		break;

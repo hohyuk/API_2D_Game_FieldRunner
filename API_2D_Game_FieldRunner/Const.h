@@ -21,3 +21,6 @@ constexpr int TILECY{ 64 };
 // Tile °¹¼ö
 constexpr int TILEX{ 19 };
 constexpr int TILEY{ 11 };
+
+// Tower Size
+constexpr int TOWER_SIZE{ 200 };

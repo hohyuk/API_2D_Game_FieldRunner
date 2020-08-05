@@ -3,6 +3,8 @@
 
 void Gatling::Ready()
 {
+	Tower::Set_Pivot(0.f, -10.f);
+	Tower::Ready();
 }
 
 int Gatling::Update()
