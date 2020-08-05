@@ -112,6 +112,18 @@
     <Filter Include="02.GameObject\02.UI\06.TowerUI">
       <UniqueIdentifier>{59f273d0-7b8d-4f76-a7fa-5e0706886c27}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\01.Actor\01.Tower\01.Gatling">
+      <UniqueIdentifier>{fbfaca1a-26a7-439b-b695-53efd6b1a740}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\01.Tower\02.Goo">
+      <UniqueIdentifier>{63d848de-7d5e-4d70-b85b-ae162f41d1c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\01.Tower\03.Flame">
+      <UniqueIdentifier>{9140d37f-a2eb-444e-a92c-ea344d5e20b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\01.Tower\04.Mortar">
+      <UniqueIdentifier>{0ee7788a-0fa9-4feb-a359-ac9287d52107}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -252,6 +264,18 @@
     <ClInclude Include="TowerUI.h">
       <Filter>02.GameObject\02.UI\06.TowerUI</Filter>
     </ClInclude>
+    <ClInclude Include="Gatling.h">
+      <Filter>02.GameObject\01.Actor\01.Tower\01.Gatling</Filter>
+    </ClInclude>
+    <ClInclude Include="Goo.h">
+      <Filter>02.GameObject\01.Actor\01.Tower\02.Goo</Filter>
+    </ClInclude>
+    <ClInclude Include="Mortar.h">
+      <Filter>02.GameObject\01.Actor\01.Tower\04.Mortar</Filter>
+    </ClInclude>
+    <ClInclude Include="Flame.h">
+      <Filter>02.GameObject\01.Actor\01.Tower\03.Flame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -368,6 +392,18 @@
     </ClCompile>
     <ClCompile Include="TowerUI.cpp">
       <Filter>02.GameObject\02.UI\06.TowerUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Gatling.cpp">
+      <Filter>02.GameObject\01.Actor\01.Tower\01.Gatling</Filter>
+    </ClCompile>
+    <ClCompile Include="Goo.cpp">
+      <Filter>02.GameObject\01.Actor\01.Tower\02.Goo</Filter>
+    </ClCompile>
+    <ClCompile Include="Mortar.cpp">
+      <Filter>02.GameObject\01.Actor\01.Tower\04.Mortar</Filter>
+    </ClCompile>
+    <ClCompile Include="Flame.cpp">
+      <Filter>02.GameObject\01.Actor\01.Tower\03.Flame</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

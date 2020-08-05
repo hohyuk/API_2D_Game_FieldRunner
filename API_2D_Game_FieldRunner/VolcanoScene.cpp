@@ -4,6 +4,7 @@
 void VolcanoScene::Ready()
 {
 	m_szBGKey = TEXT("VolcanoStage");
+	StageScene::Ready();
 }
 
 void VolcanoScene::Update()

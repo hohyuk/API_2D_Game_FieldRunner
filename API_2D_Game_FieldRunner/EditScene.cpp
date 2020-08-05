@@ -6,8 +6,7 @@ void EditScene::Ready()
 	m_szBGKey = TEXT("GrasslandsStage");
 	TILE_MGR->Ready();
 
-	Create_UI(TEXT("Option"), INFO(450, 900, 128, 128, 128, 128),
-		UI_TYPE::CLASS_ID::OPTION_UI);
+	Create_UI(TEXT("Option"), INFO(450, 900, 128, 128), UI_TYPE::CLASS_ID::OPTION_UI, UI_TYPE::BUTTON::EXIT_BTN);
 }
 
 void EditScene::Update()

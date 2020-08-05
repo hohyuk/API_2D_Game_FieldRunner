@@ -1,6 +1,8 @@
 #include "framework.h"
 #include "TowerUI.h"
 
+#include "TileManager.h"
+
 void TowerUI::Set_TowerKey(UI_TYPE::BUTTON _type)
 {
 	switch (_type)
@@ -64,31 +66,31 @@ void TowerUI::LateUpdate()
 		{
 			m_tTowerInfo.fX = static_cast<float>(pt.x);
 			m_tTowerInfo.fY = static_cast<float>(pt.y);
-		/*	if (TILE_MGR->IsBuild(pt))
+			if (TILE_MGR->IsBuild(pt))
 				m_Color = RGB(0, 255, 0);
 			else
-				m_Color = RGB(255, 0, 0);*/
+				m_Color = RGB(255, 0, 0);
 		}
-		//if (KEY_MGR->Key_UP(VK_LBUTTON))
-		//{
-		//	isClick = false;
-		//	if (m_Color == RGB(255, 0, 0))
-		//	{
-		//		SOUND_MGR->PlaySound(TEXT("invalid.mp3"), SOUND_MGR->UI);
-		//		return;
-		//	}
+		if (KEY_MGR->Key_UP(VK_LBUTTON))
+		{
+			isClick = false;
+			if (m_Color == RGB(255, 0, 0))
+			{
+				SOUND_MGR->PlaySound(SOUND_ID::INVALID);
+				return;
+			}
 
-		//	// 여기서 플레이어 생성하자, true이면 돈계산하기
-		//	if (TILE_MGR->Change_TIle(KEY_MGR->Mouse_Point(), m_eTower, m_pPlayerObjectKey, 1))
-		//	{
-		//		USER_MGR->Set_Buy(m_iPrice);
-		//		SOUND_MGR->PlaySound(TEXT("tower_upgrade.mp3"), SOUND_MGR->UI);
-		//	}
-		//	else
-		//	{
-		//		SOUND_MGR->PlaySound(TEXT("invalid.mp3"), SOUND_MGR->UI);
-		//	}
-		//}
+			// 여기서 플레이어 생성하자, true이면 돈계산하기
+			if (TILE_MGR->Create_Tower(KEY_MGR->Mouse_Point(), m_tBtn, m_pTowerKey))
+			{
+				//USER_MGR->Set_Buy(m_iPrice);
+				//SOUND_MGR->PlaySound(TEXT("tower_upgrade.mp3"), SOUND_MGR->UI);
+			}
+			else
+			{
+				//SOUND_MGR->PlaySound(TEXT("invalid.mp3"), SOUND_MGR->UI);
+			}
+		}
 	}
 }
 
@@ -103,8 +105,7 @@ void TowerUI::Render(const HDC & hDC)
 	{
 		MakeRect(m_tTowerRect, m_tTowerInfo);
 
-		//Render_RangeObject(hDC);
-
+		Render_Alpha(hDC, m_tTowerRect, m_tTowerInfo.iCX, m_Color, Ellipse);
 		// 이미지
 		HDC hMemDC = BMP_MGR->Find_Image(m_pTowerKey);
 		GdiTransparentBlt(hDC, m_tTowerRect.left, m_tTowerRect.top,

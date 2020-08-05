@@ -166,10 +166,13 @@
     <ClInclude Include="ExitUI.h" />
     <ClInclude Include="External.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Flame.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Gatling.h" />
+    <ClInclude Include="Goo.h" />
     <ClInclude Include="GrasslandsScene.h" />
     <ClInclude Include="HelpScene.h" />
     <ClInclude Include="HelpUI.h" />
@@ -178,6 +181,7 @@
     <ClInclude Include="LogoScene.h" />
     <ClInclude Include="LogoUI.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Mortar.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="OptionUI.h" />
     <ClInclude Include="Resource.h" />
@@ -209,8 +213,11 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExitUI.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="Flame.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Gatling.cpp" />
+    <ClCompile Include="Goo.cpp" />
     <ClCompile Include="GrasslandsScene.cpp" />
     <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="HelpUI.cpp" />
@@ -218,6 +225,7 @@
     <ClCompile Include="LogoScene.cpp" />
     <ClCompile Include="LogoUI.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Mortar.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="OptionUI.cpp" />
     <ClCompile Include="Scene.cpp" />

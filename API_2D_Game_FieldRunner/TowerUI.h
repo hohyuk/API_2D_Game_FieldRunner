@@ -17,5 +17,6 @@ private:
 	const TCHAR* m_pTowerKey;
 	INFO m_tTowerInfo;
 	RECT m_tTowerRect;
+	DWORD m_Color{ RGB(255,0,0) };
 };
 

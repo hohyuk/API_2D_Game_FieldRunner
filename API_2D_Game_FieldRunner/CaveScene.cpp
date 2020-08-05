@@ -4,6 +4,7 @@
 void CaveScene::Ready()
 {
 	m_szBGKey = TEXT("CaveStage");
+	StageScene::Ready();
 }
 
 void CaveScene::Update()

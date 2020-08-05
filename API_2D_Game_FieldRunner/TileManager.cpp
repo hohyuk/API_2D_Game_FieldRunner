@@ -1,7 +1,12 @@
 #include "framework.h"
 #include "TileManager.h"
 
+#include "ObjectManager.h"
 #include "Tile.h"
+#include "Gatling.h"
+#include "Goo.h"
+#include "Flame.h"
+#include "Mortar.h"
 
 TileManager* TileManager::m_pInstance{ nullptr };
 
@@ -12,6 +17,56 @@ void TileManager::Change_TileType(const POINT & pt, OBJECT::TILE_TYPE _eID)
 
 	dynamic_cast<Tile*>(m_vecTile[index])->Set_TileType(_eID);
 	cout << "Index : " << index << endl;
+}
+
+bool TileManager::Create_Tower(const POINT & pt, UI_TYPE::BUTTON _type, const TCHAR * _pKey)
+{
+	int index = -1;
+	if (!IsIndexState(pt, index)) return false;
+	if (!IsBuild(pt))return false;
+
+	// 아무 조건이 안걸렸을때 타일 생성
+	dynamic_cast<Tile*>(m_vecTile[index])->Set_TileType(OBJECT::TILE_TYPE::TOWER_INSTALL);
+
+	// 길찾기 검색후 안되면 다시 타워 삭제 후 리턴.
+
+	// Tower
+	GameObject* pTempObj = nullptr;
+	/*switch (_type)
+	{
+	case OBJECT::GATLING:
+		pTempObj = AbstractFactory<Gatling>::Create(_pKey, m_vecTile[index]->Get_PosX(), m_vecTile[index]->Get_PosY());
+		break;
+	case OBJECT::GOO:
+		pTempObj = AbstractFactory<Goo>::Create(_pKey, m_vecTile[index]->Get_PosX(), m_vecTile[index]->Get_PosY());
+		break;
+	case OBJECT::FLAME:
+		pTempObj = AbstractFactory<Flame>::Create(_pKey, m_vecTile[index]->Get_PosX(), m_vecTile[index]->Get_PosY());
+		break;
+	case OBJECT::MORTAR:
+		pTempObj = AbstractFactory<Mortar>::Create(_pKey, m_vecTile[index]->Get_PosX(), m_vecTile[index]->Get_PosY());
+		break;
+	case OBJECT::END_TOWER:
+		break;
+	default:
+		break;
+	}
+
+	OBJ_MGR->Add_Object(pTempObj, OBJECT::PLAYER);*/
+	cout << "Index : " << index << endl;
+	Console_TileState();
+	return true;
+}
+
+bool TileManager::IsBuild(const POINT & pt)
+{
+	int index = -1;
+	if (!IsIndexState(pt, index)) return false;
+	
+	// 지을수 있는 곳
+	if (OBJECT::TILE_TYPE::NONE == dynamic_cast<Tile*>(m_vecTile[index])->Get_TileType())
+		return true;
+	return false;
 }
 
 void TileManager::Ready()
@@ -60,6 +115,20 @@ bool TileManager::IsIndexState(const POINT & pt, int & index)
 	if (0 > index || static_cast<int>(m_vecTile.size()) <= index)	return false;
 
 	return true;
+}
+
+void TileManager::Console_TileState()
+{
+	for (int i = 0; i < TILEY; ++i)
+	{
+		for (int j = 0; j < TILEX; ++j)
+		{
+			int DrawID = dynamic_cast<Tile*>(m_vecTile[(i*TILEX) + j])->Get_TileType();
+			cout << DrawID << "  ";
+		}
+		cout << endl;
+	}
+	cout << endl;
 }
 
 TileManager::TileManager()
