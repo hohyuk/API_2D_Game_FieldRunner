@@ -3,7 +3,7 @@ class ObjectManager final
 {
 public:
 	void ChangeScene() { isSceneChange = true; }
-	void ReSearch_Enemy() { isReSearch = true; }
+	void Set_ReSearch() { isReSearch = true; }
 public:
 	static ObjectManager* Get_Instance()
 	{
@@ -31,6 +31,8 @@ public:
 	void Render(const HDC& hDC);
 	void Release();
 
+private:
+	void ReSearchEnemy();
 private:
 	explicit ObjectManager();
 	~ObjectManager();

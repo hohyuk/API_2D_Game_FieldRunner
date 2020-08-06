@@ -59,7 +59,7 @@ bool TileManager::Create_Tower(const POINT & pt, UI_TYPE::BUTTON _type, const TC
 	pTempObj->Set_ColliderRect(m_vecTile[index]->Get_Rect());
 	dynamic_cast<Tower*>(pTempObj)->Set_Index(index);
 	OBJ_MGR->Add_Object(pTempObj, OBJECT::PLAYER);
-
+	OBJ_MGR->Set_ReSearch();
 	system("cls");
 	cout << "Index : " << index << endl;
 	Console_TileState();
@@ -83,6 +83,7 @@ void TileManager::Remove_TowerIndex(int _index)
 		return;
 
 	dynamic_cast<Tile*>(m_vecTile[_index])->Set_TileType(OBJECT::TILE_TYPE::NONE);
+	OBJ_MGR->Set_ReSearch();
 }
 
 int TileManager::Get_TileIndex(const float & fX, const float & fY)

@@ -5,12 +5,10 @@
 
 void Enemy::Ready()
 {
-	m_StateIndex = -1;
 	m_pAStar = new AStar;
 	m_pAStar->AStarStart(g_StartPoint, g_ArrivalPoint);
 	m_eCurState = OBJECT::STATE::END_MOTION;
 	Save_State(g_StartPoint);
-	
 	Change_Anim();
 	Console_AStarSearch();
 }
@@ -32,10 +30,13 @@ Enemy::Enemy()
 Enemy::~Enemy()
 {
 	Safe_Delete(m_pAStar);
+	cout << "Enemy Delete" << endl;
 }
 
 void Enemy::ReSearch()
 {
+	if (isArrive) return; // 이미 도착했으면 검사하지 않는다.
+	cout << "ReSearch" << endl;
 	int index = TILE_MGR->Get_TileIndex(m_tInfo.fX, m_tInfo.fY);
 	if (index == -1)
 		return;
@@ -50,14 +51,12 @@ void Enemy::Save_State(int preIndex)
 	if (m_pAStar->Get_BestList().empty())
 		return;
 
+	m_StateIndex = -1;			// 다시 인덱스를 초기화해주자
 	m_vecState.clear();
 	int previousIndex = preIndex;		// 전 단계 인덱스와 다음 어디로 갈지의 인덱스를 비교하기위해 Temp역할 변수 만든다.
 	for (const auto& index : m_pAStar->Get_BestList())
 	{
-		// 초기 모션
-		if(previousIndex == g_StartPoint)
-			m_vecState.emplace_back(OBJECT::STATE::RIGHT);
-		else if (index == previousIndex + 1)
+		if (index == previousIndex + 1)
 			m_vecState.emplace_back(OBJECT::STATE::RIGHT);
 		else if(index == previousIndex - 1)
 			m_vecState.emplace_back(OBJECT::STATE::LEFT);
@@ -82,6 +81,7 @@ void Enemy::Move()
 	if (m_pAStar->Get_BestList().empty())
 	{
 		m_tInfo.fX += DELTA_TIME * m_fSpeed;			// 도착했으면 쭉 직진
+		isArrive = true;
 		return;
 	}
 
@@ -139,4 +139,16 @@ void Enemy::HpDraw(const HDC & hDC, const int & hp, DWORD color /*= RGB(255, 1, 
 	DeleteObject(m_br);
 	DeleteObject(Ahbmp);
 	DeleteDC(Ahdc);
+}
+
+bool Enemy::DeleteEnemy()
+{
+	// 1. 범위에 벗어 났을 때
+	if (m_tInfo.fX >= WINCX + 50)
+	{
+		// 생명을 깍아야한다.
+		//USER_MGR->Set_LifeMinus();
+		return true;
+	}
+	return false;
 }

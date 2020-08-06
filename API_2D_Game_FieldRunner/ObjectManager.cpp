@@ -2,6 +2,7 @@
 #include "ObjectManager.h"
 
 #include "GameObject.h"
+#include "Enemy.h"
 ObjectManager* ObjectManager::m_pInstance{ nullptr };
 
 void ObjectManager::Add_Object(GameObject *& pObj, OBJECT::ID eID)
@@ -36,6 +37,9 @@ void ObjectManager::Update()
 
 void ObjectManager::LateUpdate()
 {
+	//  ReSearch
+	ReSearchEnemy();
+
 	for (int i = 0; i < OBJECT::END_ID; ++i)
 	{
 		for (auto& pObj : m_listObject[i])
@@ -87,6 +91,15 @@ void ObjectManager::Release()
 			Safe_Delete(pObj);
 		m_listObject[i].clear();
 	}
+}
+
+void ObjectManager::ReSearchEnemy()
+{
+	if (!isReSearch) return;
+
+	for (auto& pObj : m_listObject[OBJECT::ENEMY])
+		dynamic_cast<Enemy*>(pObj)->ReSearch();
+	isReSearch = false;
 }
 
 ObjectManager::ObjectManager()

@@ -7,6 +7,8 @@ class Enemy :
 	public Actor
 {
 public:
+	void ReSearch();
+public:
 	virtual void Ready() override;
 	virtual void Render(const HDC & hDC) override;
 public:
@@ -16,14 +18,16 @@ public:
 protected:
 	virtual void Init_Stat() = 0;
 	virtual void Change_Anim() = 0;
-	virtual void ReSearch();
 protected:
 	void Save_State(int preIndex);
 	void Console_AStarSearch();
 	void Move();
 	void HpDraw(const HDC& hDC, const int& hp, DWORD color = RGB(255, 1, 1));
+	bool DeleteEnemy();
 protected:
 	bool isArrive{ false };					// 목표 도착했는지 안했는지
+	int m_iGold{};
+	int m_iScore{};
 	int m_iHP;
 	int m_iMaxHP;
 	int m_HpBarLength;

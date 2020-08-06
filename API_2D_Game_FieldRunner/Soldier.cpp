@@ -15,6 +15,7 @@ int Soldier::Update()
 	
 	Move();
 
+	if (DeleteEnemy()) return OBJ_DEAD;
 	return OBJ_NOEVENT;
 }
 
