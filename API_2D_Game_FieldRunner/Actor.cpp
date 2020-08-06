@@ -36,3 +36,13 @@ Actor::Actor()
 Actor::~Actor()
 {
 }
+
+void Actor::Update_Anim()
+{
+	m_tFrame.fFrameSpeed += DELTA_TIME;
+	if (m_tFrame.fFrameSpeed >= m_tFrame.fFixTime)
+	{
+		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
+		m_tFrame.fFrameSpeed = 0;
+	}
+}

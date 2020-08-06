@@ -3,7 +3,7 @@
 
 // Enemy 시작 위치
 const float ENEMY_POSX{ -100.f };
-const float ENEMY_POSY{ 600.f };
+const float ENEMY_POSY{ 500.f };
 
 class StageScene :
 	public Scene

@@ -14,5 +14,8 @@ public:
 public:
 	explicit Actor();
 	virtual ~Actor();
+
+protected:
+	virtual void Update_Anim();
 };
 

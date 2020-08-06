@@ -14,12 +14,17 @@ public:
 	virtual ~Enemy();
 
 protected:
+	virtual void Init_Stat() = 0;
 	virtual void Change_Anim() = 0;
 protected:
 	void Save_State(int preIndex);
 	void Console_AStarSearch();
 	void Move();
+	void HpDraw(const HDC& hDC, const int& hp, DWORD color = RGB(255, 1, 1));
 protected:
+	int m_iHP;
+	int m_iMaxHP;
+	int m_HpBarLength;
 	int m_StateIndex{};
 	float m_fSpeed;
 	AStar* m_pAStar{ nullptr };

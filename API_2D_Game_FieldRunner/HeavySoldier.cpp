@@ -18,6 +18,10 @@ HeavySoldier::~HeavySoldier()
 {
 }
 
+void HeavySoldier::Init_Stat()
+{
+}
+
 void HeavySoldier::Change_Anim()
 {
 }

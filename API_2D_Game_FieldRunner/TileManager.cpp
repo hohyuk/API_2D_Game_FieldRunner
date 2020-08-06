@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "TileManager.h"
 
+#include "AStar.h"
 #include "ObjectManager.h"
 #include "Tile.h"
 #include "Gatling.h"
@@ -29,6 +30,11 @@ bool TileManager::Create_Tower(const POINT & pt, UI_TYPE::BUTTON _type, const TC
 	dynamic_cast<Tile*>(m_vecTile[index])->Set_TileType(OBJECT::TILE_TYPE::TOWER_INSTALL);
 
 	// 길찾기 검색후 안되면 다시 타워 삭제 후 리턴.
+	if (!m_pAStar->AStarStart(g_StartPoint, g_ArrivalPoint))
+	{
+		dynamic_cast<Tile*>(m_vecTile[index])->Set_TileType(OBJECT::TILE_TYPE::NONE);
+		return false;
+	}
 
 	// Tower
 	GameObject* pTempObj = nullptr;
@@ -79,6 +85,23 @@ void TileManager::Remove_TowerIndex(int _index)
 	dynamic_cast<Tile*>(m_vecTile[_index])->Set_TileType(OBJECT::TILE_TYPE::NONE);
 }
 
+int TileManager::Get_TileIndex(const float & fX, const float & fY)
+{
+	// 전체 Rect를 벗어나면 리턴
+	if (TILE_START_PX > fX || TILE_START_PY > fY || TILE_START_PX + (TILEX* TILECX) < fX)
+		return -1;
+	int x = static_cast<int>(fX - TILE_START_PX) / TILECX;
+	int y = static_cast<int>(fY - TILE_START_PY) / TILECY;
+
+	int index = (y * TILEX) + x;
+
+	// 현재 인덱스보다 넘어가버리면 리턴
+	if (0 > index || static_cast<int>(m_vecTile.size()) <= index)
+		return -1;
+
+	return index;
+}
+
 void TileManager::Ready()
 {
 	float fX = 0.f, fY = 0.f;
@@ -104,6 +127,8 @@ void TileManager::Render(const HDC & hDC)
 
 void TileManager::Release()
 {
+	Safe_Delete(m_pAStar);
+
 	for (auto& pTile : m_vecTile)
 		Safe_Delete(pTile);
 
@@ -143,6 +168,7 @@ void TileManager::Console_TileState()
 
 TileManager::TileManager()
 {
+	m_pAStar = new AStar;
 }
 
 TileManager::~TileManager()

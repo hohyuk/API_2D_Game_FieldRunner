@@ -5,10 +5,12 @@
 
 void Enemy::Ready()
 {
+	m_StateIndex = -1;
 	m_pAStar = new AStar;
 	m_pAStar->AStarStart(g_StartPoint, g_ArrivalPoint);
-	
+	m_eCurState = OBJECT::STATE::END_MOTION;
 	Save_State(g_StartPoint);
+	Change_Anim();
 	Console_AStarSearch();
 }
 
@@ -16,6 +18,9 @@ void Enemy::Render(const HDC & hDC)
 {
 	MakeRect(m_tRect, m_tInfo);
 	Actor::Render(hDC);
+
+	HpDraw(hDC, m_iMaxHP);
+	HpDraw(hDC, m_iHP, RGB(1, 255, 1));
 }
 
 Enemy::Enemy()
@@ -46,6 +51,7 @@ void Enemy::Save_State(int preIndex)
 			m_vecState.emplace_back(OBJECT::STATE::DOWN);
 		previousIndex = index;
 	}
+	m_vecState.emplace_back(OBJECT::STATE::RIGHT);	// 마지막 모션은 항상 오른쪽이기때문에
 }
 
 void Enemy::Console_AStarSearch()
@@ -78,6 +84,40 @@ void Enemy::Move()
 	{
 		Change_Anim();		// 모션 바꿔주는건 여기서 해준다. 목표지점까지 왔으니까
 		m_pAStar->Get_BestList().pop_front();
-		cout << m_pAStar->Get_BestList().front() << endl;
 	}
+}
+
+void Enemy::HpDraw(const HDC & hDC, const int & hp, DWORD color /*= RGB(255, 1, 1)*/)
+{
+	HBRUSH m_br = CreateSolidBrush(color);
+	HBITMAP Ahbmp = CreateCompatibleBitmap(hDC, 100, 50);
+	HDC Ahdc = CreateCompatibleDC(hDC);
+	HBITMAP Aoldbmp = (HBITMAP)SelectObject(Ahdc, Ahbmp);
+	auto oldbr = SelectObject(Ahdc, m_br);
+	Rectangle(Ahdc, 0, 0, 100, 50);
+	SelectObject(Ahdc, oldbr);
+	BLENDFUNCTION bf;
+
+	bf.BlendOp = AC_SRC_OVER;
+	bf.BlendFlags = 0;
+	bf.AlphaFormat = 0;
+	bf.SourceConstantAlpha = 150;
+
+	int curHp = 0;
+	if (hp == m_iMaxHP)
+		curHp = m_HpBarLength;
+	else
+	{
+		// 선형보간
+		float hpRate = float(m_iHP) / float(m_iMaxHP);			// 현재 hp 비율
+		float start = 0;					// 시작 점
+		curHp = int(start * (1.f - hpRate) + m_HpBarLength * hpRate);		// 선형보간법 공식
+	}
+
+	GdiAlphaBlend(hDC, m_tRect.left, m_tRect.top - 15, curHp, 10, Ahdc, 0, 0, 100, 50, bf);
+
+	SelectObject(Ahdc, Aoldbmp);
+	DeleteObject(m_br);
+	DeleteObject(Ahbmp);
+	DeleteDC(Ahdc);
 }

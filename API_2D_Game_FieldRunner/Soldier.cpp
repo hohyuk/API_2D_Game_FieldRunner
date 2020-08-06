@@ -4,13 +4,13 @@
 void Soldier::Ready()
 {
 	Enemy::Ready();
-	m_tInfo.iCX = 64;
-	m_tInfo.iCY = 64;
-	m_fSpeed = 100.f;
+	// Init Stat
+	Init_Stat();
 }
 
 int Soldier::Update()
 {
+	Actor::Update_Anim();
 	Move();
 	return OBJ_NOEVENT;
 }
@@ -23,9 +23,18 @@ Soldier::~Soldier()
 {
 }
 
+void Soldier::Init_Stat()
+{
+	m_tInfo.iCX = 64;
+	m_tInfo.iCY = 64;
+	m_fSpeed = 100.f;
+	m_iHP = m_iMaxHP = 100;
+	m_HpBarLength = 64;
+}
+
 void Soldier::Change_Anim()
 {
-	if (m_eCurState != m_vecState[m_StateIndex])
+	if (m_eCurState != m_vecState[++m_StateIndex])
 	{
 		switch (m_vecState[m_StateIndex])
 		{
@@ -59,8 +68,8 @@ void Soldier::Change_Anim()
 			break;
 		}
 		m_tFrame.iStart = 0;
-		m_tFrame.fFixTime = 0.2f;
+		m_tFrame.fFrameSpeed = 0.f;
+		m_tFrame.fFixTime = 0.1f;
 		m_eCurState = m_vecState[m_StateIndex];
-		++m_StateIndex;
 	}
 }

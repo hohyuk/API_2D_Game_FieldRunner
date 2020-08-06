@@ -1,5 +1,6 @@
 #pragma once
 
+class AStar;
 class TileManager final
 {
 public:
@@ -8,7 +9,7 @@ public:
 	bool Create_Tower(const POINT& pt, UI_TYPE::BUTTON _type, const TCHAR* _pKey);
 	bool IsBuild(const POINT& pt);
 	void Remove_TowerIndex(int _index);
-
+	int Get_TileIndex(const float& fX, const float& fY);
 public:
 	static TileManager* Get_Instance()
 	{
@@ -40,5 +41,7 @@ private:
 private:
 	static TileManager* m_pInstance;
 	vector<GameObject*> m_vecTile;
+
+	AStar* m_pAStar{ nullptr };
 };
 

@@ -11,6 +11,7 @@ public:
 	virtual ~HeavySoldier();
 
 protected:
+	virtual void Init_Stat() override;
 	virtual void Change_Anim() override;
 };
 
