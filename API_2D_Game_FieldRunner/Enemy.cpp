@@ -10,6 +10,7 @@ void Enemy::Ready()
 	m_pAStar->AStarStart(g_StartPoint, g_ArrivalPoint);
 	m_eCurState = OBJECT::STATE::END_MOTION;
 	Save_State(g_StartPoint);
+	
 	Change_Anim();
 	Console_AStarSearch();
 }
@@ -17,6 +18,7 @@ void Enemy::Ready()
 void Enemy::Render(const HDC & hDC)
 {
 	MakeRect(m_tRect, m_tInfo);
+	MakeRect(m_tColliderRC, m_tInfo, 2);
 	Actor::Render(hDC);
 
 	HpDraw(hDC, m_iMaxHP);
@@ -32,16 +34,30 @@ Enemy::~Enemy()
 	Safe_Delete(m_pAStar);
 }
 
+void Enemy::ReSearch()
+{
+	int index = TILE_MGR->Get_TileIndex(m_tInfo.fX, m_tInfo.fY);
+	if (index == -1)
+		return;
+	m_pAStar->AStarStart(index, g_ArrivalPoint);
+
+	Save_State(index);
+	Change_Anim();
+}
+
 void Enemy::Save_State(int preIndex)
 {
 	if (m_pAStar->Get_BestList().empty())
 		return;
 
+	m_vecState.clear();
 	int previousIndex = preIndex;		// 전 단계 인덱스와 다음 어디로 갈지의 인덱스를 비교하기위해 Temp역할 변수 만든다.
 	for (const auto& index : m_pAStar->Get_BestList())
 	{
-		// 오른쪽 모션
-		if (index == previousIndex + 1)
+		// 초기 모션
+		if(previousIndex == g_StartPoint)
+			m_vecState.emplace_back(OBJECT::STATE::RIGHT);
+		else if (index == previousIndex + 1)
 			m_vecState.emplace_back(OBJECT::STATE::RIGHT);
 		else if(index == previousIndex - 1)
 			m_vecState.emplace_back(OBJECT::STATE::LEFT);
@@ -64,7 +80,10 @@ void Enemy::Console_AStarSearch()
 void Enemy::Move()
 {
 	if (m_pAStar->Get_BestList().empty())
+	{
+		m_tInfo.fX += DELTA_TIME * m_fSpeed;			// 도착했으면 쭉 직진
 		return;
+	}
 
 	vector<GameObject*> pVecTile = TILE_MGR->Get_Tile();
 	int iDestIdx = m_pAStar->Get_BestList().front();

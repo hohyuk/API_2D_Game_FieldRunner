@@ -17,6 +17,7 @@ void Actor::LateUpdate()
 void Actor::Render(const HDC & hDC)
 {
 	Render_Debug(hDC, m_tRect, Rectangle);
+	Render_Debug(hDC, m_tColliderRC, Rectangle, RGB(255, 0, 0));
 
 	HDC hMemDC = BMP_MGR->Find_Image(m_pFrameKey);
 	GdiTransparentBlt(hDC, m_tRect.left, m_tRect.top,

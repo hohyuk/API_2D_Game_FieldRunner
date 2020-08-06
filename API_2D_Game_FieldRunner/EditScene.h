@@ -14,5 +14,8 @@ public:
 public:
 	explicit EditScene();
 	virtual~EditScene();
+
+private:
+	bool isStartPointButton{ false };
 };
 

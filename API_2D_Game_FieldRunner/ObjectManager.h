@@ -3,6 +3,7 @@ class ObjectManager final
 {
 public:
 	void ChangeScene() { isSceneChange = true; }
+	void ReSearch_Enemy() { isReSearch = true; }
 public:
 	static ObjectManager* Get_Instance()
 	{
@@ -38,6 +39,7 @@ private:
 
 private:
 	bool isSceneChange{ false };
+	bool isReSearch{ false };
 
 private:
 	list<GameObject*> m_listObject[OBJECT::END_ID];

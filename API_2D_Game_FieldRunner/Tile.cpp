@@ -53,6 +53,9 @@ void Tile::SelectColor()
 	case OBJECT::NOT_TOWER_INSTALL:
 		m_dwColor = RGB(255, 0, 0);
 		break;
+	case OBJECT::LANDMARK:
+		m_dwColor = RGB(255, 255, 0);
+		break;
 	case OBJECT::NONE:
 		m_dwColor = RGB(255, 255, 255);
 		break;

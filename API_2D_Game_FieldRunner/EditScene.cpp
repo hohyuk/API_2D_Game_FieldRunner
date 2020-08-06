@@ -30,7 +30,14 @@ void EditScene::LateUpdate()
 	{
 		m_szBGKey = TEXT("CaveStage");
 	}
-
+	if (KEY_MGR->Key_DOWN('Q'))
+	{
+		isStartPointButton = !isStartPointButton;
+	}
+	if (KEY_MGR->Key_DOWN('W'))
+	{
+		isStartPointButton = !isStartPointButton;
+	}
 	if (KEY_MGR->Key_DOWN('S'))
 	{
 		if (Compare_Key(m_szBGKey, TEXT("GrasslandsStage")))
@@ -43,11 +50,17 @@ void EditScene::LateUpdate()
 
 	if (KEY_MGR->Key_DOWN(VK_LBUTTON))
 	{
-		TILE_MGR->Change_TileType(KEY_MGR->Mouse_Point(), OBJECT::TILE_TYPE::START_POINT);
+		if (isStartPointButton)
+			TILE_MGR->Change_TileType(KEY_MGR->Mouse_Point(), OBJECT::TILE_TYPE::START_POINT);
+		else
+			TILE_MGR->Change_TileType(KEY_MGR->Mouse_Point(), OBJECT::TILE_TYPE::NOT_TOWER_INSTALL);
 	}
 	if (KEY_MGR->Key_DOWN(VK_RBUTTON))
 	{
-		TILE_MGR->Change_TileType(KEY_MGR->Mouse_Point(), OBJECT::TILE_TYPE::ARRIVAL_POINT);
+		if (isStartPointButton)
+			TILE_MGR->Change_TileType(KEY_MGR->Mouse_Point(), OBJECT::TILE_TYPE::ARRIVAL_POINT);
+		else
+			TILE_MGR->Change_TileType(KEY_MGR->Mouse_Point(), OBJECT::TILE_TYPE::LANDMARK);
 	}
 }
 
@@ -62,6 +75,7 @@ void EditScene::Render(const HDC & hDC)
 
 void EditScene::Release()
 {
+	TileManager::Destroy_Instance();
 	OBJ_MGR->Delete_Object(OBJECT::UI);
 }
 

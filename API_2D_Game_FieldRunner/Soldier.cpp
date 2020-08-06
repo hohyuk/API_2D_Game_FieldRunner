@@ -11,7 +11,10 @@ void Soldier::Ready()
 int Soldier::Update()
 {
 	Actor::Update_Anim();
+
+	
 	Move();
+
 	return OBJ_NOEVENT;
 }
 

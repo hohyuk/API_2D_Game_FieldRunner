@@ -2,8 +2,8 @@
 #include "Scene.h"
 
 // Enemy 시작 위치
-const float ENEMY_POSX{ -100.f };
-const float ENEMY_POSY{ 500.f };
+const float ENEMY_POSX{ -50.f };
+const float ENEMY_POSY{ 460.f };
 
 class StageScene :
 	public Scene

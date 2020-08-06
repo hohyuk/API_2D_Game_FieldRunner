@@ -153,8 +153,10 @@ bool AStar::IsCommon(const int & _index)
 {
 	if (_index == m_iGoalIdx)
 		return true;
+	bool isTileState = dynamic_cast<Tile*>(TILE_MGR->Get_Tile()[_index])->Get_TileType() == OBJECT::TILE_TYPE::NONE ||
+		dynamic_cast<Tile*>(TILE_MGR->Get_Tile()[_index])->Get_TileType() == OBJECT::TILE_TYPE::NOT_TOWER_INSTALL;
 
-	if (dynamic_cast<Tile*>(TILE_MGR->Get_Tile()[_index])->Get_TileType() == OBJECT::TILE_TYPE::NONE && CheckList(_index))
+	if (isTileState && CheckList(_index))
 		return true;
 
 	return false;

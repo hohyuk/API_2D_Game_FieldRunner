@@ -17,7 +17,7 @@ constexpr DWORD BLACK_COLOR{ RGB(0,0,0) };
 constexpr float PI{ 3.141592f };
 
 // TILE POSITION
-constexpr int TILE_START_PX{ 130 };
+constexpr int TILE_START_PX{ 2 };
 constexpr int TILE_START_PY{ 120 };
 
 // TILE SIZE
@@ -25,7 +25,7 @@ constexpr int TILECX{ 64 };
 constexpr int TILECY{ 64 };
 
 // Tile °¹¼ö
-constexpr int TILEX{ 19 };
+constexpr int TILEX{ 21 };
 constexpr int TILEY{ 11 };
 
 // Tower Size
