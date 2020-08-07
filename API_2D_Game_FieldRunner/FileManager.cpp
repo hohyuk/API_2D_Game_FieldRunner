@@ -62,8 +62,6 @@ void FileManager::Load_Data(ID eID)
 			g_StartPoint = index;
 		else if (OBJECT::TILE_TYPE::ARRIVAL_POINT == type)
 			g_ArrivalPoint = index;
-
-		cout << index << endl;
 	}
 
 	CloseHandle(hFile);

@@ -26,6 +26,7 @@ protected:
 	void Fixed_UI(const HDC & hDC, const TCHAR * _pKey, int x, int y, int cx, int cy);
 	void Fixed_UI(const HDC& hDC, const TCHAR * _pKey, int x, int y, int cx, int cy, int wSrc, int hSrc);
 
+	void Create_OverHang(const TCHAR* _pKey, float x, float y);
 	void Create_Enemy(ENEMY_ID _eID);
 	void Create_Enemy_KeyDonw();
 	void Spawn_Enemy();

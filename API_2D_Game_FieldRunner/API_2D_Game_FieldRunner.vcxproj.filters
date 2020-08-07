@@ -139,6 +139,12 @@
     <Filter Include="02.GameObject\01.Actor\02.Enemy\04.Robot">
       <UniqueIdentifier>{268a4bd4-2f8d-40dd-8006-d8a8a7db36c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\01.Actor\02.Enemy\05.Blimp">
+      <UniqueIdentifier>{e623d1b4-f2c1-4fb8-97ea-bd31c95512cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\04.Overhang">
+      <UniqueIdentifier>{e78111da-ef05-45e8-b5c0-9355196e0b2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -306,6 +312,12 @@
     <ClInclude Include="Robot.h">
       <Filter>02.GameObject\01.Actor\02.Enemy\04.Robot</Filter>
     </ClInclude>
+    <ClInclude Include="Blimp.h">
+      <Filter>02.GameObject\01.Actor\02.Enemy\05.Blimp</Filter>
+    </ClInclude>
+    <ClInclude Include="Overhang.h">
+      <Filter>02.GameObject\04.Overhang</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -449,6 +461,12 @@
     </ClCompile>
     <ClCompile Include="Robot.cpp">
       <Filter>02.GameObject\01.Actor\02.Enemy\04.Robot</Filter>
+    </ClCompile>
+    <ClCompile Include="Blimp.cpp">
+      <Filter>02.GameObject\01.Actor\02.Enemy\05.Blimp</Filter>
+    </ClCompile>
+    <ClCompile Include="Overhang.cpp">
+      <Filter>02.GameObject\04.Overhang</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

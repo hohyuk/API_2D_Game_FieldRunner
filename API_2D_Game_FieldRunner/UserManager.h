@@ -2,14 +2,14 @@
 class UserManager final
 {
 public:
-	enum ID { DEBUG_RENDER_BOX, DEBUG_NONE_TILE, GAME_OVER, END_ID };
+	enum ID { DEBUG_RENDER_BOX, DEBUG_NONE_TILE, GAME_STOP, GAME_OVER, END_ID };
 public:
 	void ReSet(int gold = 10);
 	void Set_GameState(ID _eID) { isGameState[_eID] = !isGameState[_eID]; }
 	bool Get_DebugRenderBox()const { return isGameState[ID::DEBUG_RENDER_BOX]; }
 	bool Get_DebugNoneTileBox()const { return isGameState[ID::DEBUG_NONE_TILE]; }
-
-
+	void Set_GameStartStop() { isGameState[ID::GAME_STOP] = !isGameState[ID::GAME_STOP]; }
+	bool Get_GameStop() { return isGameState[ID::GAME_STOP]; }
 	// ±ÝÀü
 	int Get_Gold()const { return m_iGold; }
 	void Set_Buy(int price) { m_iGold -= price; }

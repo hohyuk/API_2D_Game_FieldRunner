@@ -48,16 +48,17 @@ void Enemy::ReSearch()
 	if (isArrive) return; // 이미 도착했으면 검사하지 않는다.
 	cout << "ReSearch" << endl;
 	int index = TILE_MGR->Get_TileIndex(m_tInfo.fX, m_tInfo.fY);
-	if (index == -1)
+	if (index == g_ArrivalPoint)
+	{
+		isArrive = true;
+		return;
+	}
+	else if (index == -1)
 		return;
 	m_pAStar->AStarStart(index, g_ArrivalPoint);
 
 	Save_State(index);
 	Change_Anim();
-}
-
-void Enemy::CreateEnemy()
-{
 }
 
 void Enemy::Save_State(int preIndex)
@@ -176,7 +177,6 @@ bool Enemy::DeleteEnemy()
 	else if (isDie && m_tFrame.iStart == m_tFrame.iEnd - 1)
 	{
 		USER_MGR->Set_Gain(m_iGold, m_iScore);
-		CreateEnemy();
 		return true;
 	}
 	return false;

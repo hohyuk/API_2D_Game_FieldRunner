@@ -2,10 +2,12 @@
 #include "StageScene.h"
 
 #include "TileManager.h"
+#include "Overhang.h"
 #include "Soldier.h"
 #include "HeavySoldier.h"
 #include "HeavyBike.h"
 #include "Robot.h"
+#include "Blimp.h"
 
 void StageScene::Ready()
 {
@@ -99,8 +101,16 @@ void StageScene::Fixed_UI(const HDC & hDC, const TCHAR * _pKey, int x, int y, in
 	GdiTransparentBlt(hDC, x, y, cx, cy, hMemDC, 0, 0, wSrc, hSrc, RGB(255, 0, 255));
 }
 
+void StageScene::Create_OverHang(const TCHAR * _pKey, float x, float y)
+{
+	GameObject* pTempObj =AbstractFactory<Overhang>::Create(_pKey, x, y);
+	OBJ_MGR->Add_Object(pTempObj, OBJECT::OVERHANG);
+}
+
 void StageScene::Create_Enemy(ENEMY_ID _eID)
 {
+	if (USER_MGR->Get_GameStop()) return;
+
 	GameObject* pTempObj = nullptr;
 
 	switch (_eID)
@@ -118,6 +128,7 @@ void StageScene::Create_Enemy(ENEMY_ID _eID)
 		pTempObj = AbstractFactory<Robot>::Create(TEXT("Robot"), ENEMY_POSX, ENEMY_POSY);
 		break;
 	case StageScene::BLIMP:
+		pTempObj = AbstractFactory<Blimp>::Create(TEXT("Blimp"), ENEMY_POSX, ENEMY_POSY);
 		break;
 	case StageScene::TRAIN:
 		break;
@@ -140,6 +151,8 @@ void StageScene::Create_Enemy_KeyDonw()
 		Create_Enemy(BIKE);
 	if (KEY_MGR->Key_DOWN('4'))
 		Create_Enemy(ROBOT);
+	if (KEY_MGR->Key_DOWN('5'))
+		Create_Enemy(BLIMP);
 }
 
 void StageScene::Spawn_Enemy()

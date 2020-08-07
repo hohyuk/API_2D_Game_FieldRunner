@@ -9,6 +9,7 @@ inline void Stage_BitMap();
 inline void Tower_BitMap();
 inline void Enemy_BitMap();
 inline void UI_BitMap();
+inline void Overhang_BitMap();
 
 
 inline void Insert_BitMap()
@@ -27,6 +28,7 @@ inline void Insert_BitMap()
 	Tower_BitMap();
 	Enemy_BitMap();
 	UI_BitMap();
+	Overhang_BitMap();
 }
 
 inline void Logo_BitMap()
@@ -103,4 +105,9 @@ inline void UI_BitMap()
 	BMP_MGR->Insert_Texture(TEXT("Mortar"), TEXT("../Resources/Image/Game_UI/icon_mortar_tower.bmp"));
 	BMP_MGR->Insert_Texture(TEXT("Upgrade"), TEXT("../Resources/Image/Game_UI/icon_upgrade.bmp"));
 	BMP_MGR->Insert_Texture(TEXT("Sell"), TEXT("../Resources/Image/Game_UI/icon_sell.bmp"));
+}
+
+inline void Overhang_BitMap()
+{
+	BMP_MGR->Insert_Texture(TEXT("Gate"), TEXT("../Resources/Image/Obejct/east_gate_overhang.bmp"));
 }

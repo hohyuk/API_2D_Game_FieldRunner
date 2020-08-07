@@ -77,6 +77,25 @@ void HeavyBike::Dead_Anim()
 	m_tFrame.fFixTime = 0.2f;
 }
 
+bool HeavyBike::DeleteEnemy()
+{
+	// 1. ¹üÀ§¿¡ ¹þ¾î ³µÀ» ¶§
+	if (m_tInfo.fX >= WINCX + 50)
+	{
+		// »ý¸íÀ» ±ï¾Æ¾ßÇÑ´Ù.
+		USER_MGR->Set_LifeMinus();
+		return true;
+	}
+	// 2. Á×Àº ¾Ö´ÔÀÌ ³¡³ª¸é »èÁ¦
+	else if (isDie && m_tFrame.iStart == m_tFrame.iEnd - 1)
+	{
+		CreateEnemy();
+		USER_MGR->Set_Gain(m_iGold, m_iScore);
+		return true;
+	}
+	return false;
+}
+
 void HeavyBike::CreateEnemy()
 {
 	GameObject* pTempObj = nullptr;

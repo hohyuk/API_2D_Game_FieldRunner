@@ -136,6 +136,9 @@ bool Tower::Click_Sell(const POINT & pt)
 
 void Tower::Attack_EnemyRanger()
 {
+	// °ÔÀÓÀÌ ¸ØÃèÀ» ¶§
+	if (USER_MGR->Get_GameStop()) return;
+
 	m_pTarget = OBJ_MGR->Get_Target(this, OBJECT::ENEMY);
 
 	if (nullptr == m_pTarget || dynamic_cast<Enemy*>(m_pTarget)->IsTargetDead())

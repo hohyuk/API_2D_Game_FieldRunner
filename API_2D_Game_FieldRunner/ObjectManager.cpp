@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "Enemy.h"
+#include "Blimp.h"
 
 ObjectManager* ObjectManager::m_pInstance{ nullptr };
 
@@ -49,6 +50,9 @@ void ObjectManager::Update()
 {
 	for (int i = 0; i < OBJECT::END_ID; ++i)
 	{
+		if (GameStop(static_cast<OBJECT::ID>(i)))
+			continue;
+
 		for (list<GameObject*>::iterator iter = m_listObject[i].begin(); iter != m_listObject[i].end();)
 		{
 			int iEvent = (*iter)->Update();
@@ -126,8 +130,21 @@ void ObjectManager::ReSearchEnemy()
 	if (!isReSearch) return;
 
 	for (auto& pObj : m_listObject[OBJECT::ENEMY])
-		dynamic_cast<Enemy*>(pObj)->ReSearch();
+	{
+		if (!dynamic_cast<Blimp*>(pObj))
+			dynamic_cast<Enemy*>(pObj)->ReSearch();
+	}
+		
 	isReSearch = false;
+}
+
+bool ObjectManager::GameStop(OBJECT::ID eID)
+{
+	if (!USER_MGR->Get_GameStop()) return false;
+	if(eID == OBJECT::ID::ENEMY || eID == OBJECT::ID::BULLET || eID == OBJECT::ID::EFFECT)
+		return true;
+
+	return false;
 }
 
 ObjectManager::ObjectManager()

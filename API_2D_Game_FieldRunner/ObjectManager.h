@@ -34,6 +34,7 @@ public:
 
 private:
 	void ReSearchEnemy();
+	bool GameStop(OBJECT::ID eID);
 private:
 	explicit ObjectManager();
 	~ObjectManager();

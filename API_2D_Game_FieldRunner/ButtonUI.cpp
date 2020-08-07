@@ -96,6 +96,7 @@ void ButtonUI::Click_Button()
 		break;
 	case UI_TYPE::START_BTN:
 		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
+		USER_MGR->Set_GameStartStop();
 		break;
 	case UI_TYPE::FAST_BTN:
 		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);

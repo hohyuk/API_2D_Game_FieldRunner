@@ -156,6 +156,7 @@
     <ClInclude Include="API_2D_Game_FieldRunner.h" />
     <ClInclude Include="AStar.h" />
     <ClInclude Include="BitMap.h" />
+    <ClInclude Include="Blimp.h" />
     <ClInclude Include="BmpManager.h" />
     <ClInclude Include="ButtonUI.h" />
     <ClInclude Include="CaveScene.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="Mortar.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="OptionUI.h" />
+    <ClInclude Include="Overhang.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Robot.h" />
     <ClInclude Include="Scene.h" />
@@ -212,6 +214,7 @@
     <ClCompile Include="API_2D_Game_FieldRunner.cpp" />
     <ClCompile Include="AStar.cpp" />
     <ClCompile Include="BitMap.cpp" />
+    <ClCompile Include="Blimp.cpp" />
     <ClCompile Include="BmpManager.cpp" />
     <ClCompile Include="ButtonUI.cpp" />
     <ClCompile Include="CaveScene.cpp" />
@@ -236,6 +239,7 @@
     <ClCompile Include="Mortar.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="OptionUI.cpp" />
+    <ClCompile Include="Overhang.cpp" />
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
