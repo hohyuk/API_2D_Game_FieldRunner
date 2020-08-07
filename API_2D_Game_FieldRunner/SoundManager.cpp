@@ -128,6 +128,8 @@ const TCHAR * SoundManager::SearchSoundKey(const CHANNELID & eID)
 		return TEXT("tower_upgrade.mp3");
 	case CHANNELID::SELL:
 		return TEXT("tower_sell.mp3");
+	case CHANNELID::GOO_ATTACK:
+		return TEXT("goo_launch.mp3");
 	default:
 		return nullptr;
 	}

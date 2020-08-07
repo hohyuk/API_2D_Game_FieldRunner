@@ -53,8 +53,31 @@ void Goo::UpgradeTower()
 	default:
 		break;
 	}
+	m_iAttackRange = 200 + (m_Level * 50);
+	MakeRect(m_AttackRangeRect, m_tInfo, m_iAttackRange, m_iAttackRange, 1);
 }
 
 void Goo::Attack(float fDist)
 {
+	if (fDist < m_iAttackRange / 2)
+	{
+		TowerAnim();
+
+		m_tFrame.fFrameSpeed += DELTA_TIME;
+		if (m_tFrame.fFrameSpeed >= m_tFrame.fFixTime)
+		{
+			SOUND_MGR->PlaySound(SOUND_ID::GOO_ATTACK);
+			CreateBullet();
+			m_tFrame.fFrameSpeed = 0;
+		}
+	}
+}
+
+void Goo::CreateBullet()
+{
+	float angle = static_cast<float>((m_tFrame.iStart * 10) - 90.f);
+	m_fBarrelX = m_fBarrelRad * cosf(DEGREE_RADIAN(angle)) + m_tInfo.fX;
+	m_fBarrelY = m_fBarrelRad * sinf(DEGREE_RADIAN(angle)) + m_tInfo.fY;
+
+	GameObject* pInstance = nullptr;
 }

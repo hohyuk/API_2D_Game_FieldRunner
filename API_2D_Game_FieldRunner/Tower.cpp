@@ -156,6 +156,14 @@ void Tower::Attack_EnemyRanger()
 	Attack(fDist);
 }
 
+void Tower::TowerAnim()
+{
+	// 적과 포신의 각도 구하기
+	int degree = static_cast<int>(atan2f(m_tInfo.fDirY, m_tInfo.fDirX) * RADIAN);
+	degree = (degree + 90) / 10;	// 이미지 각도 맞게
+	m_tFrame.iStart = Wrap(0, degree, 36);
+}
+
 void Tower::Render_TowerUI(const HDC & hDC, const TCHAR * _pKey, int x, int y, int cx, int cy, int _state)
 {
 	HDC hMemDC = BMP_MGR->Find_Image(_pKey);

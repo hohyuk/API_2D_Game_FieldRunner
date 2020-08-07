@@ -42,3 +42,7 @@ void Mortar::UpgradeTower()
 void Mortar::Attack(float fDist)
 {
 }
+
+void Mortar::CreateBullet()
+{
+}

@@ -14,5 +14,6 @@ public:
 protected:
 	virtual void UpgradeTower() override;
 	virtual void Attack(float fDist) override;
+	virtual void CreateBullet() override {};
 };
 

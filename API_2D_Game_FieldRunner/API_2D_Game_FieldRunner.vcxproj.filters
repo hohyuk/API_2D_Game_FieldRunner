@@ -145,6 +145,12 @@
     <Filter Include="02.GameObject\04.Overhang">
       <UniqueIdentifier>{e78111da-ef05-45e8-b5c0-9355196e0b2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\01.Actor\03.Bullet">
+      <UniqueIdentifier>{102b5521-54da-4c0d-95fa-b7ff37fb5df5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\03.Bullet\01.GooBullet">
+      <UniqueIdentifier>{2a0ae422-6dfb-4696-8511-099957758855}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -318,6 +324,12 @@
     <ClInclude Include="Overhang.h">
       <Filter>02.GameObject\04.Overhang</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>02.GameObject\01.Actor\03.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GooBullet.h">
+      <Filter>02.GameObject\01.Actor\03.Bullet\01.GooBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -467,6 +479,12 @@
     </ClCompile>
     <ClCompile Include="Overhang.cpp">
       <Filter>02.GameObject\04.Overhang</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>02.GameObject\01.Actor\03.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GooBullet.cpp">
+      <Filter>02.GameObject\01.Actor\03.Bullet\01.GooBullet</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

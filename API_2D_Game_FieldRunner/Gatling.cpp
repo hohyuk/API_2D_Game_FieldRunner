@@ -65,11 +65,8 @@ void Gatling::Attack(float fDist)
 {
 	if (fDist < m_iAttackRange / 2)
 	{
-		// 적과 포신의 각도 구하기
-		int degree = static_cast<int>(atan2f(m_tInfo.fDirY, m_tInfo.fDirX) * RADIAN);
-		degree = (degree + 90) / 10;	// 이미지 각도 맞게
-		m_tFrame.iStart = Wrap(0, degree, 36);
-
+		TowerAnim();
+		
 		m_tFrame.fFrameSpeed += DELTA_TIME;
 		if (m_tFrame.fFrameSpeed >= m_tFrame.fFixTime)
 		{

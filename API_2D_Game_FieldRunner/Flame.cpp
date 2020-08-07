@@ -53,8 +53,25 @@ void Flame::UpgradeTower()
 	default:
 		break;
 	}
+	m_iAttackRange = 200 + (m_Level * 50);
+	MakeRect(m_AttackRangeRect, m_tInfo, m_iAttackRange, m_iAttackRange, 1);
 }
 
 void Flame::Attack(float fDist)
+{
+	if (fDist < m_iAttackRange / 2)
+	{
+		TowerAnim();
+
+		m_tFrame.fFrameSpeed += DELTA_TIME;
+		if (m_tFrame.fFrameSpeed >= m_tFrame.fFixTime)
+		{
+			CreateBullet();
+			m_tFrame.fFrameSpeed = 0;
+		}
+	}
+}
+
+void Flame::CreateBullet()
 {
 }

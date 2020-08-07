@@ -158,6 +158,7 @@
     <ClInclude Include="BitMap.h" />
     <ClInclude Include="Blimp.h" />
     <ClInclude Include="BmpManager.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="ButtonUI.h" />
     <ClInclude Include="CaveScene.h" />
     <ClInclude Include="Const.h" />
@@ -175,6 +176,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Gatling.h" />
     <ClInclude Include="Goo.h" />
+    <ClInclude Include="GooBullet.h" />
     <ClInclude Include="GrasslandsScene.h" />
     <ClInclude Include="HeavyBike.h" />
     <ClInclude Include="HeavySoldier.h" />
@@ -216,6 +218,7 @@
     <ClCompile Include="BitMap.cpp" />
     <ClCompile Include="Blimp.cpp" />
     <ClCompile Include="BmpManager.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="ButtonUI.cpp" />
     <ClCompile Include="CaveScene.cpp" />
     <ClCompile Include="EditScene.cpp" />
@@ -227,6 +230,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gatling.cpp" />
     <ClCompile Include="Goo.cpp" />
+    <ClCompile Include="GooBullet.cpp" />
     <ClCompile Include="GrasslandsScene.cpp" />
     <ClCompile Include="HeavyBike.cpp" />
     <ClCompile Include="HeavySoldier.cpp" />
