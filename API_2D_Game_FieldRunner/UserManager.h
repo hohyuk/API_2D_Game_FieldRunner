@@ -15,6 +15,8 @@ public:
 	// ½ºÄÚ¾î
 	void Set_Score(int _score) { m_iScore += _score; }
 	int Get_Score()const { return m_iScore; }
+	// Life
+	int Get_Life()const { return m_iLife; }
 public:
 	static UserManager*  Get_Instance()
 	{

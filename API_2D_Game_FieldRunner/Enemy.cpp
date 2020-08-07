@@ -51,9 +51,10 @@ void Enemy::Save_State(int preIndex)
 	if (m_pAStar->Get_BestList().empty())
 		return;
 
-	m_StateIndex = -1;			// 다시 인덱스를 초기화해주자
-	m_vecState.clear();
+	m_StateIndex = -1;					// 다시 인덱스를 초기화해주자
+	m_vecState.clear();					// Vecter에 있는 상태들을 지워주자
 	int previousIndex = preIndex;		// 전 단계 인덱스와 다음 어디로 갈지의 인덱스를 비교하기위해 Temp역할 변수 만든다.
+
 	for (const auto& index : m_pAStar->Get_BestList())
 	{
 		if (index == previousIndex + 1)

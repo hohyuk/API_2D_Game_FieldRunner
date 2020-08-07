@@ -30,7 +30,8 @@ void StageScene::Update()
 void StageScene::LateUpdate()
 {
 	OBJ_MGR->LateUpdate();
-
+	if (KEY_MGR->Key_DOWN('T'))
+		isTipShow = !isTipShow;
 	Create_Enemy_KeyDonw();
 }
 
@@ -44,7 +45,11 @@ void StageScene::Render(const HDC & hDC)
 	OBJ_MGR->Render(hDC);
 
 	Fixed_UI(hDC, TEXT("Money"), 30, 10, 71, 79);
+	for (int i = 0; i < USER_MGR->Get_Life(); ++i)
+		Fixed_UI(hDC, TEXT("Health"), (WINCX - 90) - (80 * i), 0, 90, 90);
 
+	if (isTipShow)
+		Fixed_UI(hDC, TEXT("Hud"), 0, 50, WINCX, 810);
 
 	// Font
 	TCHAR m_Tmp[128];

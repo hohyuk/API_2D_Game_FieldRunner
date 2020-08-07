@@ -15,7 +15,10 @@ inline void Insert_BitMap()
 {
 	BMP_MGR->Insert_Texture(TEXT("BackBuffer"), TEXT("../Resources/Image/Stage/BackBuffer.bmp"));
 	BMP_MGR->Insert_Texture(TEXT("Mouse"), TEXT("../Resources/Image/UI/Mouse.bmp"));
-	
+	BMP_MGR->Insert_Texture(TEXT("Hud"), TEXT("../Resources/Image/hud_text_bubble.bmp"));
+	BMP_MGR->Insert_Texture(TEXT("Defeat"), TEXT("../Resources/Image/text_defeat.bmp"));
+	BMP_MGR->Insert_Texture(TEXT("Victory"), TEXT("../Resources/Image/text_victory.bmp"));
+
 	Logo_BitMap();
 	Help_BitMap();
 	Select_BitMap();

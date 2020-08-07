@@ -29,5 +29,8 @@ protected:
 	void Create_Enemy(ENEMY_ID _eID);
 	void Create_Enemy_KeyDonw();
 	void Spawn_Enemy();
+
+protected:
+	bool isTipShow{ false };	// t Key
 };
 
