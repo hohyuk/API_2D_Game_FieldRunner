@@ -79,7 +79,14 @@ void Enemy::Console_AStarSearch()
 
 void Enemy::Move()
 {
-	if (m_pAStar->Get_BestList().empty())
+	// 체력이 없으면 죽는 모션바꾸기 및 isDie - True바꾸기
+	if (m_iHP <= 0)
+	{
+		Dead_Anim();
+		isDie = true;
+		return;
+	}
+	else if (m_pAStar->Get_BestList().empty())
 	{
 		m_tInfo.fX += DELTA_TIME * m_fSpeed;			// 도착했으면 쭉 직진
 		isArrive = true;
@@ -134,7 +141,7 @@ void Enemy::HpDraw(const HDC & hDC, const int & hp, DWORD color /*= RGB(255, 1, 
 		curHp = int(start * (1.f - hpRate) + m_HpBarLength * hpRate);		// 선형보간법 공식
 	}
 
-	GdiAlphaBlend(hDC, m_tRect.left, m_tRect.top - 15, curHp, 10, Ahdc, 0, 0, 100, 50, bf);
+	GdiAlphaBlend(hDC, m_tColliderRC.left, m_tColliderRC.top - 25, curHp, 10, Ahdc, 0, 0, 100, 50, bf);
 
 	SelectObject(Ahdc, Aoldbmp);
 	DeleteObject(m_br);
@@ -149,6 +156,12 @@ bool Enemy::DeleteEnemy()
 	{
 		// 생명을 깍아야한다.
 		//USER_MGR->Set_LifeMinus();
+		return true;
+	}
+	// 2. 죽은 애님이 끝나면 삭제
+	else if (isDie && m_tFrame.iStart == m_tFrame.iEnd - 1)
+	{
+		USER_MGR->Set_Gain(m_iGold, m_iScore);
 		return true;
 	}
 	return false;

@@ -99,6 +99,7 @@ void ButtonUI::Click_Button()
 		break;
 	case UI_TYPE::FAST_BTN:
 		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);
+		TIME_MGR->Set_DubleSpeed();
 		break;
 	case UI_TYPE::GATLING_BTN:
 		m_tFrame.iStart = Wrap(0, ++m_tFrame.iStart, m_tFrame.iEnd);

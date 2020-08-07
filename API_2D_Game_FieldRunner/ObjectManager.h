@@ -4,6 +4,7 @@ class ObjectManager final
 public:
 	void ChangeScene() { isSceneChange = true; }
 	void Set_ReSearch() { isReSearch = true; }
+	GameObject* Get_Target(GameObject* pObj, OBJECT::ID eTargetID);
 public:
 	static ObjectManager* Get_Instance()
 	{

@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "Tile.h"
 
+#include "UserManager.h"
 void Tile::Ready()
 {
 	m_tInfo.iCX = 64;
@@ -22,6 +23,19 @@ void Tile::Render(const HDC & hDC)
 {
 	SelectColor();
 	GameObject::Render_Debug(hDC, m_tRect, Rectangle, m_dwColor);
+
+	if (USER_MGR->Get_DebugNoneTileBox() && OBJECT::NONE == m_TileType)
+	{
+		HPEN hPen = CreatePen(PS_SOLID, 1, RGB(0,0,0));
+		HPEN oldPen = (HPEN)SelectObject(hDC, hPen);
+		auto old = SelectObject(hDC, GetStockObject(NULL_BRUSH));
+
+		Rectangle(hDC, m_tRect.left, m_tRect.top, m_tRect.right, m_tRect.bottom);
+
+		SelectObject(hDC, old);
+		SelectObject(hDC, oldPen);
+		DeleteObject(hPen);
+	}
 }
 
 void Tile::Release()

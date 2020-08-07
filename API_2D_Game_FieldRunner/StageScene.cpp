@@ -32,6 +32,8 @@ void StageScene::LateUpdate()
 	OBJ_MGR->LateUpdate();
 	if (KEY_MGR->Key_DOWN('T'))
 		isTipShow = !isTipShow;
+	if (KEY_MGR->Key_DOWN('P'))
+		USER_MGR->Set_GameState(USER_ID::DEBUG_NONE_TILE);
 	Create_Enemy_KeyDonw();
 }
 

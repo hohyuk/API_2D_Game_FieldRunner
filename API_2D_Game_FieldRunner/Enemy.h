@@ -8,6 +8,9 @@ class Enemy :
 {
 public:
 	void ReSearch();
+
+	void Set_Damage(int damage) { m_iHP -= damage; }
+	bool IsTargetDead()const { return isDie; }			// 죽으면 타겟을 잡지 말기.
 public:
 	virtual void Ready() override;
 	virtual void Render(const HDC & hDC) override;
@@ -18,6 +21,7 @@ public:
 protected:
 	virtual void Init_Stat() = 0;
 	virtual void Change_Anim() = 0;
+	virtual void Dead_Anim() = 0;
 protected:
 	void Save_State(int preIndex);
 	void Console_AStarSearch();
@@ -26,6 +30,7 @@ protected:
 	bool DeleteEnemy();
 protected:
 	bool isArrive{ false };					// 목표 도착했는지 안했는지
+	bool isDie{ false };
 	int m_iGold{};
 	int m_iScore{};
 	int m_iHP;

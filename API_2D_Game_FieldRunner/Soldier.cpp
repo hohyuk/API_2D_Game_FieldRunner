@@ -12,8 +12,7 @@ int Soldier::Update()
 {
 	Actor::Update_Anim();
 
-	
-	Move();
+	if (!isDie)	Move();
 
 	if (DeleteEnemy()) return OBJ_DEAD;
 	return OBJ_NOEVENT;
@@ -31,9 +30,11 @@ void Soldier::Init_Stat()
 {
 	m_tInfo.iCX = 64;
 	m_tInfo.iCY = 64;
-	m_fSpeed = 100.f;
+	m_fSpeed = 150.f;
 	m_iHP = m_iMaxHP = 100;
-	m_HpBarLength = 64;
+	m_HpBarLength = m_tInfo.iCX >> 1;
+	m_iGold = 3;
+	m_iScore = 10;
 }
 
 void Soldier::Change_Anim()
@@ -76,4 +77,24 @@ void Soldier::Change_Anim()
 		m_tFrame.fFixTime = 0.1f;
 		m_eCurState = m_vecState[m_StateIndex];
 	}
+}
+
+void Soldier::Dead_Anim()
+{
+	switch (m_vecState[m_StateIndex])
+	{
+	case OBJECT::STATE::RIGHT:
+		m_tFrame.iSceneFrame = 5;
+		break;
+	case OBJECT::STATE::LEFT:
+		m_tFrame.iSceneFrame = 4;
+		break;
+	default:
+		m_tFrame.iSceneFrame = 5;
+		break;
+	}
+	m_tFrame.iStart = 0;
+	m_tFrame.iEnd = 5;
+	m_tFrame.fFrameSpeed = 0.f;
+	m_tFrame.fFixTime = 0.1f;
 }

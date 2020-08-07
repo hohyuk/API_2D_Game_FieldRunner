@@ -38,3 +38,7 @@ void Mortar::UpgradeTower()
 	m_tFrame.iSceneFrame = 0;
 	m_tFrame.fFixTime = 0.1f;
 }
+
+void Mortar::Attack(float fDist)
+{
+}

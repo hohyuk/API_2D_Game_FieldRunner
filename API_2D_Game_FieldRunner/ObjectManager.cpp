@@ -3,7 +3,35 @@
 
 #include "GameObject.h"
 #include "Enemy.h"
+
 ObjectManager* ObjectManager::m_pInstance{ nullptr };
+
+GameObject * ObjectManager::Get_Target(GameObject * pObj, OBJECT::ID eTargetID)
+{
+	if (m_listObject[eTargetID].empty())
+		return nullptr;
+	
+	GameObject* pTarget = m_listObject[eTargetID].front();		// 비교하기위해 첫번째 타겟을 정해준다.
+
+	float fBaseDist = Distance(pObj->Get_PosX(), pObj->Get_PosY(), pTarget->Get_PosX(), pTarget->Get_PosY());
+
+
+	for (auto& iter : m_listObject[eTargetID])
+	{
+		if (dynamic_cast<Enemy*>(iter)->IsTargetDead())
+			continue;
+		
+		float fDist = Distance(pObj->Get_PosX(), pObj->Get_PosY(), iter->Get_PosX(), iter->Get_PosY());
+
+		if (fDist < fBaseDist)
+		{
+			pTarget = iter;
+			fBaseDist = fDist;
+		}
+	}
+
+	return pTarget;
+}
 
 void ObjectManager::Add_Object(GameObject *& pObj, OBJECT::ID eID)
 {

@@ -54,3 +54,7 @@ void Flame::UpgradeTower()
 		break;
 	}
 }
+
+void Flame::Attack(float fDist)
+{
+}

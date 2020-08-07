@@ -54,3 +54,7 @@ void Goo::UpgradeTower()
 		break;
 	}
 }
+
+void Goo::Attack(float fDist)
+{
+}

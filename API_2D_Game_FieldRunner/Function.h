@@ -8,12 +8,12 @@ static void MakeRect(RECT& rc, const INFO& info, int _reduction = 1)
 	rc.bottom = LONG(info.fY + (info.iCY >> _reduction));
 }
 
-static void MakeRect(RECT& rc, const INFO& info, int _iCX, int _iCY)
+static void MakeRect(RECT& rc, const INFO& info, int _iCX, int _iCY, int _reduction = 0)
 {
-	rc.left = LONG(info.fX - _iCX);
-	rc.top = LONG(info.fY - _iCY);
-	rc.right = LONG(info.fX + _iCX);
-	rc.bottom = LONG(info.fY + _iCY);
+	rc.left = LONG(info.fX - (_iCX>> _reduction));
+	rc.top = LONG(info.fY - (_iCY>> _reduction));
+	rc.right = LONG(info.fX + (_iCX>> _reduction));
+	rc.bottom = LONG(info.fY + (_iCY>> _reduction));
 }
 
 static void MakeRect(RECT& rc, const INFO& info, float _fCX, float _fCY)

@@ -14,6 +14,7 @@ public:
 
 protected:
 	virtual void UpgradeTower() = 0;
+	virtual void Attack(float fDist) = 0;
 protected:
 	void Set_Pivot(float x, float y) { m_tInfo.fX += x, m_tInfo.fY += y; }
 	void Click_Tower(const POINT& pt);
@@ -21,6 +22,7 @@ protected:
 	void Click_Upgrage(const POINT& pt);
 	bool Click_Sell(const POINT& pt);
 
+	void Attack_EnemyRanger();		// Enemy 공격 범위 찾기
 	void Render_TowerUI(const HDC& hDC, const TCHAR * _pKey, int x, int y, int cx, int cy, int _state = 0);
 	void Render_TowerUI(const HDC& hDC, const TCHAR * _pKey, int x, int y, int w, int h, int _wSrc, int _hSrc, int _state = 0);
 
@@ -43,5 +45,7 @@ protected:
 	RECT m_UpgradeRect;
 	RECT m_ClickRangeRect;
 	RECT m_AttackRangeRect;
+
+	GameObject* m_pTarget{ nullptr };
 };
 

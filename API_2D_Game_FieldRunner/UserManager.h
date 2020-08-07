@@ -2,11 +2,13 @@
 class UserManager final
 {
 public:
-	enum ID { DBUG_RENDER_BOX, END_ID };
+	enum ID { DEBUG_RENDER_BOX, DEBUG_NONE_TILE, GAME_OVER, END_ID };
 public:
 	void ReSet(int gold = 10);
 	void Set_GameState(ID _eID) { isGameState[_eID] = !isGameState[_eID]; }
-	bool Get_DebugRenderBox()const { return isGameState[ID::DBUG_RENDER_BOX]; }
+	bool Get_DebugRenderBox()const { return isGameState[ID::DEBUG_RENDER_BOX]; }
+	bool Get_DebugNoneTileBox()const { return isGameState[ID::DEBUG_NONE_TILE]; }
+
 
 	// 금전
 	int Get_Gold()const { return m_iGold; }
@@ -17,6 +19,10 @@ public:
 	int Get_Score()const { return m_iScore; }
 	// Life
 	int Get_Life()const { return m_iLife; }
+	void Set_LifeMinus(int minus = 1) { m_iLife -= minus; /* 생명이 0이하이면 게임 오버 해주자 */ if (m_iLife <= 0) isGameState[GAME_OVER] = true; }
+
+	// Enemy 죽이면 스코어 및 금전 획득
+	void Set_Gain(int _gold, int _score);
 public:
 	static UserManager*  Get_Instance()
 	{

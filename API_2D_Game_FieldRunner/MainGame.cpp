@@ -33,7 +33,7 @@ void MainGame::LateUpdate()
 
 	// RenderBox_OnOff
 	if (KEY_MGR->Key_DOWN('D'))
-		USER_MGR->Set_GameState(USER_ID::DBUG_RENDER_BOX);
+		USER_MGR->Set_GameState(USER_ID::DEBUG_RENDER_BOX);
 }
 
 void MainGame::Render()

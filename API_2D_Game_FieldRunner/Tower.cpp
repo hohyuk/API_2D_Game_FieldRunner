@@ -2,6 +2,8 @@
 #include "Tower.h"
 
 #include "TileManager.h"
+#include "ObjectManager.h"
+#include "Enemy.h"
 
 bool Tower::isTowerClick{ false };
 
@@ -20,6 +22,8 @@ void Tower::Ready()
 
 int Tower::Update()
 {
+	Attack_EnemyRanger();
+
 	POINT pt = KEY_MGR->Mouse_Point();
 	Click_Tower(pt);
 	UnClick_Tower(pt);
@@ -35,12 +39,11 @@ void Tower::LateUpdate()
 
 void Tower::Render(const HDC & hDC)
 {
-	Actor::Render(hDC);
-	
 	// Click - Sell, Upgrade
 	if (isClick)
 	{
 		Render_Debug(hDC, m_ClickRangeRect, Ellipse, RGB(255, 0, 0));
+		Render_Alpha(hDC, m_AttackRangeRect, m_iAttackRange, RGB(1, 250, 1), Ellipse);
 
 		Render_Debug(hDC, m_SellRect, Ellipse, RGB(255, 0, 0));
 		Render_TowerUI(hDC, TEXT("Sell"), m_SellRect.left - 5, m_SellRect.top - 5, 133, 117);
@@ -50,13 +53,17 @@ void Tower::Render(const HDC & hDC)
 		FONT_MGR->FontDraw(hDC, m_Tmp, m_SellRect.right - 50, m_SellRect.bottom - 30, BLACK_COLOR, TEXT("고딕"), 30, FW_BOLD);
 
 	
-		if (m_Level == MAX_TOWER_LEVEL) return;
-		Render_Debug(hDC, m_UpgradeRect, Ellipse, RGB(255, 0, 0));
-		Render_TowerUI(hDC, TEXT("Upgrade"), m_UpgradeRect.left - 5, m_UpgradeRect.top - 5, 120, 117, m_UpgradePossibe);
+		if (m_Level != MAX_TOWER_LEVEL)
+		{
+			Render_Debug(hDC, m_UpgradeRect, Ellipse, RGB(255, 0, 0));
+			Render_TowerUI(hDC, TEXT("Upgrade"), m_UpgradeRect.left - 5, m_UpgradeRect.top - 5, 120, 117, m_UpgradePossibe);
 
-		_stprintf_s(m_Tmp, 128, TEXT("$ %d"), m_iPriceArr[PRICE::UPGRADE]);
-		FONT_MGR->FontDraw(hDC, m_Tmp, m_UpgradeRect.right - 45, m_UpgradeRect.bottom - 30, BLACK_COLOR, TEXT("고딕"), 30, FW_BOLD);
+			_stprintf_s(m_Tmp, 128, TEXT("$ %d"), m_iPriceArr[PRICE::UPGRADE]);
+			FONT_MGR->FontDraw(hDC, m_Tmp, m_UpgradeRect.right - 45, m_UpgradeRect.bottom - 30, BLACK_COLOR, TEXT("고딕"), 30, FW_BOLD);
+		}	
 	}
+
+	Actor::Render(hDC);
 }
 
 void Tower::Release()
@@ -125,6 +132,25 @@ bool Tower::Click_Sell(const POINT & pt)
 		}
 	}
 	return false;
+}
+
+void Tower::Attack_EnemyRanger()
+{
+	m_pTarget = OBJ_MGR->Get_Target(this, OBJECT::ENEMY);
+
+	if (nullptr == m_pTarget || dynamic_cast<Enemy*>(m_pTarget)->IsTargetDead())
+	{
+		m_tFrame.iSceneFrame = m_LevelMotion;
+		return;
+	}
+
+	/*포신이 마우스 따라가기 만들기*/
+	m_tInfo.fDirX = m_pTarget->Get_PosX() - m_tInfo.fX;
+	m_tInfo.fDirY = m_pTarget->Get_PosY() - m_tInfo.fY;
+
+	float fDist = sqrt(m_tInfo.fDirX * m_tInfo.fDirX + m_tInfo.fDirY * m_tInfo.fDirY);
+
+	Attack(fDist);
 }
 
 void Tower::Render_TowerUI(const HDC & hDC, const TCHAR * _pKey, int x, int y, int cx, int cy, int _state)

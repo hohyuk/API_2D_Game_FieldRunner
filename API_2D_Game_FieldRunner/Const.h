@@ -15,6 +15,9 @@ constexpr DWORD BLACK_COLOR{ RGB(0,0,0) };
 
 
 constexpr float PI{ 3.141592f };
+constexpr float RADIAN{ 180.f / PI };
+constexpr float DEGREE{ PI / 180.f };
+
 
 // TILE POSITION
 constexpr int TILE_START_PX{ 2 };
