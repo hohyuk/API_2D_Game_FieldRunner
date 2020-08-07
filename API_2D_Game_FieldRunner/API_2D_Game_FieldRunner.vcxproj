@@ -175,6 +175,7 @@
     <ClInclude Include="Gatling.h" />
     <ClInclude Include="Goo.h" />
     <ClInclude Include="GrasslandsScene.h" />
+    <ClInclude Include="HeavyBike.h" />
     <ClInclude Include="HeavySoldier.h" />
     <ClInclude Include="HelpScene.h" />
     <ClInclude Include="HelpUI.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="OptionUI.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Robot.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SelectScene.h" />
@@ -223,6 +225,7 @@
     <ClCompile Include="Gatling.cpp" />
     <ClCompile Include="Goo.cpp" />
     <ClCompile Include="GrasslandsScene.cpp" />
+    <ClCompile Include="HeavyBike.cpp" />
     <ClCompile Include="HeavySoldier.cpp" />
     <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="HelpUI.cpp" />
@@ -233,6 +236,7 @@
     <ClCompile Include="Mortar.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="OptionUI.cpp" />
+    <ClCompile Include="Robot.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SelectScene.cpp" />

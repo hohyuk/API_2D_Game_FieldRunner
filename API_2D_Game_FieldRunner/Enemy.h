@@ -13,6 +13,7 @@ public:
 	bool IsTargetDead()const { return isDie; }			// 죽으면 타겟을 잡지 말기.
 public:
 	virtual void Ready() override;
+	virtual int Update() override;
 	virtual void Render(const HDC & hDC) override;
 public:
 	explicit Enemy();
@@ -22,6 +23,7 @@ protected:
 	virtual void Init_Stat() = 0;
 	virtual void Change_Anim() = 0;
 	virtual void Dead_Anim() = 0;
+	virtual void CreateEnemy();				// Buike Enemy이 죽었을 때 필요한 함수.
 protected:
 	void Save_State(int preIndex);
 	void Console_AStarSearch();

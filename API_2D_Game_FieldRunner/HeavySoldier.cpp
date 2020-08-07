@@ -7,16 +7,6 @@ void HeavySoldier::Ready()
 	Init_Stat();
 }
 
-int HeavySoldier::Update()
-{
-	Actor::Update_Anim();
-
-	if (!isDie)	Move();
-
-	if (DeleteEnemy()) return OBJ_DEAD;
-	return OBJ_NOEVENT;
-}
-
 HeavySoldier::HeavySoldier()
 {
 }
@@ -27,8 +17,7 @@ HeavySoldier::~HeavySoldier()
 
 void HeavySoldier::Init_Stat()
 {
-	m_tInfo.iCX = 100;
-	m_tInfo.iCY = 100;
+	m_tInfo.iCX = m_tInfo.iCY = 100;
 	m_iGold = 6;
 	m_iScore = 10;
 	m_fSpeed = 100.f;

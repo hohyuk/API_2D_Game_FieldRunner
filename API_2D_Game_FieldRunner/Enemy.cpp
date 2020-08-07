@@ -13,6 +13,16 @@ void Enemy::Ready()
 	Console_AStarSearch();
 }
 
+int Enemy::Update()
+{
+	Actor::Update_Anim();
+
+	if (!isDie)	Move();
+
+	if (DeleteEnemy()) return OBJ_DEAD;
+	return OBJ_NOEVENT;
+}
+
 void Enemy::Render(const HDC & hDC)
 {
 	MakeRect(m_tRect, m_tInfo);
@@ -44,6 +54,10 @@ void Enemy::ReSearch()
 
 	Save_State(index);
 	Change_Anim();
+}
+
+void Enemy::CreateEnemy()
+{
 }
 
 void Enemy::Save_State(int preIndex)
@@ -155,13 +169,14 @@ bool Enemy::DeleteEnemy()
 	if (m_tInfo.fX >= WINCX + 50)
 	{
 		// 생명을 깍아야한다.
-		//USER_MGR->Set_LifeMinus();
+		USER_MGR->Set_LifeMinus();
 		return true;
 	}
 	// 2. 죽은 애님이 끝나면 삭제
 	else if (isDie && m_tFrame.iStart == m_tFrame.iEnd - 1)
 	{
 		USER_MGR->Set_Gain(m_iGold, m_iScore);
+		CreateEnemy();
 		return true;
 	}
 	return false;

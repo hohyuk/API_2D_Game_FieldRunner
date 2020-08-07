@@ -133,6 +133,12 @@
     <Filter Include="94.AStar">
       <UniqueIdentifier>{353adbd8-808e-426d-9b25-193f8805790a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\01.Actor\02.Enemy\03.HeavyBike">
+      <UniqueIdentifier>{3215aa92-51b9-4c29-b024-7c21ac12269d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\02.Enemy\04.Robot">
+      <UniqueIdentifier>{268a4bd4-2f8d-40dd-8006-d8a8a7db36c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -294,6 +300,12 @@
     <ClInclude Include="AStar.h">
       <Filter>94.AStar</Filter>
     </ClInclude>
+    <ClInclude Include="HeavyBike.h">
+      <Filter>02.GameObject\01.Actor\02.Enemy\03.HeavyBike</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot.h">
+      <Filter>02.GameObject\01.Actor\02.Enemy\04.Robot</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -431,6 +443,12 @@
     </ClCompile>
     <ClCompile Include="AStar.cpp">
       <Filter>94.AStar</Filter>
+    </ClCompile>
+    <ClCompile Include="HeavyBike.cpp">
+      <Filter>02.GameObject\01.Actor\02.Enemy\03.HeavyBike</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot.cpp">
+      <Filter>02.GameObject\01.Actor\02.Enemy\04.Robot</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

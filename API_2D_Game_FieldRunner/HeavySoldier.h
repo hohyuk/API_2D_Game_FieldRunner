@@ -5,7 +5,6 @@ class HeavySoldier :
 {
 public:
 	virtual void Ready() override;
-	virtual int Update() override;
 public:
 	explicit HeavySoldier();
 	virtual ~HeavySoldier();

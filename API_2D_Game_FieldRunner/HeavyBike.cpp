@@ -1,74 +1,63 @@
 #include "framework.h"
-#include "Soldier.h"
+#include "HeavyBike.h"
 
-void Soldier::Ready()
+#include "HeavySoldier.h"
+#include "ObjectManager.h"
+void HeavyBike::Ready()
 {
 	Enemy::Ready();
-	// Init Stat
 	Init_Stat();
 }
 
-Soldier::Soldier()
+HeavyBike::HeavyBike()
 {
 }
 
-Soldier::~Soldier()
+HeavyBike::~HeavyBike()
 {
 }
 
-void Soldier::Init_Stat()
+void HeavyBike::Init_Stat()
 {
-	m_tInfo.iCX = m_tInfo.iCY = 64;
-	m_fSpeed = 150.f;
-	m_iHP = m_iMaxHP = 100;
+	m_tInfo.iCX = m_tInfo.iCY = 140;
+	m_iGold = 10;
+	m_iScore = 15;
+	m_fSpeed = 200.f;
+	m_iMaxHP = m_iHP = 300;
 	m_HpBarLength = m_tInfo.iCX >> 1;
-	m_iGold = 3;
-	m_iScore = 10;
 }
 
-void Soldier::Change_Anim()
+void HeavyBike::Change_Anim()
 {
 	if (m_eCurState != m_vecState[++m_StateIndex])
 	{
 		switch (m_vecState[m_StateIndex])
 		{
 		case OBJECT::STATE::RIGHT:
-			m_tFrame.iEnd = 8;
 			m_tFrame.iSceneFrame = 0;
 			break;
 		case OBJECT::STATE::LEFT:
-			m_tFrame.iEnd = 8;
 			m_tFrame.iSceneFrame = 1;
 			break;
 		case OBJECT::STATE::UP:
-			m_tFrame.iEnd = 7;
 			m_tFrame.iSceneFrame = 2;
 			break;
 		case OBJECT::STATE::DOWN:
-			m_tFrame.iEnd = 9;
 			m_tFrame.iSceneFrame = 3;
 			break;
-		case OBJECT::STATE::DIE_LEFT:
-			m_tFrame.iEnd = 5;
-			m_tFrame.iSceneFrame = 4;
-			break;
-		case OBJECT::STATE::DIE_RIGHT:
-			m_tFrame.iEnd = 5;
-			m_tFrame.iSceneFrame = 5;
-			break;
 		default:
-			m_tFrame.iEnd = 8;
 			m_tFrame.iSceneFrame = 0;
 			break;
 		}
 		m_tFrame.iStart = 0;
+		m_tFrame.iEnd = 4;
 		m_tFrame.fFrameSpeed = 0.f;
 		m_tFrame.fFixTime = 0.1f;
 		m_eCurState = m_vecState[m_StateIndex];
 	}
 }
 
-void Soldier::Dead_Anim()
+void HeavyBike::Dead_Anim()
 {
 	switch (m_vecState[m_StateIndex])
 	{
@@ -83,7 +72,15 @@ void Soldier::Dead_Anim()
 		break;
 	}
 	m_tFrame.iStart = 0;
-	m_tFrame.iEnd = 5;
+	m_tFrame.iEnd = 4;
 	m_tFrame.fFrameSpeed = 0.f;
-	m_tFrame.fFixTime = 0.1f;
+	m_tFrame.fFixTime = 0.2f;
+}
+
+void HeavyBike::CreateEnemy()
+{
+	GameObject* pTempObj = nullptr;
+	pTempObj = AbstractFactory<HeavySoldier>::Create(TEXT("HeavySoldier"), m_tInfo.fX, m_tInfo.fY);
+	dynamic_cast<HeavySoldier*>(pTempObj)->ReSearch();
+	OBJ_MGR->Add_Object(pTempObj, OBJECT::ENEMY);
 }

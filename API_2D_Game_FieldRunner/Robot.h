@@ -1,13 +1,13 @@
 #pragma once
 #include "Enemy.h"
-class Soldier :
+class Robot :
 	public Enemy
 {
 public:
 	virtual void Ready() override;
 public:
-	explicit Soldier();
-	virtual ~Soldier();
+	explicit Robot();
+	virtual ~Robot();
 
 protected:
 	virtual void Init_Stat() override;

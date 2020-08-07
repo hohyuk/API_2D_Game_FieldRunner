@@ -4,6 +4,8 @@
 #include "TileManager.h"
 #include "Soldier.h"
 #include "HeavySoldier.h"
+#include "HeavyBike.h"
+#include "Robot.h"
 
 void StageScene::Ready()
 {
@@ -110,8 +112,10 @@ void StageScene::Create_Enemy(ENEMY_ID _eID)
 		pTempObj = AbstractFactory<HeavySoldier>::Create(TEXT("HeavySoldier"), ENEMY_POSX, ENEMY_POSY);
 		break;
 	case StageScene::BIKE:
+		pTempObj = AbstractFactory<HeavyBike>::Create(TEXT("HeavyBike"), ENEMY_POSX, ENEMY_POSY);
 		break;
 	case StageScene::ROBOT:
+		pTempObj = AbstractFactory<Robot>::Create(TEXT("Robot"), ENEMY_POSX, ENEMY_POSY);
 		break;
 	case StageScene::BLIMP:
 		break;
@@ -132,6 +136,10 @@ void StageScene::Create_Enemy_KeyDonw()
 		Create_Enemy(SOLDIER);
 	if (KEY_MGR->Key_DOWN('2'))
 		Create_Enemy(HEAVY);
+	if (KEY_MGR->Key_DOWN('3'))
+		Create_Enemy(BIKE);
+	if (KEY_MGR->Key_DOWN('4'))
+		Create_Enemy(ROBOT);
 }
 
 void StageScene::Spawn_Enemy()
