@@ -1,6 +1,9 @@
 #include "framework.h"
 #include "Goo.h"
 
+#include "ObjectManager.h"
+#include "GooBullet.h"
+
 void Goo::Ready()
 {
 	Tower::Set_Pivot(0.f, -10.f);
@@ -76,8 +79,15 @@ void Goo::Attack(float fDist)
 void Goo::CreateBullet()
 {
 	float angle = static_cast<float>((m_tFrame.iStart * 10) - 90.f);
-	m_fBarrelX = m_fBarrelRad * cosf(DEGREE_RADIAN(angle)) + m_tInfo.fX;
-	m_fBarrelY = m_fBarrelRad * sinf(DEGREE_RADIAN(angle)) + m_tInfo.fY;
+	float rad = DEGREE_RADIAN(angle);
+	m_fBarrelX = m_fBarrelRad * cosf(rad) + m_tInfo.fX;
+	m_fBarrelY = m_fBarrelRad * sinf(rad) + m_tInfo.fY;
 
 	GameObject* pInstance = nullptr;
+
+	pInstance = AbstractFactory<GooBullet>::Create(TEXT("Goo_Bullet"), m_fBarrelX, m_fBarrelY);
+	dynamic_cast<Bullet*>(pInstance)->Set_Attack(m_iAttack);
+	dynamic_cast<Bullet*>(pInstance)->Set_RadianAngle(rad);
+
+	OBJ_MGR->Add_Object(pInstance, OBJECT::BULLET);
 }

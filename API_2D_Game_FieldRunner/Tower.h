@@ -39,7 +39,6 @@ protected:
 	int m_iIndex;						// 설치된 타워 인덱스 번호(위치)
 	int m_UpgradePossibe;				// 업글
 	int m_Level{};
-	int m_iAttack;
 	int m_LevelMotion{};				// 레벨에 맞는 이미지
 	int m_iAttackRange;
 	int m_iPriceArr[PRICE::END]{};

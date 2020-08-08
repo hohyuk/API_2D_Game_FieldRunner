@@ -10,7 +10,7 @@ inline void Tower_BitMap();
 inline void Enemy_BitMap();
 inline void UI_BitMap();
 inline void Overhang_BitMap();
-
+inline void Bullet_BitMap();
 
 inline void Insert_BitMap()
 {
@@ -29,6 +29,7 @@ inline void Insert_BitMap()
 	Enemy_BitMap();
 	UI_BitMap();
 	Overhang_BitMap();
+	Bullet_BitMap();
 }
 
 inline void Logo_BitMap()
@@ -110,4 +111,16 @@ inline void UI_BitMap()
 inline void Overhang_BitMap()
 {
 	BMP_MGR->Insert_Texture(TEXT("Gate"), TEXT("../Resources/Image/Obejct/east_gate_overhang.bmp"));
+}
+
+inline void Bullet_BitMap()
+{
+	// Bullet
+	BMP_MGR->Insert_Texture(TEXT("FireBullet1"), TEXT("../Resources/Image/fx_flame.bmp"));
+	BMP_MGR->Insert_Texture(TEXT("FireBullet2"), TEXT("../Resources/Image/fx_flame_add.bmp"));
+
+	BMP_MGR->Insert_Texture(TEXT("Goo_Bullet"), TEXT("../Resources/Image/Bullet/goo_bullet.bmp"));
+	BMP_MGR->Insert_Texture(TEXT("Mortar_Bullet"), TEXT("../Resources/Image/Bullet/mortar_bullet.bmp"));
+	// Effect
+	BMP_MGR->Insert_Texture(TEXT("Goo_Effect"), TEXT("../Resources/Image/Effect/projectile_goo_effect.bmp"));
 }

@@ -4,6 +4,8 @@ class Actor :
 	public GameObject
 {
 public:
+	void Set_Attack(int attack) { m_iAttack = attack; }
+public:
 	// GameObject을(를) 통해 상속됨
 	virtual void Ready() override;
 	virtual int Update() override;
@@ -17,5 +19,8 @@ public:
 
 protected:
 	virtual void Update_Anim();
+
+protected:
+	int m_iAttack;
 };
 
