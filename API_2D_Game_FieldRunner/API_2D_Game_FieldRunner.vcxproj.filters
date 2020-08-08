@@ -151,6 +151,15 @@
     <Filter Include="02.GameObject\01.Actor\03.Bullet\01.GooBullet">
       <UniqueIdentifier>{2a0ae422-6dfb-4696-8511-099957758855}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObject\01.Actor\04.Effect">
+      <UniqueIdentifier>{2b7a391a-e813-41a4-9baf-96efff98c3b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\03.Bullet\02.FlameBullet">
+      <UniqueIdentifier>{d58445bf-3473-4a66-a0f9-d96e3eef6e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObject\01.Actor\03.Bullet\03.MortarBullet">
+      <UniqueIdentifier>{ab292e4e-3fff-43a1-a613-656fa00e4cda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -330,6 +339,15 @@
     <ClInclude Include="GooBullet.h">
       <Filter>02.GameObject\01.Actor\03.Bullet\01.GooBullet</Filter>
     </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>02.GameObject\01.Actor\04.Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="FlameBullet.h">
+      <Filter>02.GameObject\01.Actor\03.Bullet\02.FlameBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="MortarBullet.h">
+      <Filter>02.GameObject\01.Actor\03.Bullet\03.MortarBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -485,6 +503,15 @@
     </ClCompile>
     <ClCompile Include="GooBullet.cpp">
       <Filter>02.GameObject\01.Actor\03.Bullet\01.GooBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>02.GameObject\01.Actor\04.Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="FlameBullet.cpp">
+      <Filter>02.GameObject\01.Actor\03.Bullet\02.FlameBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="MortarBullet.cpp">
+      <Filter>02.GameObject\01.Actor\03.Bullet\03.MortarBullet</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

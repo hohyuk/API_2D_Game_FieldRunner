@@ -9,14 +9,6 @@ void Gatling::Ready()
 	Tower::Ready();
 }
 
-void Gatling::LateUpdate()
-{
-}
-
-void Gatling::Release()
-{
-}
-
 Gatling::Gatling()
 {
 	cout << "Gatling Create" << endl;

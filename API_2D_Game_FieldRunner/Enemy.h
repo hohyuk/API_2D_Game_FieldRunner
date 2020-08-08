@@ -11,6 +11,7 @@ public:
 
 	void Set_Damage(int damage) { m_iHP -= damage; }
 	bool IsTargetDead()const { return isDie; }			// 죽으면 타겟을 잡지 말기.
+	void Set_SlowSpeed();
 public:
 	virtual void Ready() override;
 	virtual int Update() override;
@@ -29,9 +30,11 @@ protected:
 	void Move();
 	void HpDraw(const HDC& hDC, const int& hp, DWORD color = RGB(255, 1, 1));
 	virtual bool DeleteEnemy();
+	void SlowDown();
 protected:
 	bool isArrive{ false };					// 목표 도착했는지 안했는지
 	bool isDie{ false };
+	bool isSlowSpeed{ false };
 	int m_iGold{};
 	int m_iScore{};
 	int m_iHP;
@@ -39,6 +42,8 @@ protected:
 	int m_HpBarLength;
 	int m_StateIndex{};
 	float m_fSpeed;
+	float m_fSlowTime{ 0.f };
+
 	AStar* m_pAStar{ nullptr };
 
 	OBJECT::STATE m_eCurState;

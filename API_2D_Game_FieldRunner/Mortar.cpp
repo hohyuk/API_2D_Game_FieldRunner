@@ -43,6 +43,6 @@ void Mortar::Attack(float fDist)
 {
 }
 
-void Mortar::CreateBullet()
+void Mortar::MakeBullet()
 {
 }

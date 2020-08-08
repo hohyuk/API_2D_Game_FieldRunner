@@ -5,6 +5,7 @@ class Actor :
 {
 public:
 	void Set_Attack(int attack) { m_iAttack = attack; }
+	int Get_Attack()const { return m_iAttack; }
 public:
 	// GameObject을(를) 통해 상속됨
 	virtual void Ready() override;
@@ -21,6 +22,7 @@ protected:
 	virtual void Update_Anim();
 
 protected:
+	bool isSound{ false };
 	int m_iAttack;
 };
 

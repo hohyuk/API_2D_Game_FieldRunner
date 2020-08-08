@@ -1,6 +1,6 @@
 #pragma once
 #include "Bullet.h"
-class GooBullet final:
+class FlameBullet :
 	public Bullet
 {
 public:
@@ -8,7 +8,7 @@ public:
 	virtual int Update() override;
 
 public:
-	explicit GooBullet();
-	virtual ~GooBullet();
+	explicit FlameBullet();
+	virtual ~FlameBullet();
 };
 

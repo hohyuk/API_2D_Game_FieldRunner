@@ -13,20 +13,12 @@ void GooBullet::Ready()
 int GooBullet::Update()
 {
 	m_fLifeTime += DELTA_TIME;
-	if (m_fLifeTime > 1.0f)
+	if (m_fLifeTime > 1.0f || isDelete)
 		return OBJ_DEAD;
 
 	m_tInfo.fX += cosf(m_fRadAngle) *DELTA_TIME * 300.f;
 	m_tInfo.fY += sinf(m_fRadAngle) *DELTA_TIME * 300.f;
 	return OBJ_NOEVENT;
-}
-
-void GooBullet::LateUpdate()
-{
-}
-
-void GooBullet::Release()
-{
 }
 
 GooBullet::GooBullet()

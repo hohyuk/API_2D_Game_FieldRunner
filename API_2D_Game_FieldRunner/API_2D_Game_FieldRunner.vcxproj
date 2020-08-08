@@ -164,12 +164,14 @@
     <ClInclude Include="Const.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="EditScene.h" />
+    <ClInclude Include="Effect.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="ExitUI.h" />
     <ClInclude Include="External.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Flame.h" />
+    <ClInclude Include="FlameBullet.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Function.h" />
@@ -188,6 +190,7 @@
     <ClInclude Include="LogoUI.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Mortar.h" />
+    <ClInclude Include="MortarBullet.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="OptionUI.h" />
     <ClInclude Include="Overhang.h" />
@@ -222,10 +225,12 @@
     <ClCompile Include="ButtonUI.cpp" />
     <ClCompile Include="CaveScene.cpp" />
     <ClCompile Include="EditScene.cpp" />
+    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExitUI.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Flame.cpp" />
+    <ClCompile Include="FlameBullet.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gatling.cpp" />
@@ -241,6 +246,7 @@
     <ClCompile Include="LogoUI.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Mortar.cpp" />
+    <ClCompile Include="MortarBullet.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="OptionUI.cpp" />
     <ClCompile Include="Overhang.cpp" />

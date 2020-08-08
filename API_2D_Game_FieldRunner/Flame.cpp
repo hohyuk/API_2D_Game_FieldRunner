@@ -5,15 +5,7 @@ void Flame::Ready()
 {
 	Tower::Set_Pivot(0.f, -20.f);
 	Tower::Ready();
-
-}
-
-void Flame::LateUpdate()
-{
-}
-
-void Flame::Release()
-{
+	m_fBarrelRad = 60;
 }
 
 Flame::Flame()
@@ -66,12 +58,20 @@ void Flame::Attack(float fDist)
 		m_tFrame.fFrameSpeed += DELTA_TIME;
 		if (m_tFrame.fFrameSpeed >= m_tFrame.fFixTime)
 		{
-			CreateBullet();
+			MakeBullet();
 			m_tFrame.fFrameSpeed = 0;
 		}
 	}
+	else
+		m_tFrame.iSceneFrame = m_LevelMotion;
 }
 
-void Flame::CreateBullet()
+void Flame::MakeBullet()
 {
+	float angle = static_cast<float>((m_tFrame.iStart * 10) - 90.f);
+	float rad = DEGREE_RADIAN(angle);
+	m_fBarrelX = m_fBarrelRad * cosf(rad) + m_tInfo.fX;
+	m_fBarrelY = m_fBarrelRad * sinf(rad) + m_tInfo.fY;
+
+	CreateBullet(BULLET_ID::FLAME1_BULLET, m_fBarrelX, m_fBarrelY, rad);
 }

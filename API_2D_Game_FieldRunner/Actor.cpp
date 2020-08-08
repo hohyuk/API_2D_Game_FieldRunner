@@ -20,10 +20,9 @@ void Actor::Render(const HDC & hDC)
 	Render_Debug(hDC, m_tColliderRC, Rectangle, RGB(255, 0, 0));
 
 	HDC hMemDC = BMP_MGR->Find_Image(m_pFrameKey);
-	GdiTransparentBlt(hDC, m_tRect.left, m_tRect.top,
-		m_tInfo.iCX, m_tInfo.iCY, hMemDC, m_tInfo.iCX * m_tFrame.iStart, m_tInfo.iCY * m_tFrame.iSceneFrame,
-		m_tInfo.iCX,
-		m_tInfo.iCY, PINK_COLOR);
+	GdiTransparentBlt(hDC, m_tRect.left, m_tRect.top, m_tInfo.iCX, m_tInfo.iCY,
+		hMemDC, m_tInfo.iCX * m_tFrame.iStart, m_tInfo.iCY * m_tFrame.iSceneFrame,
+		m_tInfo.iCX, m_tInfo.iCY, PINK_COLOR);
 }
 
 void Actor::Release()

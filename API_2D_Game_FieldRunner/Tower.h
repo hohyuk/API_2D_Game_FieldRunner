@@ -13,9 +13,12 @@ public:
 	virtual void Release() override;
 
 protected:
+	enum BULLET_ID { GOO_BULLET, FLAME1_BULLET, FLAME2_BULLET, MORTAR_BULLET, END_BULLET };
+protected:
 	virtual void UpgradeTower() = 0;
 	virtual void Attack(float fDist) = 0;
-	virtual void CreateBullet() = 0;
+	virtual void MakeBullet() = 0;
+	void CreateBullet(BULLET_ID eID, float fX, float fY, float rad);
 protected:
 	void Set_Pivot(float x, float y) { m_tInfo.fX += x, m_tInfo.fY += y; }
 	void Click_Tower(const POINT& pt);

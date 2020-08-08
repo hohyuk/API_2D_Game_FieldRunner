@@ -8,6 +8,8 @@ public:
 	void Set_Info(INFO& _info) { m_tInfo = _info; }
 	void Set_ColliderRect(const RECT& rc) { m_tColliderRC = rc; }
 	RECT Get_Rect()const { return m_tRect; }
+	RECT Get_ColliderRect()const { return m_tColliderRC; }
+
 	float Get_PosX()const { return m_tInfo.fX; }
 	float Get_PosY()const { return m_tInfo.fY; }
 

@@ -35,6 +35,8 @@ public:
 private:
 	void ReSearchEnemy();
 	bool GameStop(OBJECT::ID eID);
+	// 출발지 - src(Source)와 목적지 - dst(Destination) 
+	void Collide_GameObject(list<GameObject*>& rDstList, list<GameObject*>& rSrcList);
 private:
 	explicit ObjectManager();
 	~ObjectManager();

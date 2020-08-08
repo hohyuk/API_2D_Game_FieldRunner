@@ -4,6 +4,9 @@
 #include "TileManager.h"
 #include "ObjectManager.h"
 #include "Enemy.h"
+#include "GooBullet.h"
+#include "FlameBullet.h"
+#include "MortarBullet.h"
 
 bool Tower::isTowerClick{ false };
 
@@ -68,6 +71,34 @@ void Tower::Render(const HDC & hDC)
 
 void Tower::Release()
 {
+}
+
+void Tower::CreateBullet(BULLET_ID eID, float fX, float fY, float rad)
+{
+	GameObject* pInstance = nullptr;
+
+	switch (eID)
+	{
+	case Tower::GOO_BULLET:
+		pInstance = AbstractFactory<GooBullet>::Create(TEXT("Goo_Bullet"), fX, fY);
+		break;
+	case Tower::FLAME1_BULLET:
+		pInstance = AbstractFactory<GooBullet>::Create(TEXT("FireBullet1"), fX, fY);
+		break;
+	case Tower::FLAME2_BULLET:
+		pInstance = AbstractFactory<GooBullet>::Create(TEXT("FireBullet2"), fX, fY);
+		break;
+	case Tower::MORTAR_BULLET:
+		break;
+	default:
+		break;
+	}
+
+	if (nullptr == pInstance) return;
+
+	dynamic_cast<Bullet*>(pInstance)->Set_Attack(m_iAttack);
+	dynamic_cast<Bullet*>(pInstance)->Set_RadianAngle(rad);
+	OBJ_MGR->Add_Object(pInstance, OBJECT::BULLET);
 }
 
 void Tower::Click_Tower(const POINT & pt)

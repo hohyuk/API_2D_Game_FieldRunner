@@ -4,6 +4,8 @@
 #include "GameObject.h"
 #include "Enemy.h"
 #include "Blimp.h"
+#include "GooBullet.h"
+#include "Effect.h"
 
 ObjectManager* ObjectManager::m_pInstance{ nullptr };
 
@@ -71,6 +73,9 @@ void ObjectManager::LateUpdate()
 {
 	//  ReSearch
 	ReSearchEnemy();
+
+	// 충돌 처리
+	Collide_GameObject(m_listObject[OBJECT::ENEMY], m_listObject[OBJECT::BULLET]);
 
 	for (int i = 0; i < OBJECT::END_ID; ++i)
 	{
@@ -145,6 +150,32 @@ bool ObjectManager::GameStop(OBJECT::ID eID)
 		return true;
 
 	return false;
+}
+
+void ObjectManager::Collide_GameObject(list<GameObject*>& rDstList, list<GameObject*>& rSrcList)
+{
+	if (USER_MGR->Get_GameStop()) return;
+
+	RECT rc = {};
+	for (auto& rDstObject : rDstList)
+	{
+		for (auto& rSrcObject : rSrcList)
+		{
+			if (IntersectRect(&rc, &rDstObject->Get_ColliderRect(), &rSrcObject->Get_ColliderRect()))
+			{
+				if (dynamic_cast<GooBullet*>(rSrcObject))
+				{
+					dynamic_cast<Enemy*>(rDstObject)->Set_Damage(dynamic_cast<Actor*>(rSrcObject)->Get_Attack());
+					dynamic_cast<Enemy*>(rDstObject)->Set_SlowSpeed();
+					// GooEffect Create
+					GameObject* pInstance = nullptr;
+					pInstance = AbstractFactory<Effect>::Create(TEXT("Goo_Effect"), rSrcObject->Get_PosX(), rSrcObject->Get_PosY());
+					OBJ_MGR->Add_Object(pInstance, OBJECT::EFFECT);
+					dynamic_cast<Bullet*>(rSrcObject)->Set_Delete();
+				}
+			}
+		}
+	}
 }
 
 ObjectManager::ObjectManager()

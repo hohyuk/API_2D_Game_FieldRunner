@@ -3,6 +3,16 @@
 
 #include "TileManager.h"
 
+void Enemy::Set_SlowSpeed()
+{
+	m_fSlowTime = 0.f;
+
+	if (isSlowSpeed) return;
+	isSlowSpeed = true;
+	m_fSpeed /= 2.f;
+	m_tFrame.fFixTime /= 2.f;
+}
+
 void Enemy::Ready()
 {
 	m_pAStar = new AStar;
@@ -15,6 +25,8 @@ void Enemy::Ready()
 
 int Enemy::Update()
 {
+	SlowDown();
+
 	Actor::Update_Anim();
 
 	if (!isDie)	Move();
@@ -180,4 +192,18 @@ bool Enemy::DeleteEnemy()
 		return true;
 	}
 	return false;
+}
+
+void Enemy::SlowDown()
+{
+	if (!isSlowSpeed) return;
+
+	m_fSlowTime += DELTA_TIME;
+	if (m_fSlowTime > 1.f)
+	{
+		m_fSlowTime = 0.f;
+		isSlowSpeed = false;
+		m_fSpeed *= 2.f;
+		m_tFrame.fFixTime *= 2.f;
+	}
 }

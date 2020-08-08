@@ -5,8 +5,6 @@ class Flame :
 {
 public:
 	virtual void Ready() override;
-	virtual void LateUpdate() override;
-	virtual void Release() override;
 public:
 	explicit Flame();
 	virtual ~Flame();
@@ -14,6 +12,6 @@ public:
 protected:
 	virtual void UpgradeTower() override;
 	virtual void Attack(float fDist) override;
-	virtual void CreateBullet() override;
+	virtual void MakeBullet() override;
 };
 
