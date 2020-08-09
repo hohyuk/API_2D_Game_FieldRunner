@@ -18,9 +18,7 @@ bool Enemy::IsBulletCollide(Bullet * bullet)
 	auto iter = find(m_BulletCollide.begin(), m_BulletCollide.end(), bullet);
 
 	if (iter != m_BulletCollide.end())
-	{
 		return false;
-	}
 	
 	m_BulletCollide.emplace_back(bullet);
 	cout << m_BulletCollide.size() << endl;
