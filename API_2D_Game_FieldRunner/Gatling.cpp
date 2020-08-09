@@ -62,12 +62,12 @@ void Gatling::Attack(float fDist)
 		m_tFrame.fFrameSpeed += DELTA_TIME;
 		if (m_tFrame.fFrameSpeed >= m_tFrame.fFixTime)
 		{
-			/*if (m_TowerLevel == 1)
-				SOUND_MGR->PlaySound(TEXT("tower_gatling_fire_loop_01.mp3"), SOUND_MGR->PLAYER);
-			else if (m_TowerLevel == 2)
-				SOUND_MGR->PlaySound(TEXT("tower_gatling_fire_loop_02.mp3"), SOUND_MGR->PLAYER);
-			else if (m_TowerLevel == 3)
-				SOUND_MGR->PlaySound(TEXT("tower_gatling_fire_loop_03.mp3"), SOUND_MGR->PLAYER);*/
+			if (m_Level == 1)
+				SOUND_MGR->PlaySound(SOUND_ID::GATLING_ATTACK1);
+			else if (m_Level == 2)
+				SOUND_MGR->PlaySound(SOUND_ID::GATLING_ATTACK2);
+			else if (m_Level == 3)
+				SOUND_MGR->PlaySound(SOUND_ID::GATLING_ATTACK3);
 
 			m_tFrame.iSceneFrame = Wrap(m_LevelMotion, ++m_tFrame.iSceneFrame, m_LevelMotion + 2);
 

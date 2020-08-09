@@ -83,10 +83,10 @@ void Tower::CreateBullet(BULLET_ID eID, float fX, float fY, float rad)
 		pInstance = AbstractFactory<GooBullet>::Create(TEXT("Goo_Bullet"), fX, fY);
 		break;
 	case Tower::FLAME1_BULLET:
-		pInstance = AbstractFactory<GooBullet>::Create(TEXT("FireBullet1"), fX, fY);
+		pInstance = AbstractFactory<FlameBullet>::Create(TEXT("FireBullet1"), fX, fY);
 		break;
 	case Tower::FLAME2_BULLET:
-		pInstance = AbstractFactory<GooBullet>::Create(TEXT("FireBullet2"), fX, fY);
+		pInstance = AbstractFactory<FlameBullet>::Create(TEXT("FireBullet2"), fX, fY);
 		break;
 	case Tower::MORTAR_BULLET:
 		break;

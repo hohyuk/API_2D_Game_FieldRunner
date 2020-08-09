@@ -13,6 +13,20 @@ void Enemy::Set_SlowSpeed()
 	m_tFrame.fFixTime /= 2.f;
 }
 
+bool Enemy::IsBulletCollide(Bullet * bullet)
+{
+	auto iter = find(m_BulletCollide.begin(), m_BulletCollide.end(), bullet);
+
+	if (iter != m_BulletCollide.end())
+	{
+		return false;
+	}
+	
+	m_BulletCollide.emplace_back(bullet);
+	cout << m_BulletCollide.size() << endl;
+	return true;
+}
+
 void Enemy::Ready()
 {
 	m_pAStar = new AStar;
@@ -52,6 +66,7 @@ Enemy::Enemy()
 Enemy::~Enemy()
 {
 	Safe_Delete(m_pAStar);
+	m_BulletCollide.clear();		//  객체를 Safe_Delete 안하는 이유는 Bullet에서 지워지기 때문에 중복되서 터진다.
 	cout << "Enemy Delete" << endl;
 }
 

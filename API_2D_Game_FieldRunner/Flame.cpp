@@ -21,7 +21,7 @@ void Flame::UpgradeTower()
 	switch (++m_Level)
 	{
 	case 1:
-		m_iAttack = 15;
+		m_iAttack = 10;
 		m_iPriceArr[PRICE::CURRENT] = FlamePrice;			// 초기는 그냥 넣어준다.
 		m_iPriceArr[PRICE::SELL] = static_cast<int>(m_iPriceArr[PRICE::CURRENT] / 1.5f);
 		m_iPriceArr[PRICE::UPGRADE] = m_iPriceArr[PRICE::CURRENT] * 2;
@@ -29,7 +29,7 @@ void Flame::UpgradeTower()
 		m_tFrame.fFixTime = 0.3f;
 		break;
 	case 2:
-		m_iAttack = 20;
+		m_iAttack = 15;
 		m_iPriceArr[PRICE::CURRENT] = m_iPriceArr[PRICE::UPGRADE];
 		m_iPriceArr[PRICE::SELL] = static_cast<int>(m_iPriceArr[PRICE::CURRENT] / 1.5f);
 		m_iPriceArr[PRICE::UPGRADE] = m_iPriceArr[PRICE::CURRENT] * 2;
@@ -37,7 +37,7 @@ void Flame::UpgradeTower()
 		m_tFrame.fFixTime = 0.2f;
 		break;
 	case MAX_TOWER_LEVEL:
-		m_iAttack = 35;
+		m_iAttack = 20;
 		m_iPriceArr[PRICE::SELL] = static_cast<int>(m_iPriceArr[PRICE::UPGRADE] / 1.5f);
 		m_LevelMotion = m_tFrame.iSceneFrame = 4;
 		m_tFrame.fFixTime = 0.1f;
@@ -59,6 +59,8 @@ void Flame::Attack(float fDist)
 		if (m_tFrame.fFrameSpeed >= m_tFrame.fFixTime)
 		{
 			MakeBullet();
+			SOUND_MGR->PlaySound(SOUND_ID::FLAME_ATTACK);
+			m_tFrame.iSceneFrame = Wrap(m_LevelMotion, ++m_tFrame.iSceneFrame, m_LevelMotion + 2);
 			m_tFrame.fFrameSpeed = 0;
 		}
 	}
@@ -70,8 +72,12 @@ void Flame::MakeBullet()
 {
 	float angle = static_cast<float>((m_tFrame.iStart * 10) - 90.f);
 	float rad = DEGREE_RADIAN(angle);
-	m_fBarrelX = m_fBarrelRad * cosf(rad) + m_tInfo.fX;
+	m_fBarrelX = (m_fBarrelRad * cosf(rad) + m_tInfo.fX) + 5;
 	m_fBarrelY = m_fBarrelRad * sinf(rad) + m_tInfo.fY;
 
-	CreateBullet(BULLET_ID::FLAME1_BULLET, m_fBarrelX, m_fBarrelY, rad);
+	CreateBullet(BULLET_ID::FLAME2_BULLET, m_fBarrelX, m_fBarrelY, rad);
+	CreateBullet(BULLET_ID::FLAME2_BULLET, m_fBarrelX, m_fBarrelY, DEGREE_RADIAN(angle - 10));
+	CreateBullet(BULLET_ID::FLAME2_BULLET, m_fBarrelX, m_fBarrelY, DEGREE_RADIAN(angle + 10));
+	CreateBullet(BULLET_ID::FLAME1_BULLET, m_fBarrelX, m_fBarrelY, DEGREE_RADIAN(angle - 15));
+	CreateBullet(BULLET_ID::FLAME1_BULLET, m_fBarrelX, m_fBarrelY, DEGREE_RADIAN(angle + 15));
 }

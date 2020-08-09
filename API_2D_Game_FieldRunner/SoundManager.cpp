@@ -132,6 +132,14 @@ const TCHAR * SoundManager::SearchSoundKey(const CHANNELID & eID)
 		return TEXT("goo_launch.mp3");
 	case CHANNELID::EFFECT:
 		return TEXT("goo_impact.mp3");
+	case CHANNELID::GATLING_ATTACK1:
+		return TEXT("tower_gatling_fire_loop_01.mp3");
+	case CHANNELID::GATLING_ATTACK2:
+		return TEXT("tower_gatling_fire_loop_02.mp3");
+	case CHANNELID::GATLING_ATTACK3:
+		return TEXT("tower_gatling_fire_loop_03.mp3");
+	case CHANNELID::FLAME_ATTACK:
+		return TEXT("tower_flamethrower_attack_loop_01.mp3");	
 	default:
 		return nullptr;
 	}

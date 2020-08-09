@@ -3,6 +3,7 @@
 
 #include "AStar.h"
 
+class Bullet;
 class Enemy :
 	public Actor
 {
@@ -12,6 +13,7 @@ public:
 	void Set_Damage(int damage) { m_iHP -= damage; }
 	bool IsTargetDead()const { return isDie; }			// 죽으면 타겟을 잡지 말기.
 	void Set_SlowSpeed();
+	bool IsBulletCollide(Bullet* bullet);
 public:
 	virtual void Ready() override;
 	virtual int Update() override;
@@ -48,5 +50,6 @@ protected:
 
 	OBJECT::STATE m_eCurState;
 	vector< OBJECT::STATE> m_vecState;		// 미리 모션 저장
+	list<Bullet*> m_BulletCollide;
 };
 

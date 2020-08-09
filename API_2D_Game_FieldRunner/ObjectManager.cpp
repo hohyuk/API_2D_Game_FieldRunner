@@ -6,6 +6,7 @@
 #include "Blimp.h"
 #include "GooBullet.h"
 #include "Effect.h"
+#include "FlameBullet.h"
 
 ObjectManager* ObjectManager::m_pInstance{ nullptr };
 
@@ -152,26 +153,33 @@ bool ObjectManager::GameStop(OBJECT::ID eID)
 	return false;
 }
 
-void ObjectManager::Collide_GameObject(list<GameObject*>& rDstList, list<GameObject*>& rSrcList)
+void ObjectManager::Collide_GameObject(list<GameObject*>& enemyList, list<GameObject*>& bulletList)
 {
 	if (USER_MGR->Get_GameStop()) return;
 
 	RECT rc = {};
-	for (auto& rDstObject : rDstList)
+	for (auto& enemyObj : enemyList)
 	{
-		for (auto& rSrcObject : rSrcList)
+		for (auto& bulletObj : bulletList)
 		{
-			if (IntersectRect(&rc, &rDstObject->Get_ColliderRect(), &rSrcObject->Get_ColliderRect()))
+			if (IntersectRect(&rc, &enemyObj->Get_ColliderRect(), &bulletObj->Get_ColliderRect()))
 			{
-				if (dynamic_cast<GooBullet*>(rSrcObject))
+				if (dynamic_cast<GooBullet*>(bulletObj))
 				{
-					dynamic_cast<Enemy*>(rDstObject)->Set_Damage(dynamic_cast<Actor*>(rSrcObject)->Get_Attack());
-					dynamic_cast<Enemy*>(rDstObject)->Set_SlowSpeed();
+					dynamic_cast<Enemy*>(enemyObj)->Set_Damage(dynamic_cast<Actor*>(bulletObj)->Get_Attack());
+					dynamic_cast<Enemy*>(enemyObj)->Set_SlowSpeed();
 					// GooEffect Create
 					GameObject* pInstance = nullptr;
-					pInstance = AbstractFactory<Effect>::Create(TEXT("Goo_Effect"), rSrcObject->Get_PosX(), rSrcObject->Get_PosY());
+					pInstance = AbstractFactory<Effect>::Create(TEXT("Goo_Effect"), bulletObj->Get_PosX(), bulletObj->Get_PosY());
 					OBJ_MGR->Add_Object(pInstance, OBJECT::EFFECT);
-					dynamic_cast<Bullet*>(rSrcObject)->Set_Delete();
+					dynamic_cast<Bullet*>(bulletObj)->Set_Delete();
+				}
+				else if (dynamic_cast<FlameBullet*>(bulletObj))
+				{
+					if (dynamic_cast<Enemy*>(enemyObj)->IsBulletCollide(dynamic_cast<Bullet*>(bulletObj)))
+					{
+						dynamic_cast<Enemy*>(enemyObj)->Set_Damage(dynamic_cast<Actor*>(bulletObj)->Get_Attack());
+					}
 				}
 			}
 		}
