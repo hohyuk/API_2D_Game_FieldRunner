@@ -8,6 +8,7 @@
 #include "GrasslandsScene.h"
 #include "VolcanoScene.h"
 #include "CaveScene.h"
+#include "ScoreScene.h"
 
 SceneManager* SceneManager::m_pInstance{ nullptr };
 
@@ -32,6 +33,9 @@ void SceneManager::Change_Scene(ID eSceneID)
 			break;
 		case SceneManager::EDIT:
 			m_pScene = new EditScene;
+			break;
+		case SceneManager::SCORE:
+			m_pScene = new ScoreScene;
 			break;
 		case SceneManager::STAGE_1:
 			m_pScene = new GrasslandsScene;

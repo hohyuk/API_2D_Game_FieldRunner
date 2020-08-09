@@ -7,6 +7,7 @@
 #include "GooBullet.h"
 #include "Effect.h"
 #include "FlameBullet.h"
+#include "MortarBullet.h"
 
 ObjectManager* ObjectManager::m_pInstance{ nullptr };
 
@@ -177,8 +178,15 @@ void ObjectManager::Collide_GameObject(list<GameObject*>& enemyList, list<GameOb
 				else if (dynamic_cast<FlameBullet*>(bulletObj))
 				{
 					if (dynamic_cast<Enemy*>(enemyObj)->IsBulletCollide(dynamic_cast<Bullet*>(bulletObj)))
+						dynamic_cast<Enemy*>(enemyObj)->Set_Damage(dynamic_cast<Actor*>(bulletObj)->Get_Attack());
+				}
+				else if (dynamic_cast<MortarBullet*>(bulletObj) && dynamic_cast<MortarBullet*>(bulletObj)->IsBomb())
+				{
+					m_MorarDamageTime += DELTA_TIME;
+					if (m_MorarDamageTime >= 0.1f)
 					{
 						dynamic_cast<Enemy*>(enemyObj)->Set_Damage(dynamic_cast<Actor*>(bulletObj)->Get_Attack());
+						m_MorarDamageTime = 0.f;
 					}
 				}
 			}

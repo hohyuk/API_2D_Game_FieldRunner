@@ -10,6 +10,7 @@ void UserManager::ReSet(int gold)
 	m_iLife = 3;
 	isGameState[GAME_OVER] = false;
 	isGameState[ID::GAME_STOP] = true;		// true - Stop false - Start
+	isGameState[ID::INVINCIBILITY] = false;
 	TIME_MGR->Set_ReSetSpeed();
 	cout << "Reset" << endl;
 }

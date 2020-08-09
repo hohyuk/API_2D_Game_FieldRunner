@@ -6,9 +6,12 @@ class FlameBullet :
 public:
 	virtual void Ready() override;
 	virtual int Update() override;
-
+	virtual void Render(const HDC & hDC) override;
 public:
 	explicit FlameBullet();
 	virtual ~FlameBullet();
+
+private:
+	int m_iBulletSize;
 };
 

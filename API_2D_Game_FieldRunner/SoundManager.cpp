@@ -118,6 +118,12 @@ const TCHAR * SoundManager::SearchSoundKey(const CHANNELID & eID)
 	{
 	case CHANNELID::LOGO_BGM:
 		return TEXT("LogoBgm.mp3");
+	case CHANNELID::STAGE1_BGM:
+		return TEXT("grasslands.mp3");
+	case CHANNELID::STAGE2_BGM:
+		return TEXT("lavaflow.mp3");
+	case CHANNELID::STAGE3_BGM:
+		return TEXT("crystalcaves.mp3");
 	case CHANNELID::BUTTON1:
 		return TEXT("UI_button.wav");
 	case CHANNELID::BUTTON2:

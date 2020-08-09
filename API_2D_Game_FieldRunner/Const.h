@@ -40,3 +40,6 @@ constexpr int GatlingPrice{ 5 };
 constexpr int GooPrice{ 10 };
 constexpr int FlamePrice{ 20 };
 constexpr int MortarPrice{ 30 };
+
+// 최대 점수 저장갯수
+constexpr int MAX_SCORE{ 10 };

@@ -19,9 +19,8 @@ bool Enemy::IsBulletCollide(Bullet * bullet)
 
 	if (iter != m_BulletCollide.end())
 		return false;
-	
+
 	m_BulletCollide.emplace_back(bullet);
-	cout << m_BulletCollide.size() << endl;
 	return true;
 }
 
@@ -108,6 +107,8 @@ void Enemy::Save_State(int preIndex)
 		previousIndex = index;
 	}
 	m_vecState.emplace_back(OBJECT::STATE::RIGHT);	// 마지막 모션은 항상 오른쪽이기때문에
+	
+	Check_NextPos();
 }
 
 void Enemy::Console_AStarSearch()
@@ -151,6 +152,7 @@ void Enemy::Move()
 	{
 		Change_Anim();		// 모션 바꿔주는건 여기서 해준다. 목표지점까지 왔으니까
 		m_pAStar->Get_BestList().pop_front();
+		Check_NextPos();
 	}
 }
 
@@ -219,4 +221,18 @@ void Enemy::SlowDown()
 		m_fSpeed *= 2.f;
 		m_tFrame.fFixTime *= 2.f;
 	}
+}
+
+void Enemy::Check_NextPos()
+{
+	if (m_pAStar->Get_BestList().empty())
+		return;
+	auto iter = m_pAStar->Get_BestList().begin();
+	++iter;
+	if (iter == m_pAStar->Get_BestList().end())
+		return;
+	int index = (*iter);
+	m_nextPos = POINT{
+		static_cast<LONG>(TILE_MGR->Get_Tile()[index]->Get_PosX()),
+		static_cast<LONG>(TILE_MGR->Get_Tile()[index]->Get_PosY()) };
 }

@@ -19,6 +19,7 @@ inline void Insert_BitMap()
 	BMP_MGR->Insert_Texture(TEXT("Hud"), TEXT("../Resources/Image/hud_text_bubble.bmp"));
 	BMP_MGR->Insert_Texture(TEXT("Defeat"), TEXT("../Resources/Image/text_defeat.bmp"));
 	BMP_MGR->Insert_Texture(TEXT("Victory"), TEXT("../Resources/Image/text_victory.bmp"));
+	BMP_MGR->Insert_Texture(TEXT("ScoreScene"), TEXT("../Resources/Image/scores_Local_wide.bmp"));
 
 	Logo_BitMap();
 	Help_BitMap();

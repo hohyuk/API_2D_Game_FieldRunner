@@ -198,6 +198,7 @@
     <ClInclude Include="Robot.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScoreScene.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="SelectUI.h" />
     <ClInclude Include="Soldier.h" />
@@ -253,6 +254,7 @@
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScoreScene.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="SelectUI.cpp" />
     <ClCompile Include="Soldier.cpp" />

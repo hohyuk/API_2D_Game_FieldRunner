@@ -88,8 +88,6 @@ void Tower::CreateBullet(BULLET_ID eID, float fX, float fY, float rad)
 	case Tower::FLAME2_BULLET:
 		pInstance = AbstractFactory<FlameBullet>::Create(TEXT("FireBullet2"), fX, fY);
 		break;
-	case Tower::MORTAR_BULLET:
-		break;
 	default:
 		break;
 	}
@@ -175,6 +173,7 @@ void Tower::Attack_EnemyRanger()
 	if (nullptr == m_pTarget || dynamic_cast<Enemy*>(m_pTarget)->IsTargetDead())
 	{
 		m_tFrame.iSceneFrame = m_LevelMotion;
+		m_pTarget = nullptr;
 		return;
 	}
 

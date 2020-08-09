@@ -160,6 +160,9 @@
     <Filter Include="02.GameObject\01.Actor\03.Bullet\03.MortarBullet">
       <UniqueIdentifier>{ab292e4e-3fff-43a1-a613-656fa00e4cda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Scene\06.Score">
+      <UniqueIdentifier>{f86e06f2-26a8-4a89-a459-beac2eebadca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -348,6 +351,9 @@
     <ClInclude Include="MortarBullet.h">
       <Filter>02.GameObject\01.Actor\03.Bullet\03.MortarBullet</Filter>
     </ClInclude>
+    <ClInclude Include="ScoreScene.h">
+      <Filter>01.Scene\06.Score</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="API_2D_Game_FieldRunner.ico">
@@ -512,6 +518,9 @@
     </ClCompile>
     <ClCompile Include="MortarBullet.cpp">
       <Filter>02.GameObject\01.Actor\03.Bullet\03.MortarBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreScene.cpp">
+      <Filter>01.Scene\06.Score</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

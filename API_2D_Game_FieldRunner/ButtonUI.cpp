@@ -76,6 +76,9 @@ void ButtonUI::Click_Button()
 	case UI_TYPE::EDIT_BTN:
 		SCENE_MGR->Change_Scene(SceneManager::EDIT);
 		break;
+	case UI_TYPE::SCORE_BTN:
+		SCENE_MGR->Change_Scene(SceneManager::SCORE);
+		break;
 	case UI_TYPE::STAGE1_BTN:
 		SCENE_MGR->Change_Scene(SceneManager::STAGE_1);
 		break;

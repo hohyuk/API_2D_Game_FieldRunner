@@ -1,5 +1,9 @@
 #include "framework.h"
 #include "Mortar.h"
+#include "MortarBullet.h"
+#include "ObjectManager.h"
+#include "Enemy.h"
+#include "Blimp.h"
 
 void Mortar::Ready()
 {
@@ -24,15 +28,10 @@ int Mortar::Update()
 			m_tFrame.fFrameSpeed = 0;
 			if (m_tFrame.iStart == m_tFrame.iEnd - 1)
 				isAttackMotion = false;
-			else if (m_tFrame.iStart == 5)
-			{
-				//SOUND_MGR->PlaySound(TEXT("tower_mortar_attack_01.mp3"), SOUND_MGR->PLAYER);
-				MakeBullet();
-			}
 		}
 	}
-	else
-		Attack_EnemyRanger();
+
+	Attack_EnemyRanger();
 
 	POINT pt = KEY_MGR->Mouse_Point();
 	Click_Tower(pt);
@@ -54,7 +53,7 @@ void Mortar::UpgradeTower()
 {
 	m_Level = MAX_TOWER_LEVEL;
 
-	m_iAttack = 20;
+	m_iAttack = 30;
 	m_iPriceArr[PRICE::SELL] = static_cast<int>(MortarPrice / 1.5f);
 	m_tFrame.iStart = 0;
 	m_tFrame.iEnd = 10;
@@ -66,11 +65,34 @@ void Mortar::UpgradeTower()
 
 void Mortar::Attack(float fDist)
 {
-	if (fDist < m_iAttackRange)
+	if (fDist < m_iAttackRange && !isAttackMotion)
 		isAttackMotion = true;
 
+	if (m_tFrame.iStart == 5)
+	{
+		//SOUND_MGR->PlaySound(TEXT("tower_mortar_attack_01.mp3"), SOUND_MGR->PLAYER);
+		MakeBullet();
+		++m_tFrame.iStart;
+	}
 }
 
 void Mortar::MakeBullet()
 {
+	if (nullptr == m_pTarget) return;
+
+	GameObject* pInstance = nullptr;
+	pInstance = AbstractFactory<MortarBullet>::Create(TEXT("Mortar_Bullet"), m_tInfo.fX, m_tInfo.fY);
+	
+	if (nullptr == pInstance) return;
+
+	dynamic_cast<Bullet*>(pInstance)->Set_Attack(m_iAttack);
+
+	POINT pt{};
+	if (dynamic_cast<Blimp*>(m_pTarget))
+		pt = POINT{ static_cast<LONG>(m_pTarget->Get_PosX()), static_cast<LONG>(m_pTarget->Get_PosY()) };
+	else
+		pt = POINT{ dynamic_cast<Enemy*>(m_pTarget)->Get_NextPos() };
+
+	dynamic_cast<MortarBullet*>(pInstance)->Set_EndPoint(pt);
+	OBJ_MGR->Add_Object(pInstance, OBJECT::BULLET);
 }

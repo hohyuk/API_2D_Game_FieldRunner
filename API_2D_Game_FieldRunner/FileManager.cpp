@@ -38,7 +38,7 @@ void FileManager::SaveData(ID eID)
 	CloseHandle(hFile);
 }
 
-void FileManager::Load_Data(ID eID)
+void FileManager::LoadData(ID eID)
 {
 	const TCHAR* path = DataPath(eID);
 	HANDLE hFile = CreateFile(path, GENERIC_READ, 0, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
@@ -67,6 +67,77 @@ void FileManager::Load_Data(ID eID)
 	CloseHandle(hFile);
 }
 
+void FileManager::SaveGameScore(ID eID, const int& score)
+{
+	// 1 vector 초기화해주기
+	for (int i = 0; i < 3; ++i)
+		m_vecScore[i].clear();
+	// 2 Score불러오기
+	LoadScoreData(eID);
+
+	// 3 Score vector넣기
+	m_vecScore[m_index].emplace_back(score);
+
+	// 4 정렬하기
+	sort(m_vecScore[m_index].rbegin(), m_vecScore[m_index].rend());
+
+	// 5 저장하기
+	SaveScoreData(eID);
+}
+
+void FileManager::LoadGameScore()
+{
+	for (int i = 0; i < 3; ++i)
+		m_vecScore[i].clear();
+	for (int i = SCORE1; i <= SCORE3; ++i)
+		LoadScoreData(static_cast<ID>(i));
+}
+
+void FileManager::SaveScoreData(ID eID)
+{
+	const TCHAR* path = DataPath(eID);
+
+	HANDLE hFile = CreateFile(path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+	if (INVALID_HANDLE_VALUE == hFile)
+	{
+		//MessageBox(nullptr, TEXT("SaveData Failed"), TEXT("FileSystem"),MB_OK);
+		MESSAGE_BOX(TEXT("SaveScoreData Failed"), TEXT("FileManager"));
+		return;
+	}
+
+	DWORD dwByte = 0;
+	int size = static_cast<int>(m_vecScore[m_index].size());
+	for (int i = 0; i < MAX_SCORE; ++i)
+	{
+		if (i == size)
+			break;
+		WriteFile(hFile, &m_vecScore[m_index][i], sizeof(int), &dwByte, nullptr);
+	}
+	CloseHandle(hFile);
+}
+
+void FileManager::LoadScoreData(ID eID)
+{
+	const TCHAR* path = DataPath(eID);
+	HANDLE hFile = CreateFile(path, GENERIC_READ, 0, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+
+	if (INVALID_HANDLE_VALUE == hFile)
+		NewFile(eID);
+
+	DWORD dwByte = 0;
+	while (true)
+	{
+		int score = -1;
+		ReadFile(hFile, &score, sizeof(int), &dwByte, nullptr);
+
+		if (0 == dwByte)
+			break;
+
+		m_vecScore[m_index].emplace_back(score);
+	}
+	CloseHandle(hFile);
+}
+
 const TCHAR * FileManager::DataPath(ID eID)
 {
 	switch (eID)
@@ -78,10 +149,13 @@ const TCHAR * FileManager::DataPath(ID eID)
 	case FileManager::TILE_STAGE3:
 		return TEXT("../Resources/Data/TileSaveData3.txt");
 	case FileManager::SCORE1:
+		m_index = 0;
 		return TEXT("../Resources/Data/ScoreSaveData1.txt");
 	case FileManager::SCORE2:
+		m_index = 1;
 		return TEXT("../Resources/Data/ScoreSaveData2.txt");
 	case FileManager::SCORE3:
+		m_index = 2;
 		return TEXT("../Resources/Data/ScoreSaveData3.txt");
 	default:
 		break;
