@@ -4,7 +4,7 @@ class SoundManager final
 public:
 	enum CHANNELID {
 		LOGO_BGM, STAGE1_BGM, STAGE2_BGM, STAGE3_BGM, BGM, BUTTON1, BUTTON2, INVALID, SELL, GATLING_ATTACK1, GATLING_ATTACK2, GATLING_ATTACK3, GOO_ATTACK,
-		FLAME_ATTACK, UPGRADE, PLAYER, ENEMY, EFFECT, UI, MAXCHANNEL
+		FLAME_ATTACK, UPGRADE, PLAYER, ENEMY, EFFECT, UI, ENEMY_DIE, MAXCHANNEL
 	};
 public:
 	static SoundManager* Get_Instance()
@@ -26,6 +26,7 @@ public:
 	void Initialize();
 	void Release();
 public:
+	void PlaySound(const TCHAR* pSoundKey, CHANNELID eID);
 	void PlaySound(const CHANNELID& eID);
 	void PlayBGM(const CHANNELID& eID);
 	void StopSound(CHANNELID eID);

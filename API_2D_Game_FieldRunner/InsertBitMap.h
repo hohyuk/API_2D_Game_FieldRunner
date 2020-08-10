@@ -112,6 +112,7 @@ inline void UI_BitMap()
 inline void Overhang_BitMap()
 {
 	BMP_MGR->Insert_Texture(TEXT("Gate"), TEXT("../Resources/Image/Obejct/east_gate_overhang.bmp"));
+	BMP_MGR->Insert_Texture(TEXT("Gate2"), TEXT("../Resources/Image/Obejct/overlay_right_gate_SP.bmp"));
 }
 
 inline void Bullet_BitMap()

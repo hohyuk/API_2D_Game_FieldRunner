@@ -75,6 +75,7 @@ void HeavyBike::Dead_Anim()
 	m_tFrame.iEnd = 4;
 	m_tFrame.fFrameSpeed = 0.f;
 	m_tFrame.fFixTime = 0.2f;
+	SOUND_MGR->PlaySound(TEXT("explosion_01.mp3"), SOUND_MGR->ENEMY_DIE);
 }
 
 bool HeavyBike::DeleteEnemy()

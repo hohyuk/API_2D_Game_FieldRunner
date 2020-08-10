@@ -76,3 +76,5 @@ inline bool IsPointInCircle(const POINT& p, const RECT& _rect)
 inline float DEGREE_RADIAN(float _deg) { return _deg * DEGREE; }
 
 inline float RADIAN_DEGREE(float _rad) { return  (_rad) * RADIAN; }
+
+inline int RAND_INT(int num) { return rand() % num; }

@@ -14,12 +14,12 @@ void MainGame::Ready()
 	SOUND_MGR->Initialize();		// 사운드 초기화를 먼저해줘야한다.
 
 	KEY_MGR->Ready();
-	SCENE_MGR->Change_Scene(SceneManager::LOGO);
+	//SCENE_MGR->Change_Scene(SceneManager::LOGO);
 	//SCENE_MGR->Change_Scene(SceneManager::HELP);
 	//SCENE_MGR->Change_Scene(SceneManager::SELECT);
 	//SCENE_MGR->Change_Scene(SceneManager::EDIT);
 	//SCENE_MGR->Change_Scene(SceneManager::SCORE);
-	//SCENE_MGR->Change_Scene(SceneManager::STAGE_1);
+	SCENE_MGR->Change_Scene(SceneManager::STAGE_2);
 
 }
 

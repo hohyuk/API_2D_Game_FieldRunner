@@ -9,6 +9,11 @@ void Overhang::Ready()
 		m_tInfo.iCX = 92;
 		m_tInfo.iCY = 98;
 	}
+	else if (Compare_Key(m_pFrameKey, TEXT("Gate2")))
+	{
+		m_tInfo.iCX = 124;
+		m_tInfo.iCY = 267;
+	}
 }
 
 int Overhang::Update()

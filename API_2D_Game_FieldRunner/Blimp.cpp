@@ -76,6 +76,7 @@ bool Blimp::DeleteEnemy()
 		if (m_tFrame.iSceneFrame == m_tFrame.iEnd - 1)
 		{
 			USER_MGR->Set_Gain(m_iGold, m_iScore);
+			SOUND_MGR->PlaySound(TEXT("explosion_01.mp3"), SOUND_MGR->ENEMY_DIE);
 			return true;
 		}
 		else

@@ -86,4 +86,24 @@ void Soldier::Dead_Anim()
 	m_tFrame.iEnd = 5;
 	m_tFrame.fFrameSpeed = 0.f;
 	m_tFrame.fFixTime = 0.1f;
+
+	int rand = RAND_INT(4);
+
+	switch (rand)
+	{
+	case 0:
+		SOUND_MGR->PlaySound(TEXT("unit_soldier_death_02.mp3"), SOUND_MGR->ENEMY_DIE);
+		break;
+	case 1:
+		SOUND_MGR->PlaySound(TEXT("unit_soldier_death_03.mp3"), SOUND_MGR->ENEMY_DIE);
+		break;
+	case 2:
+		SOUND_MGR->PlaySound(TEXT("unit_soldier_death_04.mp3"), SOUND_MGR->ENEMY_DIE);
+		break;
+	case 3:
+		SOUND_MGR->PlaySound(TEXT("unit_soldier_death_06.mp3"), SOUND_MGR->ENEMY_DIE);
+		break;
+	default:
+		break;
+	}
 }

@@ -24,6 +24,29 @@ void SoundManager::Release()
 	FMOD_System_Close(m_pSystem);
 }
 
+void SoundManager::PlaySound(const TCHAR * pSoundKey, CHANNELID eID)
+{
+	map<TCHAR*, FMOD_SOUND*>::iterator iter;
+
+	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)
+		{
+			return !lstrcmp(pSoundKey, iter.first);
+		});
+
+	if (iter == m_mapSound.end())
+		return;
+
+	FMOD_BOOL bPlay = FALSE;
+
+	// 중복 소리를 제거하기위해 if문을 쓴다.
+	if (FMOD_Channel_IsPlaying(m_pChannelArr[eID], &bPlay))
+	{
+		FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
+	}
+	//FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
+	FMOD_System_Update(m_pSystem);
+}
+
 void SoundManager::PlaySound(const CHANNELID & eID)
 {
 	const TCHAR * pSoundKey = SearchSoundKey(eID);
@@ -38,6 +61,7 @@ void SoundManager::PlaySound(const CHANNELID & eID)
 		return;
 
 	FMOD_BOOL bPlay = FALSE;
+	
 	
 	FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
 	FMOD_System_Update(m_pSystem);
