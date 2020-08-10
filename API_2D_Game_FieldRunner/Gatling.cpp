@@ -63,14 +63,21 @@ void Gatling::Attack(float fDist)
 		if (m_tFrame.fFrameSpeed >= m_tFrame.fFixTime)
 		{
 			if (m_Level == 1)
+			{
+				SOUND_MGR->StopSound(SOUND_ID::GATLING_ATTACK1);
 				SOUND_MGR->PlaySound(SOUND_ID::GATLING_ATTACK1);
+			}
 			else if (m_Level == 2)
+			{
+				SOUND_MGR->StopSound(SOUND_ID::GATLING_ATTACK2);
 				SOUND_MGR->PlaySound(SOUND_ID::GATLING_ATTACK2);
+			}	
 			else if (m_Level == 3)
+			{
+				SOUND_MGR->StopSound(SOUND_ID::GATLING_ATTACK3);
 				SOUND_MGR->PlaySound(SOUND_ID::GATLING_ATTACK3);
-
+			}
 			m_tFrame.iSceneFrame = Wrap(m_LevelMotion, ++m_tFrame.iSceneFrame, m_LevelMotion + 2);
-
 			m_tFrame.fFrameSpeed = 0;
 			if (m_tFrame.iSceneFrame == m_LevelMotion + 1)
 				dynamic_cast<Enemy*>(m_pTarget)->Set_Damage(m_iAttack);

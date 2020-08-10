@@ -33,5 +33,6 @@ protected:
 
 protected:
 	bool isTipShow{ false };	// t Key
+	int m_iMoveY;
 };
 

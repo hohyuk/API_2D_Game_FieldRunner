@@ -10,6 +10,8 @@ public:
 	bool Get_DebugNoneTileBox()const { return isGameState[ID::DEBUG_NONE_TILE]; }
 	void Set_GameStartStop() { isGameState[ID::GAME_STOP] = !isGameState[ID::GAME_STOP]; }
 	bool Get_GameStop() { return isGameState[ID::GAME_STOP]; }
+	void Set_GameOver() { isGameState[ID::GAME_OVER] = !isGameState[ID::GAME_OVER]; }
+	bool Get_GameOver() { return isGameState[ID::GAME_OVER]; }
 	// ¹«Àû
 	void Set_GameInvincibility() { isGameState[ID::INVINCIBILITY] = !isGameState[ID::INVINCIBILITY]; }
 	bool Get_GameInvincibility() { return isGameState[ID::INVINCIBILITY]; }

@@ -24,11 +24,18 @@ void StageScene::Ready()
 
 	USER_MGR->ReSet(100);
 	TILE_MGR->Ready();
+
+	m_iMoveY = 0;		// GameOver 
 }
 
 void StageScene::Update()
 {
+	if (USER_MGR->Get_GameOver()) return;
+
 	OBJ_MGR->Update();
+
+	if (USER_MGR->Get_Life() <= 0 && !USER_MGR->Get_GameOver())
+		USER_MGR->Set_GameOver();
 }
 
 void StageScene::LateUpdate()
@@ -67,6 +74,15 @@ void StageScene::Render(const HDC & hDC)
 	rc = RECT{ (WINCX>>1) - 100,0,(WINCX >> 1) + 100,100 };
 	_stprintf_s(m_Tmp, 128, TEXT("SCORE %d"), USER_MGR->Get_Score());
 	FONT_MGR->FontDraw(hDC, m_Tmp, rc, RGB(240, 110, 1), TEXT("Arial Rounded MT Bold"), 50, FW_MEDIUM);
+
+	// GameOver
+	if (USER_MGR->Get_GameOver())
+	{
+		if (m_iMoveY < 450)
+			m_iMoveY += 5;
+		Fixed_UI(hDC, TEXT("Defeat"), 450, m_iMoveY, 274 * 2, 51 * 2, 274, 51);
+	}
+		
 }
 
 void StageScene::Release()
@@ -143,6 +159,8 @@ void StageScene::Create_Enemy(ENEMY_ID _eID)
 
 void StageScene::Create_Enemy_KeyDonw()
 {
+	if (USER_MGR->Get_GameOver()) return;
+
 	if (KEY_MGR->Key_DOWN('1'))
 		Create_Enemy(SOLDIER);
 	if (KEY_MGR->Key_DOWN('2'))
@@ -153,6 +171,9 @@ void StageScene::Create_Enemy_KeyDonw()
 		Create_Enemy(ROBOT);
 	if (KEY_MGR->Key_DOWN('5'))
 		Create_Enemy(BLIMP);
+
+	if (KEY_MGR->Key_DOWN('Q'))
+		SOUND_MGR->PlayBGM(SoundManager::CHANNELID::STAGE1_BGM);
 }
 
 void StageScene::Spawn_Enemy()

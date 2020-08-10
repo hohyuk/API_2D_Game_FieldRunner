@@ -69,6 +69,7 @@ Enemy::~Enemy()
 
 void Enemy::ReSearch()
 {
+	if (isDie)return;
 	if (isArrive) return; // 이미 도착했으면 검사하지 않는다.
 	cout << "ReSearch" << endl;
 	int index = TILE_MGR->Get_TileIndex(m_tInfo.fX, m_tInfo.fY);

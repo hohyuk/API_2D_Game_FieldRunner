@@ -12,11 +12,6 @@ void GrasslandsScene::Ready()
 	cout << g_StartPoint << " , " << g_ArrivalPoint << endl;
 }
 
-void GrasslandsScene::Update()
-{
-	OBJ_MGR->Update();
-}
-
 GrasslandsScene::GrasslandsScene()
 {
 }
